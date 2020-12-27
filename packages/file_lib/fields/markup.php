@@ -6,7 +6,7 @@
  * @subpackage       admin
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2019 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
  * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
 
@@ -41,7 +41,7 @@ defined('_JEXEC') or die;
  * @return mixed|string
  *
  * @throws \Exception
- * @since 1.5
+ * @since 2.0
  */
 function cckMarkup_seb_one($cck, $html, $field, $options)
 {
@@ -57,7 +57,7 @@ function cckMarkup_seb_one($cck, $html, $field, $options)
  * @return mixed|string
  *
  * @throws \Exception
- * @since 1.5
+ * @since 2.0
  */
 function cckMarkup_seb_minima($cck, $html, $field, $options)
 {
@@ -66,13 +66,11 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 		return $html;
 	}
 
-	// Computation
 	if(isset($field->computation) && $field->computation)
 	{
 		$cck->setComputationRules($field);
 	}
 
-	// Conditional
 	if(isset($field->conditional) && $field->conditional)
 	{
 		$cck->setConditionalStates($field);
@@ -125,6 +123,7 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 
 	$html = '<div id="' . $cck->id . '_' . $cck->mode_property . '_' . $field->name . '" class="uk-form-controls ' . $field->markup_class . '">' . $html . '</div>';
 
+	// Debuger
 	//echo $field->type .'<br>';
 
 	switch($field->type)
