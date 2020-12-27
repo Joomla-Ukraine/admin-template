@@ -6,8 +6,8 @@
  * @subpackage       a
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2016-2019 (C) Joomla! Ukraine, http://joomla-ua.org. All rights reserved.
- * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
+ * @copyright        2016-2020 (C) Joomla! Ukraine, http://joomla-ua.org. All rights reserved.
+ * @license          GNU General Public License version 2 or later
  */
 
 defined('JPATH_BASE') or die;

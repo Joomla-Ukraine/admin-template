@@ -1,8 +1,8 @@
 <?php
 /**
  * @author           Denys Nosov, web@denysdesign.com / http://denysdesign.com
- * @copyright        2018-2019 (C) EVOLVENS, https://evolvens.net. All rights reserved.
- * @copyright        2018-2019 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @copyright        2018-2020 (C) EVOLVENS, https://evolvens.net. All rights reserved.
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
  * @license          commerce
  */
 
