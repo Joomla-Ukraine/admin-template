@@ -1,15 +1,18 @@
 <?php
 /**
- * Social Login
+ * Admin Template
  *
- * @version       1.7
- * @author        SmokerMan, Arkadiy, Joomline
- * @copyright     © 2012. All rights reserved.
- * @license       GNU/GPL v.3 or later.
+ * @package          Joomla.Site
+ * @subpackage       admin
+ *
+ * @author           Denys Nosov, denys@joomla-ua.org
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
 
-// No direct access.
-defined('_JEXEC') or die('(@)|(@)');
+
+defined('_JEXEC') or die();
+
 ?>
 <?php if($type != 'logout') : ?>
 	<div class="uk-card tm-box-border uk-margin-medium-bottom">
@@ -64,7 +67,8 @@ defined('_JEXEC') or die('(@)|(@)');
 					?>
 					<li>
 						<a class="uk-button uk-button-small <?php echo $p_class; ?> uk-width-1-1 uk-width-auto@m" href="<?php echo JRoute::_($link[ 'link' ]); ?>" rel="nofollow" <?php echo $linkParams; ?>>
-							<small><span class="uk-margin-small-top" uk-icon="icon: <?php echo $p_icon; ?>; ratio: 1.5"></span><br><?php echo $link[ 'plugin_title' ]; ?></small>
+							<small><span class="uk-margin-small-top" uk-icon="icon: <?php echo $p_icon; ?>; ratio: 1.5"></span><br><?php echo $link[ 'plugin_title' ]; ?>
+							</small>
 						</a>
 					</li>
 				<?php endforeach; ?>

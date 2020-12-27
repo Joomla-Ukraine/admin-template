@@ -1,31 +1,28 @@
 <?php
 /**
- * Bad Android Template
+ * Admin Template
  *
  * @package          Joomla.Site
- * @subpackage       a
+ * @subpackage       admin
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2016-2019 (C) Joomla! Ukraine, http://joomla-ua.org. All rights reserved.
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
  * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
-
-defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Session\Session;
 use Joomla\CMS\Uri\Uri;
 
+defined('_JEXEC') or die;
+
 $cookieLogin = $this->user->get('cookieLogin');
+
 ?>
 <?php if($this->user->get('guest') || !empty($cookieLogin)): ?>
 	<?php echo $this->loadTemplate('login'); ?>
 <?php else: ?>
 	<?php
-
-	/*
-	 * Avatar User
-	 */
 	$db   = Factory::getDBO();
 	$user = Factory::getUser();
 
@@ -63,9 +60,7 @@ $cookieLogin = $this->user->get('cookieLogin');
 							foreach($user->groups as $group)
 							{
 								$query = $db->getQuery(true);
-								$query->select($db->quoteName('title'))
-								      ->from('#__usergroups')
-								      ->where($db->quoteName('id') . ' = ' . $db->quote((int) $group));
+								$query->select($db->quoteName('title'))->from('#__usergroups')->where($db->quoteName('id') . ' = ' . $db->quote((int) $group));
 								$db->setQuery($query);
 								$grp = $db->loadResult();
 

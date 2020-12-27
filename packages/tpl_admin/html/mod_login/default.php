@@ -1,22 +1,22 @@
 <?php
 /**
- * Bad Android Template
+ * Admin Template
  *
  * @package          Joomla.Site
- * @subpackage       a
+ * @subpackage       admin
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2016-2019 (C) Joomla! Ukraine, http://joomla-ua.org. All rights reserved.
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
  * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
+
 
 defined('_JEXEC') or die;
 
 require_once JPATH_SITE . '/components/com_users/helpers/route.php';
 
 ?>
-<form action="<?php echo JRoute::_(htmlspecialchars(JUri::getInstance()
-                                                        ->toString()), true, $params->get('usesecure')); ?>" method="post" id="login-form" class="form-inline">
+<form action="<?php echo JRoute::_(htmlspecialchars(JUri::getInstance()->toString()), true, $params->get('usesecure')); ?>" method="post" id="login-form" class="form-inline">
 	<?php if($params->get('pretext')) : ?>
 		<div class="pretext">
 			<p><?php echo $params->get('pretext'); ?></p>
@@ -117,7 +117,8 @@ require_once JPATH_SITE . '/components/com_users/helpers/route.php';
 			<?php if($usersConfig->get('allowUserRegistration')) : ?>
 				<li>
 					<a href="<?php echo JRoute::_('index.php?option=com_users&view=registration'); ?>">
-						<?php echo JText::_('MOD_LOGIN_REGISTER'); ?> <span class="icon-arrow-right"></span></a>
+						<?php echo JText::_('MOD_LOGIN_REGISTER'); ?>
+						<span class="icon-arrow-right"></span></a>
 				</li>
 			<?php endif; ?>
 			<li>

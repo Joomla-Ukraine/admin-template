@@ -1,11 +1,15 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  mod_languages
+ * Admin Template
  *
- * @copyright   Copyright (C) 2005 - 2017 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @package          Joomla.Site
+ * @subpackage       admin
+ *
+ * @author           Denys Nosov, denys@joomla-ua.org
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
+
 
 defined('_JEXEC') or die;
 

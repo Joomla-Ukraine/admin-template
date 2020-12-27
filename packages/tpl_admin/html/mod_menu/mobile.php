@@ -1,69 +1,72 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  mod_menu
+ * Admin Template
  *
- * @copyright   Copyright (C) 2005-2019 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @package          Joomla.Site
+ * @subpackage       admin
+ *
+ * @author           Denys Nosov, denys@joomla-ua.org
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
 
-defined('_JEXEC') or die;
-
 use Joomla\CMS\Factory;
+
+defined('_JEXEC') or die;
 
 ?>
 <ul class="d-mobile-menu uk-nav uk-nav-default">
 	<li class="uk-nav-header"><?php echo Factory::getApplication()->get('sitename'); ?></li>
-	<?php foreach( $list as $i => &$item )
+	<?php foreach($list as $i => &$item)
 	{
 		$class = 'item-' . $item->id;
 
-		if( $item->id == $default_id )
+		if($item->id == $default_id)
 		{
 			$class .= ' default';
 		}
 
-		if( $item->id == $active_id || ($item->type === 'alias' && $item->params->get('aliasoptions') == $active_id) )
+		if($item->id == $active_id || ($item->type === 'alias' && $item->params->get('aliasoptions') == $active_id))
 		{
 			$class .= ' current';
 		}
 
-		if( in_array($item->id, $path) )
+		if(in_array($item->id, $path))
 		{
 			$class .= ' uk-active';
 		}
-		elseif( $item->type === 'alias' )
+		elseif($item->type === 'alias')
 		{
 			$aliasToId = $item->params->get('aliasoptions');
 
-			if( count($path) > 0 && $aliasToId == $path[ count($path) - 1 ] )
+			if(count($path) > 0 && $aliasToId == $path[ count($path) - 1 ])
 			{
 				$class .= ' uk-active';
 			}
-			elseif( in_array($aliasToId, $path) )
+			elseif(in_array($aliasToId, $path))
 			{
 				$class .= ' alias-parent-active uk-parent';
 			}
 		}
 
-		if( $item->type === 'separator' )
+		if($item->type === 'separator')
 		{
 			$class .= ' uk-nav-divider';
 		}
 
-		if( $item->deeper )
+		if($item->deeper)
 		{
 			$class .= ' deeper';
 		}
 
-		if( $item->parent )
+		if($item->parent)
 		{
 			$class .= ' uk-parent';
 		}
 
 		echo '<li class="' . $class . '">';
 
-		switch( $item->type ) :
+		switch($item->type) :
 			case 'separator':
 			case 'component':
 			case 'heading':
@@ -76,18 +79,15 @@ use Joomla\CMS\Factory;
 				break;
 		endswitch;
 
-		// The next item is deeper.
-		if( $item->deeper )
+		if($item->deeper)
 		{
 			echo '<ul class="uk-nav-sub">';
 		}
-		// The next item is shallower.
-		elseif( $item->shallower )
+		elseif($item->shallower)
 		{
 			echo '</li>';
 			echo str_repeat('</ul></li>', $item->level_diff);
 		}
-		// The next item is on the same level.
 		else
 		{
 			echo '</li>';

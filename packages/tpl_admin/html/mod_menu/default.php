@@ -1,12 +1,12 @@
 <?php
 /**
- * Bad Android Template
+ * Admin Template
  *
  * @package          Joomla.Site
- * @subpackage       a
+ * @subpackage       admin
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2016-2019 (C) Joomla! Ukraine, http://joomla-ua.org. All rights reserved.
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
  * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
 
@@ -15,7 +15,7 @@ defined('_JEXEC') or die;
 ?>
 <ul class="menu<?php echo $class_sfx; ?>"<?php
 $tag = '';
-if ($params->get('tag_id') != null)
+if($params->get('tag_id') != null)
 {
 	$tag = $params->get('tag_id') . '';
 	echo ' id="' . $tag . '"';
@@ -27,44 +27,42 @@ if ($params->get('tag_id') != null)
 		</a>
 	</li>
 	<?php
-	foreach ($list as $i => &$item) :
-
-		//if($item->route == 'home') continue;
+	foreach($list as $i => &$item) :
 
 		$class = 'item-' . $item->id;
-		if ($item->id == $active_id)
+		if($item->id == $active_id)
 		{
 			$class .= ' current';
 		}
 
-		if (in_array($item->id, $path))
+		if(in_array($item->id, $path))
 		{
 			$class .= ' active';
 		}
-        elseif ($item->type === 'alias')
+		elseif($item->type === 'alias')
 		{
 			$aliasToId = $item->params->get('aliasoptions');
-			if (count($path) > 0 && $aliasToId == $path[count($path) - 1])
+			if(count($path) > 0 && $aliasToId == $path[ count($path) - 1 ])
 			{
 				$class .= ' active';
 			}
-            elseif (in_array($aliasToId, $path))
+			elseif(in_array($aliasToId, $path))
 			{
 				$class .= ' alias-parent-active';
 			}
 		}
 
-		if ($item->deeper)
+		if($item->deeper)
 		{
 			$class .= ' deeper';
 		}
 
-		if ($item->parent)
+		if($item->parent)
 		{
 			$class .= ' parent';
 		}
 
-		if (!empty($class))
+		if(!empty($class))
 		{
 			$class = ' class="' . trim($class) . '"';
 		}
@@ -72,7 +70,7 @@ if ($params->get('tag_id') != null)
 		echo '<li' . $class . '>';
 
 		// Render the menu item.
-		switch ($item->type) :
+		switch($item->type) :
 			case 'separator':
 			case 'url':
 			case 'component':
@@ -84,21 +82,19 @@ if ($params->get('tag_id') != null)
 				break;
 		endswitch;
 
-		// The next item is deeper.
-		if ($item->deeper)
+		if($item->deeper)
 		{
 			echo '<ul>';
 		}
-		// The next item is shallower.
-        elseif ($item->shallower)
+		elseif($item->shallower)
 		{
 			echo '</li>';
 			echo str_repeat('</ul></li>', $item->level_diff);
 		}
-		// The next item is on the same level.
 		else
 		{
 			echo '</li>';
 		}
 	endforeach;
-	?></ul>
+	?>
+</ul>

@@ -6,15 +6,15 @@
  * @subpackage       admin
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2019 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
  * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
+
 
 defined('_JEXEC') or die('Restricted access');
 
 ?>
 <div class="jlslogin">
-
 	<?php if($type === 'logout') : ?>
 		<form action="<?php echo JRoute::_('index.php', true, $params->get('usesecure')); ?>" method="post" id="login-form">
 
@@ -27,7 +27,7 @@ defined('_JEXEC') or die('Restricted access');
 			<?php endif; ?>
 
 			<?php if($show_fusion_form == 1) : ?>
-				<ul class="uk-child-width-expand uk-grid-small uk-grid" uk-grid>
+				<ul class="uk-child-width-expand uk-grid-small uk-grid" data-uk-grid>
 					<li>
 						<div class="uk-text-success uk-margin"><?php echo JText::_('TPL_ADMIN_DETACH_PROVIDERS_MODULE') ?></div>
 						<div id="slogin-buttons-unattach" class="slogin-buttons slogin-compact">
