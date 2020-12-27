@@ -6,19 +6,22 @@
  * @subpackage       admin
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2019 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
- * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
+ * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @license          GNU General Public License version 2 or later
  */
-
-defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Uri\Uri;
+
+defined('_JEXEC') or die;
+
+$v = '?v=@version@';
 
 $db        = Factory::getDBO();
 $app       = Factory::getApplication();
 $doc       = Factory::getDocument();
 $user      = Factory::getUser();
+$menu = Factory::getApplication()->getMenu();
 $lang      = Factory::getLanguage();
 $short_lng = explode('-', $this->params->get('lng_redir'));
 
@@ -30,25 +33,22 @@ if($this->params->get('lng_redir') && ($this->language !== strtolower($this->par
 $sitename = $app->get('sitename');
 $site_url = Uri::base();
 
-$menu = $app->getMenu();
+$Itemid  = $app->input->getCmd('Itemid');
+$id      = $app->input->getCmd('id');
+$view    = $app->input->getCmd('view');
+$layout  = $app->input->getCmd('layout');
+$option  = $app->input->getCmd('option');
 
 $headdata = $doc->getHeadData();
 $params   = $app->getParams();
 
-$Itemid = $app->input->getCmd('Itemid');
-$view   = $app->input->getCmd('view');
-$layout = $app->input->getCmd('layout');
-$option = $app->input->getCmd('option');
+$this->setHtml5(true);
+$this->setGenerator(null);
 
 /*
  * add js/css & template option
  */
-$this->setHtml5(true);
-$this->setGenerator(null);
-
 JHtml::_('jquery.framework');
-
-$v = '?v=@version@';
 
 $doc->addScript(Uri::base(true) . 'templates/admin/js/uikit/uikit.min.js' . $v);
 $doc->addScript(Uri::base(true) . 'templates/admin/js/uikit/uikit-icons.min.js' . $v);
