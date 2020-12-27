@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package"
+           version="3.8"
+           method="upgrade">
+    <name>pkg_admin</name>
+    <packagename>admin</packagename>
+    <creationDate>@date@</creationDate>
+    <packager>Joomla! Ukraine</packager>
+    <copyright>(C) 2018-2020 Denys Nosov, Joomla! Ukraine</copyright>
+    <packagerurl>http://joomla-ua.org</packagerurl>
+    <author>Denys Nosov, Joomla! Ukraine</author>
+    <authorEmail>denys@joomla-ua.org</authorEmail>
+    <authorUrl>https://joomla-ua.org</authorUrl>
+    <version>@version@</version>
+    <license>GNU/GPL Version 2 or later and Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</license>
+    <description>Admin template</description>
+    <scriptfile>script.php</scriptfile>
+    <update>https://joomla-ua.org/update/tmpl/admin.xml</update>
+
+    <updateservers>
+        <server type="extension"
+                priority="1"
+                name="admin"
+        >
+            https://joomla-ua.org/update/tmpl/admin.xml
+        </server>
+    </updateservers>
+
+    <files folder="packages">
+        <file type="template"
+              id="tpl_admin"
+              client="site"
+        >
+            tpl_admin.zip
+        </file>
+
+        <file type="file"
+              id="file_lib"
+              client="site"
+        >
+            file_lib.zip
+        </file>
+    </files>
+</extension>

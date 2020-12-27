@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="file" version="3.8" method="upgrade">
+	<name>Admin - libs</name>
+	<creationDate>@date@</creationDate>
+	<author>Joomla! Ukraine</author>
+	<authorEmail>denys@joomla-ua.org</authorEmail>
+	<authorUrl>https://joomla-ua.org</authorUrl>
+	<copyright>Copyright (C) 2008-2019 Joomla! Ukraine. All rights reserved</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>@version@</version>
+	<description>Admin libs</description>
+
+	<fileset>
+		<files target="templates/system_seblod">
+			<folder>libs</folder>
+		</files>
+
+		<files target="templates/seb_minima">
+			<folder>fields</folder>
+		</files>
+
+		<files target="templates/seb_one">
+			<folder>fields</folder>
+		</files>
+
+		<files target="templates/seb_minima">
+			<folder>variations</folder>
+		</files>
+
+		<files target="templates/seb_one">
+			<folder>variations</folder>
+		</files>
+	</fileset>
+
+	<update>https://joomla-ua.org/update/tmpl/admin.xml</update>
+	<updateservers>
+		<server type="extension" priority="1" name="admin">https://joomla-ua.org/update/tmpl/admin.xml</server>
+	</updateservers>
+
+</extension>

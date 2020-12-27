@@ -1,0 +1,137 @@
+<project name="admin" default="dist" basedir=".">
+
+    <property name="VERSION" value="2.0.0"/>
+
+    <tstamp>
+        <format property="DATE" pattern="%d.%m.%Y" />
+    </tstamp>
+
+    <property name="build" value="build"/>
+
+    <property name="temp" value="temp"/>
+
+    <property name="dist" value="dist"/>
+
+    <property name="filename" value="pkg_admin_v${VERSION}.zip"/>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${build}"/>
+        <mkdir dir="${temp}"/>
+        <mkdir dir="${dist}"/>
+    </target>
+
+    <target name="temp">
+
+        <copy todir="${temp}">
+            <fileset dir="packages">
+                <include name="**"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+    <target name="replace">
+
+        <copy file="pkg_admin.xml" todir="${build}">
+            <filterchain>
+                <replacetokens>
+                    <token key="version" value="${VERSION}" />
+                    <token key="date" value="${DATE}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <!---->
+
+        <copy file="packages/tpl_admin/templateDetails.xml" todir="${temp}/temp/tpl_admin">
+            <filterchain>
+                <replacetokens>
+                    <token key="version" value="${VERSION}" />
+                    <token key="date" value="${DATE}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <delete file="${temp}/tpl_admin/templateDetails.xml"/>
+        <copy file="${temp}/temp/tpl_admin/templateDetails.xml" todir="${temp}/tpl_admin"/>
+
+        <!---->
+
+        <copy file="packages/tpl_admin/index.php" todir="${temp}/temp/tpl_admin">
+            <filterchain>
+                <replacetokens>
+                    <token key="version" value="${VERSION}" />
+                    <token key="date" value="${DATE}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <delete file="${temp}/tpl_admin/index.php"/>
+        <copy file="${temp}/temp/tpl_admin/index.php" todir="${temp}/tpl_admin"/>
+
+        <!---->
+
+        <copy file="packages/tpl_admin/inc/head.php" todir="${temp}/temp/tpl_admin/inc">
+            <filterchain>
+                <replacetokens>
+                    <token key="version" value="${VERSION}" />
+                    <token key="date" value="${DATE}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <delete file="${temp}/tpl_admin/inc/head.php"/>
+        <copy file="${temp}/temp/tpl_admin/inc/head.php" todir="${temp}/tpl_admin/inc"/>
+
+        <!---->
+
+        <copy file="packages/file_lib/file_lib.xml" todir="${temp}/temp/file_lib">
+            <filterchain>
+                <replacetokens>
+                    <token key="version" value="${VERSION}" />
+                    <token key="date" value="${DATE}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <delete file="${temp}/file_lib/file_lib.xml"/>
+        <copy file="${temp}/temp/file_lib/file_lib.xml" todir="${temp}/file_lib"/>
+
+    </target>
+
+    <target name="pack-plugins">
+
+        <mkdir dir="${build}/packages"/>
+
+        <zip destfile="${build}/packages/tpl_admin.zip" description="tpl_admin">
+            <fileset dir="${temp}/tpl_admin"/>
+        </zip>
+
+        <zip destfile="${build}/packages/file_lib.zip" description="file_lib">
+            <fileset dir="${temp}/file_lib"/>
+        </zip>
+
+        <copy file="script.php" todir="${build}"/>
+
+    </target>
+
+    <target name="dist" depends="init, temp, replace, pack-plugins">
+        <zip destfile="${dist}/${filename}">
+            <fileset dir="${build}/">
+                <include name="**/**"/>
+            </fileset>
+        </zip>
+
+        <delete dir="${build}"/>
+        <delete dir="${temp}"/>
+
+    </target>
+
+    <target name="clean">
+
+        <delete dir="${build}"/>
+        <delete dir="${temp}"/>
+
+    </target>
+
+</project>

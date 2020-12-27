@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.8"
+           type="template"
+           client="site"
+           method="upgrade">
+    <name>admin</name>
+    <creationDate>@date@</creationDate>
+    <author>Denys Nosov</author>
+    <authorEmail>denys@joomla-ua.org</authorEmail>
+    <authorUrl>https://joomla-ua.org</authorUrl>
+    <copyright>Denys Nosov</copyright>
+    <license>commerce</license>
+    <version>@version@</version>
+    <description>Front-end admin template</description>
+
+    <files>
+        <folder>ajax</folder>
+        <folder>custom</folder>
+        <folder>css</folder>
+        <folder>html</folder>
+        <folder>images</folder>
+        <folder>inc</folder>
+        <folder>js</folder>
+        <folder>language</folder>
+        <filename>index.html</filename>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+        <filename>component.php</filename>
+        <filename>none.php</filename>
+    </files>
+
+    <positions>
+        <position>slogin</position>
+        <position>admin_menu</position>
+        <position>admin_lang</position>
+        <position>account</position>
+        <position>account_slogin</position>
+        <position>account_main</position>
+        <position>main_panel</position>
+    </positions>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.tpl_admin.ini</language>
+        <language tag="en-GB">en-GB/en-GB.tpl_admin.sys.ini</language>
+
+        <language tag="ru-RU">ru-RU/ru-RU.tpl_admin.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.tpl_admin.sys.ini</language>
+    </languages>
+
+    <config>
+
+        <fields name="params">
+
+            <fieldset name="advanced">
+
+                <field
+		                name="color"
+		                type="color"
+		                label="TPL_ADMIN_COLOR_LABEL"
+                />
+
+                <field
+		                name="logo"
+		                type="text"
+		                label="TPL_ADMIN_LOGO_LABEL"
+                />
+
+                <field
+		                name="logo_w"
+		                type="text"
+		                label="TPL_ADMIN_LOGO_W_LABEL"
+                />
+
+                <field
+		                name="logo2"
+		                type="text"
+		                label="TPL_ADMIN_LOGO2_LABEL"
+                />
+
+                <field
+		                name="logo2_w"
+		                type="text"
+		                label="TPL_ADMIN_LOGO2_W_LABEL"
+                />
+
+                <field
+		                name="sitetitle"
+		                type="text"
+		                label="JGLOBAL_TITLE"
+		                description="JFIELD_ALT_PAGE_TITLE_LABEL"
+		                default=""
+		                filter="string"
+                />
+
+                <field
+		                name="but_stats"
+		                type="radio"
+		                class="btn-group"
+		                default="0"
+		                label="TPL_ADMIN_STATS"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+		                name="but_soc"
+		                type="radio"
+		                class="btn-group"
+		                default="0"
+		                label="TPL_ADMIN_SOCIAL"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+		                name="username"
+		                type="radio"
+		                class="btn-group"
+		                default="0"
+		                label="TPL_ADMIN_USERNAME_AS_LOGIN"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+		                name="count_users"
+		                type="radio"
+		                class="btn-group"
+		                default="0"
+		                label="TPL_ADMIN_COUNT_USERS"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+		                name="edit_profile"
+		                type="radio"
+		                class="btn-group"
+		                default="0"
+		                label="TPL_ADMIN_EDIT_PROFILE"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+		                name="edit_profile_link"
+		                type="text"
+		                label="TPL_ADMIN_EDIT_PROFILE_LINK"
+		                showon="edit_profile:1"
+                />
+
+                <field
+		                name="access_icon"
+		                type="radio"
+		                class="btn-group"
+		                default="0"
+		                label="TPL_ADMIN_ACCESS_ICON"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+		                name="access_level"
+		                type="text"
+		                default="2"
+		                label="TPL_ADMIN_ACCESS_LEVEL"
+                />
+
+                <field
+		                name="remove_cache"
+		                type="radio"
+		                class="btn-group"
+		                default="0"
+		                label="TPL_ADMIN_CACHE"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+		                name="lng_redir"
+		                type="contentlanguage"
+		                label="TPL_ADMIN_LNG_REDIR_LABEL"
+                >
+                    <option value="">JALL</option>
+                </field>
+
+                <field
+		                name="html_tm"
+		                type="editor"
+		                label="TPL_ADMIN_PHP_TM"
+		                class="span10"
+		                editor="codemirror|none"
+		                buttons="no"
+		                height="500px"
+		                rows="20"
+		                cols="80"
+		                syntax="php"
+		                filter="raw"
+                />
+
+            </fieldset>
+
+        </fields>
+
+    </config>
+
+    <updateservers>
+        <server type="extension"
+                priority="1"
+                name="admin"
+        >
+            https://joomla-ua.org/update/tmpl/admin.xml
+        </server>
+    </updateservers>
+
+</extension>
