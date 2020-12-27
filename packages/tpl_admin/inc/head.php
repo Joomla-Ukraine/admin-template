@@ -179,15 +179,11 @@ if($this->params->get('color'))
 /*
  * Logout
  */
-$logout = 'index.php?option=com_users&task=user.logout&' . JSession::getFormToken() . '=1&return=' . base64_encode(Uri::base() . 'account');
-
+$logout  = 'index.php?option=com_users&task=user.logout&' . JSession::getFormToken() . '=1&return=' . base64_encode(Uri::base() . 'account');
+$profile = JRoute::_('index.php?option=com_users&view=profile&layout=edit');
 if($this->params->get('edit_profile') == 1)
 {
 	$profile = $this->params->get('edit_profile_link') . $user->id . '&return=' . base64_encode(Uri::base() . 'account');
-}
-else
-{
-	$profile = JRoute::_('index.php?option=com_users&view=profile&layout=edit');
 }
 
 /*
