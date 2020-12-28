@@ -18,9 +18,9 @@ $data = (object) $displayData;
 
 ?>
 <div class="uk-flex uk-flex-middle" data-uk-height-viewport>
-	<div class="tm-container uk-width-xxlarge uk-align-center">
+	<div class="tm-container uk-width-2xlarge uk-align-center">
 		<div class="uk-section-default uk-box-shadow-medium uk-padding-<?php echo($data->section === true ? 'large' : 'small'); ?>">
-			<h1 class="uk-h3">
+			<h1 class="uk-h3 uk-text-center">
 				<a href="<?php echo URI::base(); ?>" target="_blank">
 					<?php echo $data->logo; ?>
 				</a>
