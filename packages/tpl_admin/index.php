@@ -13,20 +13,21 @@
 defined('_JEXEC') or die();
 
 use Joomla\CMS\Layout\FileLayout;
+use Joomla\CMS\Uri\Uri;
 
 require_once __DIR__ . '/inc/head.php';
 
 $doc = JFactory::getDocument();
 
 // Select 2
-$doc->addStyleSheet(JURI::base(true) . 'templates/admin/js/jui/jquery-ui.min.css');
-$doc->addStyleSheet(JURI::base(true) . 'templates/admin/js/select2/css/select2.min.css');
-$doc->addStyleSheet(JURI::base(true) . 'templates/admin/js/tageditor/jquery.tag-editor.css');
+$doc->addStyleSheet(Uri::base(true) . 'templates/admin/js/jui/jquery-ui.min.css');
+$doc->addStyleSheet(Uri::base(true) . 'templates/admin/js/select2/css/select2.min.css');
+$doc->addStyleSheet(Uri::base(true) . 'templates/admin/js/tageditor/jquery.tag-editor.css');
 
-$doc->addScript(JURI::base(true) . 'templates/admin/js/select2/js/select2.min.js');
-$doc->addScript(JURI::base(true) . 'templates/admin/js/jui/jquery-ui.min.js');
-$doc->addScript(JURI::base(true) . 'templates/admin/js/tageditor/jquery.caret.min.js');
-$doc->addScript(JURI::base(true) . 'templates/admin/js/tageditor/jquery.tag-editor.min.js');
+$doc->addScript(Uri::base(true) . 'templates/admin/js/select2/js/select2.min.js');
+$doc->addScript(Uri::base(true) . 'templates/admin/js/jui/jquery-ui.min.js');
+$doc->addScript(Uri::base(true) . 'templates/admin/js/tageditor/jquery.caret.min.js');
+$doc->addScript(Uri::base(true) . 'templates/admin/js/tageditor/jquery.tag-editor.min.js');
 
 $doc->addScriptDeclaration("jQuery(document).ready(function($){
     $('.select2').select2();
@@ -40,6 +41,7 @@ $doc->addScriptDeclaration("jQuery(document).ready(function($){
     });
 });");
 
+$doc->addScript(Uri::base(true) . 'templates/admin/js/jq.js?' . $v);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>">

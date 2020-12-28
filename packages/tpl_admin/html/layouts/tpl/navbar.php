@@ -11,6 +11,7 @@
  */
 
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
 
 defined('_JEXEC') or die();
 
@@ -39,7 +40,7 @@ $data = (object) $displayData;
 						<ul class="uk-navbar-nav">
 							<li class="uk-active uk-flex-middle">
 								<a href="#">
-									<span data-uk-icon="icon: users" class="uk-margin-small-right uk-text-primary"></span> <?php echo $data->users_count; ?>
+									<svg width="20" height="20" class="uk-margin-small-right uk-text-primary" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#users"></use></svg> <?php echo $data->users_count; ?>
 								</a>
 							</li>
 						</ul>
@@ -49,7 +50,7 @@ $data = (object) $displayData;
 						<ul class="uk-navbar-nav">
 							<li class="uk-active uk-flex-middle">
 								<a href="#" id="remove_cache" class="uk-text-danger">
-									<span data-uk-icon="icon: bolt" class="uk-text-danger uk-margin-small-right"></span> <?php echo Text::_('TPL_ADMIN_CACHE_DELETE'); ?>
+									<svg width="20" height="20" class="uk-text-danger uk-margin-small-right" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#bolt"></use></svg> <?php echo Text::_('TPL_ADMIN_CACHE_DELETE'); ?>
 								</a>
 							</li>
 						</ul>
@@ -73,18 +74,20 @@ $data = (object) $displayData;
 									<span id="status" data-enabled="true" data-interval="60000" class="tm-status-bull uk-position-top-right uk-label uk-label-success"></span>
 								</span>
 								<span class="uk-margin-small-right uk-visible@s"><?php echo($data->this->params->get('username', 0) == 0 ? $data->user->name : $data->user->email); ?></span>
-								<span data-uk-icon="icon: chevron-down; ratio: .7" class="uk-visible@s"></span>
+								<svg width="17" height="17" class="uk-visible@s" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#chevron-down"></use></svg>
 							</a>
 
 							<div data-uk-dropdown="pos: bottom-right; mode: click; offset: -1;">
 								<ul class="uk-nav uk-navbar-dropdown-nav">
 									<li>
-										<a href="<?php echo $data->profile; ?>"><span class="uk-margin-small-right" uk-icon="icon: user"></span> <?php echo Text::_('TPL_ADMIN_PROFILE'); ?>
+										<a href="<?php echo $data->profile; ?>">
+											<svg width="20" height="20" class="uk-margin-small-right" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#user"></use></svg> <?php echo Text::_('TPL_ADMIN_PROFILE'); ?>
 										</a>
 									</li>
 									<li class="uk-nav-divider"></li>
 									<li>
-										<a href="<?php echo $data->logout; ?>"><span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> <?php echo Text::_('TPL_ADMIN_LOGOUT'); ?>
+										<a href="<?php echo $data->logout; ?>">
+											<svg width="20" height="20" class="uk-margin-small-right" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#sign-out"></use></svg> <?php echo Text::_('TPL_ADMIN_LOGOUT'); ?>
 										</a>
 									</li>
 								</ul>
