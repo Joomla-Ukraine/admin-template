@@ -23,7 +23,7 @@ const entry = {
     output = {
         filename: `./js/app.[name].${buildVersion}.js`,
         path: distPath,
-        publicPath: 'assets/',
+        publicPath: '../templates/admin/assets/',
         chunkFilename: `./js/app.[name].${buildVersion}.js`,
     };
 
