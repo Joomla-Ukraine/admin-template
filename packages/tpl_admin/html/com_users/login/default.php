@@ -11,6 +11,8 @@
  */
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 use Joomla\CMS\Uri\Uri;
 
@@ -52,7 +54,7 @@ $cookieLogin = $this->user->get('cookieLogin');
 					</li>
 					<li>
 						<h3 class="uk-card-title uk-margin-remove">
-							<?php echo jText::_('TPL_ADMIN_HELLO'); ?>, <?php echo $user->name; ?>!
+							<?php echo Text::_('TPL_ADMIN_HELLO'); ?>, <?php echo $user->name; ?>!
 						</h3>
 						<div class="uk-margin-small-top uk-margin">
 							<?php
@@ -85,23 +87,20 @@ $cookieLogin = $this->user->get('cookieLogin');
 							}
 
 							echo implode(' ', $grp_name);
+
 							?>
 							<div class="uk-margin-small">
 								<?php
 								$app      = Factory::getApplication('site');
 								$template = $app->getTemplate('tpl_admin');
 
+								$profile = Route::_('index.php?option=com_users&view=profile&layout=edit');
 								if($template->params->get('edit_profile') == 1)
 								{
 									$profile = $template->params->get('edit_profile_link') . $user->id . '&return=' . base64_encode(JURI::base() . 'account');
 								}
-								else
-								{
-									$profile = JRoute::_('index.php?option=com_users&view=profile&layout=edit');
-								}
-
 								?>
-								<a href="<?php echo $profile; ?>" class="uk-button uk-button-default uk-button-small"><?php echo jText::_('TPL_ADMIN_PROFILE'); ?></a>
+								<a href="<?php echo $profile; ?>" class="uk-button uk-button-default uk-button-small"><?php echo Text::_('TPL_ADMIN_PROFILE'); ?></a>
 							</div>
 						</div>
 					</li>
@@ -121,7 +120,7 @@ $cookieLogin = $this->user->get('cookieLogin');
 					?>
 					<div class="uk-text-right">
 						<a href="<?php echo $logout; ?>" class="uk-button uk-button-default uk-button-small">
-							<?php echo jText::_('TPL_ADMIN_LOGOUT'); ?>
+							<?php echo Text::_('TPL_ADMIN_LOGOUT'); ?>
 						</a>
 					</div>
 					<?php

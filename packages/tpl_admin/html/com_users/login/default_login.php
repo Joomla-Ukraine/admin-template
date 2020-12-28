@@ -13,7 +13,10 @@
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\Router\Route;
+use Joomla\CMS\Uri\Uri;
 
 defined('_JEXEC') or die;
 
@@ -30,7 +33,7 @@ HTMLHelper::_('behavior.formvalidator');
 
 <hr class="uk-divider-icon">
 
-<form class="form-validate uk-margin-medium-top" id="login" action="<?php echo JRoute::_('index.php?option=com_users&task=user.login'); ?>" method="post">
+<form class="form-validate uk-margin-medium-top" id="login" action="<?php echo Route::_('index.php?option=com_users&task=user.login'); ?>" method="post">
 
 	<?php foreach($this->form->getFieldset('credentials') as $field) : ?>
 
@@ -51,10 +54,10 @@ HTMLHelper::_('behavior.formvalidator');
 					switch($field->name)
 					{
 						case 'username':
-							echo '<span class="uk-form-icon" uk-icon="icon: user"></span>';
+							echo '<span class="uk-form-icon"><svg width="20" height="20" aria-hidden="true"><use xlink:href="' . Uri::base() . 'templates/admin/assets/icons/icons.svg#user"></use></svg></span>';
 							break;
 						case 'password':
-							echo '<span class="uk-form-icon" uk-icon="icon: lock"></span>';
+							echo '<span class="uk-form-icon"><svg width="20" height="20" aria-hidden="true"><use xlink:href="' . Uri::base() . 'templates/admin/assets/icons/icons.svg#lock"></use></svg></span>';
 							break;
 					}
 
@@ -83,7 +86,7 @@ HTMLHelper::_('behavior.formvalidator');
 			<div class="uk-form-controls">
 				<input id="remember" class="uk-checkbox" type="checkbox" name="remember" value="yes" />
 				<label for="remember">
-					<?php echo JText::_('COM_USERS_LOGIN_REMEMBER_ME') ?>
+					<?php echo Text::_('COM_USERS_LOGIN_REMEMBER_ME') ?>
 				</label>
 			</div>
 		</div>
@@ -92,7 +95,7 @@ HTMLHelper::_('behavior.formvalidator');
 	<div class="uk-margin">
 		<div class="uk-form-controls">
 			<button type="submit" class="uk-button uk-button-secondary uk-width-2-3 uk-align-center">
-				<?php echo JText::_('JLOGIN'); ?>
+				<?php echo Text::_('JLOGIN'); ?>
 			</button>
 		</div>
 	</div>
@@ -108,13 +111,17 @@ HTMLHelper::_('behavior.formvalidator');
 <div class="uk-margin-top">
 	<ul class="uk-child-width-1-1@s uk-child-width-1-2@m uk-text-meta uk-text-center uk-flex uk-flex-center uk-grid-small" uk-grid>
 		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_users&view=reset'); ?>">
-				<span class="uk-text-muted" uk-icon="icon: tm-key; ratio: .8"></span> <?php echo JText::_('COM_USERS_LOGIN_RESET'); ?>
+			<a href="<?php echo Route::_('index.php?option=com_users&view=reset'); ?>">
+				<svg width="17" height="17" class="uk-text-muted" aria-hidden="true">
+					<use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#tm-key"></use>
+				</svg> <?php echo Text::_('COM_USERS_LOGIN_RESET'); ?>
 			</a>
 		</li>
 		<li>
-			<a href="<?php echo JRoute::_('index.php?option=com_users&view=remind'); ?>">
-				<span class="uk-text-muted" uk-icon="icon: user; ratio: .8"></span> <?php echo JText::_('COM_USERS_LOGIN_REMIND'); ?>
+			<a href="<?php echo Route::_('index.php?option=com_users&view=remind'); ?>">
+				<svg width="17" height="17" class="uk-text-muted" aria-hidden="true">
+					<use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#user"></use>
+				</svg> <?php echo Text::_('COM_USERS_LOGIN_REMIND'); ?>
 			</a>
 		</li>
 	</ul>
@@ -124,8 +131,8 @@ HTMLHelper::_('behavior.formvalidator');
 		if($usersConfig->get('allowUserRegistration')) : ?>
 			<hr>
 			<div class="uk-text-center">
-				<a class="uk-text-muted" href="<?php echo JRoute::_('index.php?option=com_users&view=registration'); ?>">
-					<?php echo JText::_('COM_USERS_LOGIN_REGISTER'); ?>
+				<a class="uk-text-muted" href="<?php echo Route::_('index.php?option=com_users&view=registration'); ?>">
+					<?php echo Text::_('COM_USERS_LOGIN_REGISTER'); ?>
 				</a>
 			</div>
 		<?php endif; ?>

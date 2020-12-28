@@ -11,6 +11,7 @@
  */
 
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 
 defined('_JEXEC') or die;
 
@@ -19,7 +20,7 @@ defined('_JEXEC') or die;
 	<form id="user-registration" action="<?php echo JRoute::_('index.php?option=com_users&task=remind.remind'); ?>" method="post" class="form-validate uk-form">
 		<?php foreach($this->form->getFieldsets() as $fieldset) : ?>
 			<div class="uk-margin">
-				<?php echo JText::_($fieldset->label); ?>
+				<?php echo Text::_($fieldset->label); ?>
 			</div>
 			<div class="uk-margin">
 				<?php foreach($this->form->getFieldset($fieldset->name) as $name => $field) : ?>
@@ -31,7 +32,7 @@ defined('_JEXEC') or die;
 			</div>
 		<?php endforeach; ?>
 		<div class="uk-margin">
-			<button type="submit" class="uk-button uk-button-primary validate"><?php echo JText::_('JSUBMIT'); ?></button>
+			<button type="submit" class="uk-button uk-button-primary validate"><?php echo Text::_('JSUBMIT'); ?></button>
 		</div>
 		<?php echo HTMLHelper::_('form.token'); ?>
 	</form>
