@@ -62,7 +62,7 @@ class Pkg_AdminInstallerScript
 	 *
 	 * @since    1.5
 	 */
-	public function postflight($type, $parent, $results)
+	public function postflight($type, $parent, $results): bool
 	{
 		$files = [
 			'/templates/system_seblod/libs/emt/example.php',
