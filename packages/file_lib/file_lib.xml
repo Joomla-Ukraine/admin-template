@@ -13,10 +13,6 @@
 	<description>Admin libs</description>
 
 	<fileset>
-		<files target="templates/system_seblod">
-			<folder>libs</folder>
-		</files>
-
 		<files target="templates/seb_minima">
 			<folder>fields</folder>
 		</files>
