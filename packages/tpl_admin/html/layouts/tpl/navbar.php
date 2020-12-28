@@ -70,7 +70,7 @@ $data = (object) $displayData;
 						<li class="uk-active uk-flex-middle">
 							<a href="#" class="uk-padding-remove">
 								<span class="uk-inline uk-margin-small-right tm-status">
-                                    <?php echo $avatar; ?>
+                                    <?php echo $data->avatar; ?>
 									<span id="status" data-enabled="true" data-interval="60000" class="tm-status-bull uk-position-top-right uk-label uk-label-success"></span>
 								</span>
 								<span class="uk-margin-small-right uk-visible@s"><?php echo($data->this->params->get('username', 0) == 0 ? $data->user->name : $data->user->email); ?></span>
