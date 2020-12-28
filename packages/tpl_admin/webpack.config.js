@@ -1,8 +1,8 @@
 "use strict";
 
-const webpack = require('webpack');
-const path = require('path');
-const argv = require('yargs').argv;
+const webpack = require('webpack'),
+    path = require('path'),
+    argv = require('yargs').argv;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Optimizer = require("webpack-bundle-optimizer");
 const TerserPlugin = require('terser-webpack-plugin');
@@ -10,9 +10,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
-const isDevelopment = argv.mode === 'development';
-const isProduction = !isDevelopment;
-const distPath = path.join(__dirname, 'assets');
+const isDevelopment = argv.mode === 'development',
+    isProduction = !isDevelopment;
+const distPath = path.join(__dirname, 'assets'),
+    publicPath = process.env.ASSET_PATH || '/';
 
 const buildVersion = '3.6.5.4';
 
@@ -23,7 +24,7 @@ const entry = {
     output = {
         filename: `./js/app.[name].${buildVersion}.js`,
         path: distPath,
-        publicPath: '../templates/admin/assets/',
+        publicPath: `${publicPath}templates/admin/assets/`,
         chunkFilename: `./js/app.[name].${buildVersion}.js`,
     };
 
