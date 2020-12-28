@@ -47,6 +47,7 @@ $doc->addScript(Uri::base(true) . 'templates/admin/js/jq.js?' . $v);
 <html lang="<?php echo $this->language; ?>">
 <head>
 	<jdoc:include type="head" />
+	<jdoc:include type="message" />
 </head>
 <body>
 <main class="uk-container-expand">
@@ -67,6 +68,7 @@ $doc->addScript(Uri::base(true) . 'templates/admin/js/jq.js?' . $v);
 
 			<?php echo (new FileLayout('tpl.navbar'))->render([
 				'this'        => $this,
+				'avatar'      => $avatar,
 				'user'        => $user,
 				'users_count' => $users_count,
 				'profile'     => $profile,
