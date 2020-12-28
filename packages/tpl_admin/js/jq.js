@@ -1,21 +1,5 @@
 jQuery(document).ready(function() {
 
-    // cache
-    jQuery("#remove_cache").click(function(e) {
-        e.preventDefault();
-
-        jQuery.ajax({
-            url: "//" + window.location.host + "/templates/admin/ajax/cache.php",
-            success: function(result) {
-                UIkit.notification(result, {status: 'success'});
-            }
-        });
-
-    });
-
-    // css
-    jQuery('table input[type=checkbox], .hasTooltip input[type=checkbox]').addClass('uk-checkbox');
-
     // upload image
     jQuery('.cck_upload_image a').removeAttr('data-cck-modal').removeAttr('href').removeAttr('title').unbind("click").css('cursor', 'default');
 
