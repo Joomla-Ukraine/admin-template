@@ -66,21 +66,12 @@ class Pkg_AdminInstallerScript
 	{
 		$files = [
 			'/templates/system_seblod/libs/emt/example.php',
-			'/templates/admin/css/style.css',
-			'/templates/admin/js/uikit/uikit-icons-admin.js',
-			'/templates/admin/js/uikit/uikit-icons.js',
-			'/templates/admin/js/uikit/uikit-core.js',
-			'/templates/admin/js/uikit/uikit-core.min.js',
-			'/templates/admin/js/uikit/uikit.js',
 		];
 
 		$folders = [
 			'/templates/admin/html/mod_jutabs',
-			'/templates/admin/js/typograf',
-			'/templates/admin/js/uikit/components',
-			'/templates/admin/js/selectr',
-			'/templates/admin/js/tagify',
-			'/templates/admin/js/tags',
+			'/templates/admin/css',
+			'/templates/admin/js',
 		];
 
 		jimport('joomla.filesystem.file');
