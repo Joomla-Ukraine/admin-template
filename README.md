@@ -1,2 +1,4 @@
-# admin-template
-Admin template for Joomla fronted
+# Admin template (Blue version)
+SEBLOD Admin template for Joomla fronted
+
+
