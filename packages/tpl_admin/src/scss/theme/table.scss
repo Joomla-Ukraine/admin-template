@@ -17,9 +17,7 @@
 
 @mixin hook-table-header-cell() {
 	text-transform: uppercase;
-	border-top: 1px solid $global-border;
-	border-bottom: 1px solid $global-border;
-	background: $color-greywhite;
+	border-bottom: 3px solid $color-greylight;
 	font-family: #{$tm-font-semibold};
 }
 
@@ -33,7 +31,7 @@
 // ========================================================================
 
 @mixin hook-table-divider {
-	border: $table-divider-border-width solid lighten($table-divider-border, 5%);
+
 }
 
 @mixin hook-table-striped() {
