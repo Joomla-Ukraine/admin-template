@@ -1,6 +1,9 @@
 "use strict";
 
-export default function buttonCache(elId) {
+/**
+ * Clean cache button
+ */
+export default function buttonCache() {
 
     axios.get(`//${window.location.host}/templates/admin/ajax/cache.php`).then(
         (response) => {
