@@ -44,7 +44,7 @@
 // Primary
 //
 @mixin hook-button-primary() {
-	border: $button-border-width solid $color-blue;
+	border: $button-border-width solid transparent;
 }
 
 //@mixin hook-button-primary-hover(){}
