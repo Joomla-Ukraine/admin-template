@@ -9,12 +9,7 @@
 // Component
 // ========================================================================
 
-@mixin hook-notification(){
-	@extend .uk-box-shadow-medium;
-	@extend .uk-background-default;
-	@extend .uk-padding-small;
-	@extend .uk-border-rounded;
-}
+//@mixin hook-notification(){}
 
 // Message
 // ========================================================================
@@ -37,19 +32,23 @@
 // ========================================================================
 
 @mixin hook-notification-message-primary() {
-
+	color: $global-inverse-color;
+	background: $notify-message-primary-background;
 }
 
 @mixin hook-notification-message-success() {
-
+	color: $global-inverse-color;
+	background: $notify-message-success-background;
 }
 
 @mixin hook-notification-message-warning() {
-
+	color: $global-inverse-color;
+	background: $notify-message-warning-background;
 }
 
 @mixin hook-notification-message-danger() {
-
+	color: $global-inverse-color;
+	background: $notify-message-danger-background;
 }
 
 // Miscellaneous

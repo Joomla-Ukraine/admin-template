@@ -13,3 +13,15 @@
 		text-decoration: none;
 	}
 }
+
+.uk-button-success {
+	background-color: $button-success-background;
+	color: $button-success-color;
+}
+
+/* Hover + Focus */
+.uk-button-success:hover,
+.uk-button-success:focus {
+	background-color: $button-success-hover-background;
+	color: $button-success-hover-color;
+}
