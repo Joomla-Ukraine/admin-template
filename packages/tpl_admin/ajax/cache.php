@@ -66,7 +66,7 @@ class cache
 					continue;
 				}
 
-				$notification[] = '<span data-uk-icon="icon: check"></span> ' . trim(str_replace($this->root . '/cache/', '', $folder), '/') . '<br>';
+				$notification[] = '<svg width="20" height="20" aria-hidden="true"><use xlink:href="../templates/admin/assets/icons/icons.svg#check"></use></svg> ' . trim(str_replace($this->root . '/cache/', '', $folder), '/') . '<br>';
 
 				if(!unlink($folder . '/' . $obj))
 				{
