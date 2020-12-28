@@ -1,0 +1,28 @@
+//
+// Component: Description list
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Component
+// ========================================================================
+
+@mixin hook-description-list-term() {
+	font-size: $description-list-term-font-size;
+	font-weight: $description-list-term-font-weight;
+	text-transform: $description-list-term-text-transform;
+}
+
+// @mixin hook-description-list-description(){}
+
+// Style modifier
+// ========================================================================
+
+// @mixin hook-description-list-divider-term(){}
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-description-list-misc(){}

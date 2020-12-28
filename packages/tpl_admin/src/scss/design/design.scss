@@ -1,0 +1,90 @@
+//
+// Body
+//
+
+.tm-logo {
+	padding-top: 12px;
+}
+
+/**/
+.tm-container {
+	padding: 18px;
+}
+
+/**/
+.tm-b-panel {
+	width: 195px;
+}
+
+.tm-b-panel-drop {
+	background-color: #22a488;
+}
+
+/**/
+.tm-label-sidebar {
+	color: $global-warning-background !important;
+}
+
+/**/
+.tm-navbar .uk-navbar-item,
+.tm-navbar .uk-navbar-nav > li > a,
+.tm-navbar .uk-navbar-toggle {
+	height: 50px;
+}
+
+.tm-navbar-container {
+	background-color: #ededed;
+}
+
+.tm-navbar > a,
+.tm-navbar .uk-navbar-nav > li > a {
+	color: #5A738E !important;
+}
+
+.tm-navbar .uk-navbar-nav > li > a {
+	text-transform: none;
+}
+
+
+//
+// Responsive
+//
+
+/* Tablet landscape and smaller */
+@media (max-width: $breakpoint-medium-max) {
+
+	
+}
+
+/* Phone landscape and smaller */
+@media (max-width: $breakpoint-xsmall-max) {
+
+}
+
+//
+// Min-width media
+//
+/* Phone landscape and bigger */
+@media (max-width: $breakpoint-xsmall-max) {
+
+}
+
+/* Phone landscape and bigger */
+@media (min-width: $breakpoint-small) {
+	
+}
+
+/* Tablet landscape and bigger */
+@media (min-width: $breakpoint-medium) {
+
+}
+
+/* Desktop and bigger */
+@media (min-width: $breakpoint-large) {
+
+}
+
+/* Large screen and bigger */
+@media (min-width: $breakpoint-xlarge) {
+
+}

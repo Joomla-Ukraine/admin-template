@@ -1,0 +1,16 @@
+.tm-divider-small {
+
+  .uk-divider-small {
+
+    margin-top: 0;
+
+    &:after {
+      border-top: 1px solid $color-bluelight;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+}

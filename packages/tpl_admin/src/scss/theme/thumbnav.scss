@@ -1,0 +1,53 @@
+//
+// Component: Thumbnav
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Component
+// ========================================================================
+
+// @mixin hook-thumbnav(){}
+
+@mixin hook-thumbnav-item() {
+	
+	position: relative;
+	
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: $thumbnav-item-background;
+		transition: background-color .1s ease-in-out;
+	}
+	
+}
+
+@mixin hook-thumbnav-item-hover() {
+	&::after {
+		background-color: $thumbnav-item-hover-background;
+	}
+}
+
+@mixin hook-thumbnav-item-active() {
+	&::after {
+		background-color: $thumbnav-item-active-background;
+	}
+}
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-thumbnav-misc(){}
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-thumbnav-item(){}
+// @mixin hook-inverse-thumbnav-item-hover(){}
+// @mixin hook-inverse-thumbnav-item-active(){}

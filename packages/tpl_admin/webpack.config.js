@@ -14,7 +14,7 @@ const isDevelopment = argv.mode === 'development';
 const isProduction = !isDevelopment;
 const distPath = path.join(__dirname, 'assets');
 
-const buildVersion = '3.6.5.1';
+const buildVersion = '3.6.5.4';
 
 const entry = {
         main: path.resolve(__dirname, './src/js/index.js'),
@@ -23,7 +23,7 @@ const entry = {
     output = {
         filename: `./js/app.[name].${buildVersion}.js`,
         path: distPath,
-        publicPath: '../../app/',
+        publicPath: 'assets/',
         chunkFilename: `./js/app.[name].${buildVersion}.js`,
     };
 
@@ -66,20 +66,7 @@ const modules = {
                     options: {
                         name: '[name].[ext]',
                         outputPath: 'fonts/',
-                        publicPath: "/app/fonts/"
-                    }
-                }
-            ]
-        },
-        {
-            test: /\.(png|svg)$/,
-            use: [
-                {
-                    loader: "file-loader",
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'img/',
-                        publicPath: "/app/img/"
+                        publicPath: "../fonts/"
                     }
                 }
             ]
@@ -166,10 +153,9 @@ const chunks = {
         vendor: {
             test(mod) {
                 let node_modules = mod.context.includes('node_modules'),
-                    flatpickr = ['flatpickr'].some(str => mod.context.includes(str)),
                     uikit = ['uikit'].some(str => mod.context.includes(str));
 
-                return !(!node_modules || uikit || flatpickr);
+                return !(!node_modules || uikit);
             },
             name: 'vendors',
             chunks: 'all',

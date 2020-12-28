@@ -1,0 +1,181 @@
+.tm-green-panel {
+	position: relative;
+	margin-bottom: 20px;
+	background-color: $color-blueultralight;
+	border-bottom: 1px solid $color-bluelighten;
+	
+	&:after,
+	&:before {
+		content: '';
+		position: absolute;
+		right: 50%;
+		width: 0;
+		height: 0;
+		left: 50%;
+		border-style: solid;
+	}
+	
+	&:after {
+		z-index: 2;
+		bottom: -27px;
+		margin-left: -47.5px;
+		border-width: 27px 47.5px 0 47.5px;
+		border-color: $color-blueultralight transparent transparent transparent;
+	}
+	
+	&:before {
+		z-index: 1;
+		bottom: -28px;
+		margin-left: -47.5px;
+		border-width: 27px 48px 0 47px;
+		border-color: $color-bluelighten transparent transparent transparent;
+	}
+}
+
+.tm-green-panel-border {
+	border-bottom: 1px solid $color-bluelighten;
+}
+
+.tm-mods-bg {
+	background-size: cover;
+	background-position: center center;
+	min-height: 400px;
+	position: relative;
+	
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	
+	&:before {
+		z-index: 2;
+		background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.804522) 0%, rgba(255, 255, 255, 0) 75%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.6) 100%);
+	}
+}
+
+.tm-mods-bg-panel {
+	position: relative;
+	z-index: 50;
+	background: linear-gradient(128.85deg, rgba(255, 255, 255, 0) 33%, #FFFFFF 100%);
+	padding: 30px 30px 30px 0;
+	margin-bottom: 60px;
+	
+	.tm-font-xlarge {
+		line-height: 135%;
+	}
+	
+	.tm-font-xmedium {
+		line-height: 190%;
+		
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.tm-mods-bg-panel-default {
+	position: relative;
+	z-index: 50;
+	background: linear-gradient(128.85deg, rgba(255, 255, 255, 0) 33%, #FFFFFF 100%);
+	padding: 30px 30px 60px;
+	margin-bottom: 0;
+	
+	.tm-font-xlarge {
+		line-height: 135%;
+	}
+	
+	.tm-font-xmedium {
+		line-height: 190%;
+		
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.tm-mods-bg-large {
+	&:before {
+		background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.804522) 0%, rgba(255, 255, 255, 0) 75%), linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+	}
+	
+	.tm-mods-bg-panel {
+		background: linear-gradient(128.85deg, rgba(255, 255, 255, 0) 0%, #fff 95%);
+	}
+}
+
+.tm-mods-bg-bottom {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 40;
+	padding-bottom: 50px;
+	
+	&:before,
+	&:after {
+		box-sizing: border-box;
+		content: "";
+		position: absolute;
+		top: 0;
+		display: block;
+		width: 50%;
+		height: 100%;
+		border-bottom: 25px solid #fff;
+	}
+	
+	&:before {
+		left: 0;
+		border-right: 56px solid transparent;
+		border-left: 0;
+	}
+	
+	&:after {
+		right: 0;
+		border-left: 56px solid transparent;
+		border-right: 0;
+	}
+}
+
+.tm-mods-bg-logo {
+	position: absolute;
+	z-index: 21;
+	width: 300px;
+	left: 95px;
+	bottom: 40px;
+}
+
+//
+// Responsive
+//
+
+/* Phone landscape and smaller */
+@media (max-width: $breakpoint-xsmall-max) {
+	
+	// Module
+	.tm-mods-bg-panel {
+		
+		.tm-mods-panel {
+			
+			.uk-margin-medium-left {
+				margin-left: 20px !important;
+			}
+			
+		}
+		
+		.tm-font-xlarge {
+			font-size: 1.25rem;
+		}
+	}
+	
+	.tm-mods-bg-compass::before {
+		display: none;
+	}
+	
+	.tm-mods-bg-panel-default {
+		padding: 30px 0;
+	}
+}

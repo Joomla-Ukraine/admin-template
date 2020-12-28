@@ -1,0 +1,22 @@
+figure {
+
+  .uk-align-left\@m {
+
+    display: table;
+    width: 1px;
+
+    img,
+    figcaption,
+    a {
+      display: table-row;
+      max-width: inherit;
+    }
+
+  }
+
+  figcaption,
+  a {
+    text-decoration: none;
+  }
+
+}

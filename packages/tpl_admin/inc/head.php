@@ -15,13 +15,13 @@ use Joomla\CMS\Uri\Uri;
 
 defined('_JEXEC') or die;
 
-$v = '?v=@version@';
+$v = '3.6.5.4';
 
 $db        = Factory::getDBO();
 $app       = Factory::getApplication();
 $doc       = Factory::getDocument();
 $user      = Factory::getUser();
-$menu = Factory::getApplication()->getMenu();
+$menu      = Factory::getApplication()->getMenu();
 $lang      = Factory::getLanguage();
 $short_lng = explode('-', $this->params->get('lng_redir'));
 
@@ -33,11 +33,11 @@ if($this->params->get('lng_redir') && ($this->language !== strtolower($this->par
 $sitename = $app->get('sitename');
 $site_url = Uri::base();
 
-$Itemid  = $app->input->getCmd('Itemid');
-$id      = $app->input->getCmd('id');
-$view    = $app->input->getCmd('view');
-$layout  = $app->input->getCmd('layout');
-$option  = $app->input->getCmd('option');
+$Itemid = $app->input->getCmd('Itemid');
+$id     = $app->input->getCmd('id');
+$view   = $app->input->getCmd('view');
+$layout = $app->input->getCmd('layout');
+$option = $app->input->getCmd('option');
 
 $headdata = $doc->getHeadData();
 $params   = $app->getParams();
@@ -49,7 +49,7 @@ $this->setGenerator(null);
  * add js/css & template option
  */
 JHtml::_('jquery.framework');
-
+/*
 $doc->addScript(Uri::base(true) . 'templates/admin/js/uikit/uikit.min.js' . $v);
 $doc->addScript(Uri::base(true) . 'templates/admin/js/uikit/uikit-icons.min.js' . $v);
 $doc->addScript(Uri::base(true) . 'templates/admin/js/uikit/uikit-icons-admin.min.js' . $v);
@@ -65,6 +65,31 @@ $doc->addHeadLink(Uri::base(true) . 'templates/admin/js/jq.js' . $v, 'preload', 
 
 // preload css
 $doc->addHeadLink(Uri::base(true) . 'templates/admin/css/uikit.admin.css' . $v, 'preload', 'rel', [ 'as' => 'style' ]);
+*/
+
+// JS
+$doc->addScript(Uri::base(true) . 'templates/admin/assets/js/app.uk.' . $v . '.js');
+$doc->addScript(Uri::base(true) . 'templates/admin/assets/js/app.main.' . $v . '.js', [], [ 'async' => 'async' ]);
+$doc->addScript(Uri::base(true) . 'templates/admin/assets/js/app.vendors.' . $v . '.js', [], [ 'defer' => 'defer' ]);
+
+$doc->addHeadLink(Uri::base(true) . 'templates/admin/assets/js/app.uk.' . $v . '.js', 'preload', 'rel', [ 'as' => 'script' ]);
+$doc->addHeadLink(Uri::base(true) . 'templates/admin/assets/js/app.main.' . $v . '.js', 'preload', 'rel', [ 'as' => 'script' ]);
+$doc->addHeadLink(Uri::base(true) . 'templates/admin/assets/js/app.vendors.' . $v . '.js', 'preload', 'rel', [ 'as' => 'script' ]);
+
+// CSS
+$doc->addStyleSheet(Uri::base(true) . 'templates/admin/assets/css/app.main.' . $v . '.css');
+$doc->addHeadLink(Uri::base(true) . 'templates/admin/assets/css/app.main.' . $v . '.css', 'preload', 'rel', [ 'as' => 'style' ]);
+
+// Plreload logos
+if($this->params->get('logo'))
+{
+	$doc->addHeadLink(Uri::base(true) . $this->params->get('logo'), 'preload', 'rel', [ 'as' => 'image' ]);
+}
+
+if($this->params->get('logo2'))
+{
+	$doc->addHeadLink(Uri::base(true) . $this->params->get('logo2'), 'preload', 'rel', [ 'as' => 'image' ]);
+}
 
 /*
  * tmpl setting

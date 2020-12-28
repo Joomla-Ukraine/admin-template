@@ -31,14 +31,14 @@ $data = (object) $displayData;
 		<div class="tm-b-panel uk-button-group uk-margin-small">
 
 			<a href="/account" class="uk-button uk-button-secondary uk-button-small <?php echo($data->ac_button == 1 ? 'uk-width-3-4' : 'uk-width-1-1'); ?>">
-				<span data-uk-icon="icon: grid"></span> <?php echo Text::_('TPL_ADMIN_ACCOUNT'); ?>
+				<svg width="20" height="20" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#grid"></use></svg> <?php echo Text::_('TPL_ADMIN_ACCOUNT'); ?>
 			</a>
 
 			<?php if($data->ac_button == 1) : ?>
 				<div class="uk-inline uk-width-1-3">
 
 					<button class="tm-b-panel-drop uk-button uk-button-secondary uk-button-small uk-width-1-1">
-						<span data-uk-icon="icon: triangle-down"></span>
+						<svg width="20" height="20" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#triangle-down"></use></svg>
 					</button>
 
 					<div data-uk-drop="pos: bottom-justify; boundary: .tm-b-panel; mode: click; boundary-align: true; offset: 1">
@@ -49,7 +49,7 @@ $data = (object) $displayData;
 								<?php if($data->this->params->get('but_stats', 0) == 1): ?>
 									<li>
 										<a href="#">
-											<span class="uk-margin-small-right" data-uk-icon="icon: table"></span> <?php echo Text::_('TPL_ADMIN_STATS'); ?>
+											<svg width="20" height="20" class="uk-margin-small-right" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#table"></use></svg> <?php echo Text::_('TPL_ADMIN_STATS'); ?>
 										</a>
 									</li>
 								<?php endif; ?>
@@ -57,7 +57,7 @@ $data = (object) $displayData;
 								<?php if($data->this->params->get('but_soc', 0) == 1): ?>
 									<li>
 										<a href="#">
-											<span class="uk-margin-small-right" data-uk-icon="icon: social"></span> <?php echo Text::_('TPL_ADMIN_SOCIAL'); ?>
+											<svg width="20" height="20" class="uk-margin-small-right" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#social"></use></svg> <?php echo Text::_('TPL_ADMIN_SOCIAL'); ?>
 										</a>
 									</li>
 								<?php endif; ?>

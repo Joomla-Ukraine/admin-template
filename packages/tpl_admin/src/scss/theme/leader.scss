@@ -1,0 +1,32 @@
+//
+// Component: Leader
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Component
+// ========================================================================
+
+@mixin hook-inverse-component-leader() {
+	
+	.uk-leader-fill::after {
+		@if (mixin-exists(hook-inverse-leader)) {
+			@include hook-inverse-leader();
+		}
+	}
+	
+}
+
+// @mixin hook-leader(){}
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-leader-misc(){}
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-leader(){}

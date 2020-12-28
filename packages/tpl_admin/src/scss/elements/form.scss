@@ -1,0 +1,14 @@
+//
+// select
+//
+select {
+	cursor: pointer;
+}
+
+//
+// tm-box-border
+//
+.uk-form-danger input,
+.uk-form-danger select {
+	@extend .uk-form-danger;
+}

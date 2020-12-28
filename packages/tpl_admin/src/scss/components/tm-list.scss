@@ -1,0 +1,29 @@
+.tm-list-border {
+    border: 1px solid $global-border;
+
+    > li {
+        padding: 0 !important;
+
+        a {
+            padding: $list-striped-padding-vertical $list-striped-padding-horizontal;
+        }
+    }
+
+    &.uk-list-striped > li {
+        margin-top: -1px;
+    }
+
+    &.uk-list-large.uk-list-striped > li {
+        a {
+            padding: $list-large-striped-padding-vertical $list-large-striped-padding-horizontal;
+        }
+    }
+}
+
+.tm-list-box-border {
+    border: 1px solid $global-border;
+
+    > li {
+        margin-top: -1px;
+    }
+}

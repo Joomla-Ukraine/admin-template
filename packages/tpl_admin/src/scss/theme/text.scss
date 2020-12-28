@@ -1,0 +1,53 @@
+//
+// Component: Text
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Style modifiers
+// ========================================================================
+
+// @mixin hook-text-meta() {}
+// @mixin hook-text-meta() {}
+
+// Size modifiers
+// ========================================================================
+
+// @mixin hook-text-small(){}
+
+// @mixin hook-text-large(){}
+
+// Background modifier
+// ========================================================================
+
+// @mixin hook-text-background(){}
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-text-misc(){}
+
+// Inverse
+// ========================================================================
+
+@mixin hook-inverse-component-text() {
+	
+	.uk-text-muted {
+		color: $inverse-text-muted-color !important;
+	}
+	.uk-text-emphasis {
+		color: $inverse-text-emphasis-color !important;
+	}
+	.uk-text-primary {
+		color: $inverse-text-primary-color !important;
+	}
+	.uk-text-secondary {
+		color: $inverse-text-secondary-color !important;
+	}
+	
+}
+
+// @mixin hook-inverse-text-lead(){}
+// @mixin hook-inverse-text-meta(){}

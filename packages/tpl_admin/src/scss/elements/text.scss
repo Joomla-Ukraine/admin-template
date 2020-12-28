@@ -1,0 +1,91 @@
+// Font face
+.tm-text-cond {
+	@extend %tm-font-cond;
+}
+
+.tm-text-semibold {
+	@extend %tm-font-semibold;
+}
+
+.tm-text-bold {
+	@extend %tm-font-bold;
+}
+
+.tm-text-black {
+	@extend %tm-font-black;
+}
+
+// letter
+.tm-text-letter {
+	letter-spacing: 0.1em;
+}
+
+// sub
+.tm-font-sub {
+	bottom: 0;
+}
+
+.tm-font-line-1 {
+	line-height: 1;
+}
+
+// Font size
+.tm-font-small {
+	font-size: .75rem; //12
+}
+
+.tm-font-xsmall {
+	font-size: .8125rem; // 13
+}
+
+.tm-font-xxsmall {
+	font-size: .875rem; // 14
+}
+
+.tm-font-xxxsmall {
+	font-size: .9375rem; // 15
+}
+
+.tm-font-normal {
+	font-size: $global-font-size; // 16
+}
+
+.tm-font-medium {
+	font-size: 1.063rem;
+}
+
+.tm-font-xmedium {
+	font-size: 1.125rem; // 18px
+}
+
+.tm-font-xmedium-lh {
+	@extend .tm-font-xmedium;
+	line-height: 190%;
+}
+
+.tm-font-xxmedium {
+	font-size: 1.25rem; // 20px
+}
+
+.tm-font-xxxmedium {
+	font-size: 1.375rem; // 22px
+}
+
+.tm-font-large {
+	font-size: 1.563rem; // 25px
+}
+
+.tm-font-xlarge {
+	font-size: 1.875rem; // 30px
+}
+
+.tm-font-xxlarge {
+	font-size: 2.5rem; // 40px
+}
+
+// Fonts
+
+.tm-text-line-small {
+	line-height: 18px;
+	margin-top: -3px;
+}

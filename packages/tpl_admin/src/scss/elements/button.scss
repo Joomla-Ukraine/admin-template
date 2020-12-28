@@ -1,0 +1,15 @@
+// Button
+.tm-button-link {
+	background: none;
+	border: none;
+	padding: 0;
+	line-height: 1.3;
+	text-transform: none;
+	color: inherit;
+	
+	&:hover,
+	&:focus {
+		color: $button-link-hover-color;
+		text-decoration: none;
+	}
+}

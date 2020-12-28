@@ -1,0 +1,42 @@
+//
+// Main color
+//
+.tm-text-blue {
+	color: $color-blue !important;
+}
+
+.tm-text-green {
+	color: $color-green !important;
+}
+
+//
+// text color
+//
+
+.tm-light {
+	color: $color-white !important;
+}
+
+.tm-text-grey {
+	color: $color-grey;
+}
+
+.tm-text-greylight {
+	color: $color-greylight;
+}
+
+.tm-text--black {
+	color: $color-black;
+}
+
+.tm-text-blackdeep {
+	color: $color-blackdeep;
+}
+
+.tm-text-steel {
+	color: $color-steel;
+	
+	a {
+		color: $color-steel;
+	}
+}

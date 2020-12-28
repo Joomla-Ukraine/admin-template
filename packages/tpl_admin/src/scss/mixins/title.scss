@@ -1,0 +1,19 @@
+@mixin tm-title($color: $color-default, $line: $color-bluelight) {
+
+  text-transform: uppercase;
+  color: $color;
+  position: relative;
+  @extend %tm-font-regular;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    display: block;
+    width: 37px;
+    height: 2px;
+    background: $line;
+  }
+
+}

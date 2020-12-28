@@ -1,0 +1,58 @@
+//
+// table
+//
+.tm-table {
+	
+	line-height: normal;
+	
+	th {
+		border-top: 0 none;
+		background: transparent;
+		color: $color-golddark;
+	}
+	
+	&.uk-table-divider > tr:not(:first-child),
+	&.uk-table-divider > :not(:first-child) > tr,
+	&.uk-table-divider > :first-child > tr:not(:first-child) {
+		border-left: 0 none;
+		border-right: 0 none;
+	}
+}
+
+//
+// table margin
+//
+.tm-table-margin-remove-small {
+	margin-left: -$padding-small-padding;
+	margin-right: -$padding-small-padding;
+	width: calc(100% + (#{$padding-small-padding} * 2));
+	
+	&.uk-table-divider > :not(:first-child) > tr,
+	tr {
+		border-right: 0 none;
+		border-left: 0 none;
+	}
+}
+
+.tm-table-margin-remove {
+	margin-left: -$padding-small-padding;
+	margin-right: -$padding-small-padding;
+	margin-top: -$padding-small-padding;
+	margin-bottom: -$padding-small-padding;
+	width: calc(100% + (#{$padding-small-padding} * 2));
+	
+	th {
+		border-top: 0 none;
+	}
+}
+
+.tm-table-margin-remove-top {
+	margin-left: -$padding-small-padding;
+	margin-right: -$padding-small-padding;
+	margin-top: -$padding-small-padding;
+	width: calc(100% + (#{$padding-small-padding} * 2));
+	
+	th {
+		border-top: 0 none;
+	}
+}

@@ -1,0 +1,57 @@
+// blockquote
+
+blockquote {
+    &.tm-blockquote-left {
+        padding: 0;
+        float: left;
+        width: 40%;
+        margin-top: 0;
+        margin-right: 50px;
+        border: 0 none;
+        color: $color-blue;
+        text-align: left;
+        font-weight: bold;
+        font-size: 1.3rem;
+        font-style: normal;
+        font-family: $tm-font-bold;
+        line-height: 1.36;
+        z-index: 100;
+        position: relative;
+        
+        &:before {
+            position: absolute;
+            top: -5px;
+            left: -50px;
+            content: "";
+            height: 35px;
+            width: 35px;
+            @include svg-fill("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 22.61'%3E%3Cpath fill='#000' d='M9.37,9c.11-.68.64-2.46,3-4.51a.49.49,0,0,0,.11-.62C12,3,11.68,2.44,11.46,2S11,1.29,10.83,1A.5.5,0,0,0,10.2.8,18.87,18.87,0,0,0,.42,13.86h0c-.75,4,1.33,7.54,5,8.51A7,7,0,0,0,9.37,9ZM27,9c.11-.68.64-2.46,3-4.51a.49.49,0,0,0,.11-.62C29.58,3,29.26,2.44,29,2s-.43-.75-.63-1.07A.5.5,0,0,0,27.78.8,18.87,18.87,0,0,0,18,13.86h0c-.75,4,1.33,7.54,4.95,8.51A7,7,0,0,0,27,9Z'/%3E%3C/svg%3E", "#000", $color-blue);
+            background-repeat: no-repeat;
+        }
+        
+        p, p + p {
+            font-weight: normal;
+            margin: 0 !important;
+        }
+        
+        small,
+        em {
+            display: block;
+            line-height: 20px;
+            
+            &:before {
+                content: '\2014 \00A0';
+            }
+        }
+        
+        em {
+            color: $color-steel;
+            margin-bottom: 0;
+            text-align: right;
+            font-size: 16px;
+            font-style: normal !important;
+            font-family: $tm-font;
+            letter-spacing: normal;
+        }
+    }
+}

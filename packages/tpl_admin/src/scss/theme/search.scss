@@ -1,0 +1,138 @@
+//
+// Component: Search
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Component
+// ========================================================================
+
+@mixin hook-inverse-component-search() {
+	
+	//
+	// Input
+	//
+	.uk-search-input {
+		color: $inverse-search-color;
+	}
+	
+	.uk-search-input:-ms-input-placeholder {
+		color: $inverse-search-placeholder-color !important;
+	}
+	.uk-search-input::placeholder {
+		color: $inverse-search-placeholder-color;
+	}
+	
+	//
+	// Icon
+	//
+	.uk-search .uk-search-icon {
+		color: $inverse-search-icon-color;
+	}
+	.uk-search .uk-search-icon:hover {
+		color: $inverse-search-icon-color;
+	}
+	
+	//
+	// Style modifier
+	//
+	.uk-search-default .uk-search-input {
+		background-color: $inverse-search-default-background;
+		@if (mixin-exists(hook-inverse-search-default-input)) {
+			@include hook-inverse-search-default-input();
+		}
+	}
+	.uk-search-default .uk-search-input:focus {
+		background-color: $inverse-search-default-background;
+		@if (mixin-exists(hook-inverse-search-default-input-focus)) {
+			@include hook-inverse-search-default-input-focus();
+		}
+	}
+	
+	.uk-search-navbar .uk-search-input {
+		background-color: $inverse-search-navbar-background;
+		@if (mixin-exists(hook-inverse-search-navbar-input)) {
+			@include hook-inverse-search-navbar-input();
+		}
+	}
+	
+	.uk-search-large .uk-search-input {
+		background-color: $inverse-search-large-background;
+		@if (mixin-exists(hook-inverse-search-large-input)) {
+			@include hook-inverse-search-large-input();
+		}
+	}
+	
+	//
+	// Toggle
+	//
+	.uk-search-toggle {
+		color: $inverse-search-toggle-color;
+		@if (mixin-exists(hook-inverse-search-toggle)) {
+			@include hook-inverse-search-toggle();
+		}
+	}
+	
+	.uk-search-toggle:hover,
+	.uk-search-toggle:focus {
+		color: $inverse-search-toggle-hover-color;
+		@if (mixin-exists(hook-inverse-search-toggle-hover)) {
+			@include hook-inverse-search-toggle-hover();
+		}
+	}
+	
+}
+
+// @mixin hook-search-input(){}
+
+// Default modifiers
+// ========================================================================
+
+@mixin hook-search-default-input() {
+	border: $search-default-border-width solid $search-default-border;
+}
+
+// Navbar modifiers
+// ========================================================================
+
+// @mixin hook-search-navbar-input(){}
+
+// @mixin hook-search-default-input-focus(){}
+
+// Large modifiers
+// ========================================================================
+
+// @mixin hook-search-large-input(){}
+
+// Toggle
+// ========================================================================
+
+// @mixin hook-search-toggle(){}
+
+// @mixin hook-search-toggle-hover(){}
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-search-misc(){}
+
+
+// Inverse
+// ========================================================================
+
+$inverse-search-default-background: transparent !default;
+
+// @mixin hook-inverse-search-default-input-focus(){}
+
+// @mixin hook-inverse-search-navbar-input(){}
+
+// @mixin hook-inverse-search-large-input(){}
+
+// @mixin hook-inverse-search-toggle(){}
+// @mixin hook-inverse-search-toggle-hover(){}
+
+@mixin hook-inverse-search-default-input() {
+	border-color: $inverse-global-border;
+}

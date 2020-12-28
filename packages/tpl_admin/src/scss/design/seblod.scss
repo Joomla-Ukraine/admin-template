@@ -1,0 +1,127 @@
+
+body .cck_button {
+	height: 25px !important;
+	width: 25px !important;
+	margin: 0 5px;
+}
+
+.cck_page_list {
+	@extend .uk-section-default;
+	@extend .uk-box-shadow-medium;
+	@extend .uk-padding-small;
+}
+
+th .hasTooltip {
+	white-space: nowrap !important;
+	display: block;
+	min-width: 60px;
+}
+
+.hasTooltip > span {
+	float: left;
+}
+
+aside.cck_cgx_button {
+	width: auto;
+	white-space: nowrap;
+}
+
+// image
+.cck_form_upload_image {
+	@extend .uk-text-center;
+	@extend .uk-margin-small-top;
+}
+
+.cck_upload_image .cck_form_upload_image .uk-input {
+	width: 100%;
+}
+
+// Group X
+.cck_form_group_x {
+	@extend .uk-card;
+	@extend .tm-card-flat-border;
+	@extend .uk-padding-small;
+	margin: 5px;
+}
+
+.cck_forms {
+	@extend .uk-margin;
+	margin: 5px;
+}
+
+.horizontal_gx {
+	position: relative;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	
+	.cck_cgx_form {
+		float: none;
+	}
+	
+	.cck_label {
+		@extend .uk-form-label;
+	}
+	
+	.cck_forms {
+		@extend .uk-form-small;
+	}
+	
+	.select {
+		@extend .uk-select;
+	}
+}
+
+// File X
+.collection-group-wrap {
+	@extend .uk-card;
+	@extend .tm-card-flat-border;
+	@extend .uk-margin;
+	@extend .uk-padding-small;
+	@extend .uk-display-block;
+	@extend .uk-overflow-hidden;
+	border-bottom: 0 none !important;
+	
+	.cck_upload_image,
+	.cck_label_upload_image {
+		@extend .uk-margin-small;
+		clear: both;
+	}
+	
+	.cck_form_upload_image input.inputbox {
+		@extend .uk-input;
+	}
+	
+	.collection-group-form,
+	.collection-group-button {
+		width: 100%;
+	}
+}
+
+.collection-group-button {
+	padding-top: 6px!important;
+	float: right!important;
+}
+
+.collection-group-button .icon-minus,
+.collection-group-button .icon-plus,
+.collection-group-button .icon-circle {
+	width: 20px;
+	height: 20px;
+	float: left;
+	@extend .uk-margin-small-right;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+.collection-group-button .icon-minus {
+	//.svg-fill("../../images/backgrounds/minus-circle.svg", "#000", @global-danger-background);
+}
+
+.collection-group-button .icon-plus {
+	//.svg-fill("../../images/backgrounds/plus-circle.svg", "#000", @global-success-background);
+}
+
+.collection-group-button .icon-circle {
+	//.svg-fill("../../images/backgrounds/move.svg", "#000", @global-primary-background);
+}

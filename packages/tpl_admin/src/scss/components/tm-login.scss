@@ -1,0 +1,11 @@
+
+.tm-login-button {
+  border: 1px solid $color-bluelight;
+  color: $global-link-color;
+
+  &:hover {
+    color: $global-link-color;
+    border: 1px solid $global-link-color;
+  }
+}
+

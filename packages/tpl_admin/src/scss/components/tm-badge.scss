@@ -1,0 +1,97 @@
+.tm-badge {
+	position: relative;
+	padding: 2px 7px 2px 19px;
+	border-radius: 500px;
+	font-size: 0.8125rem;
+	
+	&:before {
+		content: '';
+		width: 7px;
+		height: 7px;
+		position: absolute;
+		top: calc(50% - 3px);
+		left: 7px;
+		border-radius: 500px;
+	}
+}
+
+.tm-badge-grey {
+	background: lighten($color-grey, 50%);
+	color: $color-blue;
+	
+	&:before {
+		background: $color-greylight;
+	}
+}
+
+.tm-badge-blue {
+	background: $color-bluelighten;
+	color: $color-blue;
+	
+	&:before {
+		background:$color-blue;
+	}
+}
+
+.tm-badge-purple {
+	background: $color-purplelight;
+	color: $color-purple;
+	
+	&:before {
+		background: $color-purple;
+	}
+}
+
+.tm-badge-dpurple {
+	background: $color-dpurplelight;
+	color: $color-dpurple;
+	
+	&:before {
+		background: $color-dpurple;
+	}
+}
+
+.tm-badge-red {
+	background: $color-redlight;
+	color: $color-red;
+	
+	&:before {
+		background: $color-red;
+	}
+}
+
+.tm-badge-orange {
+	background: $color-orangelight;
+	color: $color-orange;
+	
+	&:before {
+		background: $color-orange;
+	}
+}
+
+.tm-badge-teal {
+	background: $color-teallight;
+	color: $color-teal;
+	
+	&:before {
+		background: $color-teal;
+	}
+}
+
+.tm-badge-brown {
+	background: $color-brownlight;
+	color: $color-brown;
+	
+	&:before {
+		background: $color-brown;
+	}
+}
+
+.tm-badge-green {
+	background: $color-greenlight;
+	color: $color-green;
+	
+	&:before {
+		background: $color-green;
+	}
+}

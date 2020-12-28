@@ -1,0 +1,87 @@
+//
+// Component: Utility
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Panel
+// ========================================================================
+
+// @mixin hook-panel-scrollable(){}
+
+
+// Box-shadow bottom
+// ========================================================================
+
+// @mixin hook-box-shadow-bottom(){}
+
+
+// Drop cap
+// ========================================================================
+
+@mixin hook-dropcap() {
+	margin-bottom: -2px;
+	color: $color-bluelight;
+	margin-right: 2px;
+	float: inherit;
+	font-size: $dropcap-font-size;
+	@extend %tm-font-semibold;
+}
+
+
+// Logo
+// ========================================================================
+
+// @mixin hook-logo(){}
+
+// @mixin hook-logo-hover(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-utility-misc(){}
+
+
+// Inverse
+// ========================================================================
+
+@mixin hook-inverse-component-utility() {
+	
+	.uk-dropcap::first-letter,
+	.uk-dropcap p:first-of-type::first-letter {
+		@if (mixin-exists(hook-inverse-dropcap)) {
+			@include hook-inverse-dropcap();
+		}
+	}
+	
+	.uk-logo {
+		color: $inverse-logo-color;
+		@if (mixin-exists(hook-inverse-logo)) {
+			@include hook-inverse-logo();
+		}
+	}
+	
+	.uk-logo:hover,
+	.uk-logo:focus {
+		color: $inverse-logo-hover-color;
+		@if (mixin-exists(hook-inverse-logo-hover)) {
+			@include hook-inverse-logo-hover();
+		}
+	}
+	
+	.uk-logo > :not(.uk-logo-inverse):not(:only-of-type) {
+		display: none;
+	}
+	.uk-logo-inverse {
+		display: inline;
+	}
+	
+}
+
+// @mixin hook-inverse-dropcap(){}
+
+// @mixin hook-inverse-logo(){}
+// @mixin hook-inverse-logo-hover(){}

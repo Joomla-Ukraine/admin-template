@@ -1,0 +1,46 @@
+//
+// Component: Badge
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Component
+// ========================================================================
+
+// @mixin hook-badge(){}
+
+// @mixin hook-badge-hover(){}
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-badge-misc(){}
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-badge(){}
+// @mixin hook-inverse-badge-hover(){}
+
+@mixin hook-inverse-component-badge() {
+	
+	.uk-badge {
+		background-color: $inverse-badge-background;
+		color: $inverse-badge-color;
+		@if (mixin-exists(hook-inverse-badge)) {
+			@include hook-inverse-badge();
+		}
+	}
+	
+	.uk-badge:hover,
+	.uk-badge:focus {
+		color: $inverse-badge-hover-color;
+		@if (mixin-exists(hook-inverse-badge-hover)) {
+			@include hook-inverse-badge-hover();
+		}
+	}
+	
+}

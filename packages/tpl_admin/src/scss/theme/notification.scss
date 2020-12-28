@@ -1,0 +1,58 @@
+//
+// Component: Notification
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Component
+// ========================================================================
+
+@mixin hook-notification(){
+	@extend .uk-box-shadow-medium;
+	@extend .uk-background-default;
+	@extend .uk-padding-small;
+	@extend .uk-border-rounded;
+}
+
+// Message
+// ========================================================================
+
+// @mixin hook-notification-message(){}
+
+// Close
+// ========================================================================
+
+@mixin hook-notification-close() {
+	color: $global-inverse-color !important;
+}
+
+.uk-notification-message .uk-notification-close,
+.uk-notification-message:hover .uk-notification-close {
+	@include hook-notification-close;
+}
+
+// Style modifiers
+// ========================================================================
+
+@mixin hook-notification-message-primary() {
+
+}
+
+@mixin hook-notification-message-success() {
+
+}
+
+@mixin hook-notification-message-warning() {
+
+}
+
+@mixin hook-notification-message-danger() {
+
+}
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-notification-misc(){}

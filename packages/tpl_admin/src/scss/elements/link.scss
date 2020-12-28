@@ -1,0 +1,28 @@
+// Link
+
+a.uk-display-block,
+a.tm-display-block {
+	overflow: hidden;
+}
+
+.tm-display-block {
+	display: block !important;
+}
+
+.tm-link {
+	color: $color-blue;
+	
+	&:hover {
+		color: $color-link-hover;
+	}
+	
+	&:active {
+		color: $color-link-hover;
+	}
+}
+
+.tm-link-dotted {
+	padding-bottom: 1px;
+	border-bottom: 1px dashed $color-greylight;
+}
+

@@ -1,0 +1,110 @@
+//
+// Component: Icon
+//
+// ========================================================================
+
+@mixin hook-icon-button() {
+	border: 1px solid $color-greylight;
+	background: transparent;
+	transition: 0.1s ease-in-out;
+	transition-property: color, background-color;
+}
+
+// Variables
+// ========================================================================
+
+// Style modifiers
+// ========================================================================
+
+//
+// Link
+//
+
+//@mixin hook-icon-link(){}
+
+// @mixin hook-icon-link-hover(){}
+
+// @mixin hook-icon-link-active(){}
+
+//
+// Button
+//
+
+// @mixin hook-icon-button-hover(){}
+
+// @mixin hook-icon-button-active(){}
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-icon-misc(){}
+
+// Inverse
+// ========================================================================
+
+@mixin hook-inverse-component-icon() {
+	
+	//
+	// Link
+	//
+	
+	.uk-icon-link {
+		color: $inverse-icon-link-color;
+		@if (mixin-exists(hook-inverse-icon-link)) {
+			@include hook-inverse-icon-link();
+		}
+	}
+	
+	.uk-icon-link:hover,
+	.uk-icon-link:focus {
+		color: $inverse-icon-link-hover-color;
+		@if (mixin-exists(hook-inverse-icon-link-hover)) {
+			@include hook-inverse-icon-link-hover();
+		}
+	}
+	
+	.uk-icon-link:active,
+	.uk-active > .uk-icon-link {
+		color: $inverse-icon-link-active-color;
+		@if (mixin-exists(hook-inverse-icon-link-active)) {
+			@include hook-inverse-icon-link-active();
+		}
+	}
+	
+	//
+	// Button
+	//
+	.uk-icon-button {
+		background-color: $inverse-icon-button-background;
+		color: $inverse-icon-button-color;
+		@if (mixin-exists(hook-inverse-icon-button)) {
+			@include hook-inverse-icon-button();
+		}
+	}
+	
+	.uk-icon-button:hover,
+	.uk-icon-button:focus {
+		background-color: $inverse-icon-button-hover-background;
+		color: $inverse-icon-button-hover-color;
+		@if (mixin-exists(hook-inverse-icon-button-hover)) {
+			@include hook-inverse-icon-button-hover();
+		}
+	}
+	
+	.uk-icon-button:active {
+		background-color: $inverse-icon-button-active-background;
+		color: $inverse-icon-button-active-color;
+		@if (mixin-exists(hook-inverse-icon-button-active)) {
+			@include hook-inverse-icon-button-active();
+		}
+	}
+	
+}
+
+// @mixin hook-inverse-icon-link(){}
+// @mixin hook-inverse-icon-link-hover(){}
+// @mixin hook-inverse-icon-link-active(){}
+
+// @mixin hook-inverse-icon-button(){}
+// @mixin hook-inverse-icon-button-hover(){}
+// @mixin hook-inverse-icon-button-active(){}

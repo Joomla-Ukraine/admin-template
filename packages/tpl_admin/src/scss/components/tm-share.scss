@@ -1,0 +1,163 @@
+//
+// Share
+//
+
+$share-fb: #3b5998;
+$share-wa: #128c7e;
+$share-vi: #59267c;
+$share-tg: #0075af;
+$share-insta: #c32aa3;
+$share-yt: #bb0000;
+
+.tm-share {
+	
+	background: transparent;
+	
+	&:hover,
+	&:focus,
+	&:active,
+	> .uk-icon-button {
+		background-color: transparent;
+		opacity: .8;
+	}
+	
+}
+
+.uk-iconnav {
+	.tm-share-fb {
+		color: $share-fb;
+		border: 1px solid lighten($share-fb, 40%);
+		
+		&:hover,
+		&:focus,
+		&:active {
+			color: $share-fb;
+		}
+	}
+	
+	.tm-share-vi {
+		color: $share-vi;
+		border: 1px solid lighten($share-vi, 50%);
+		
+		&:hover,
+		&:focus,
+		&:active {
+			color: $share-vi;
+		}
+	}
+	
+	.tm-share-wa {
+		color: $share-wa;
+		border: 1px solid lighten($share-wa, 40%);
+		
+		&:hover,
+		&:focus,
+		&:active {
+			color: $share-wa;
+		}
+	}
+	
+	.tm-share-tg {
+		color: $share-tg;
+		border: 1px solid lighten($share-tg, 40%);
+		
+		&:hover,
+		&:focus,
+		&:active {
+			color: $share-tg;
+		}
+	}
+	
+	.tm-share-insta {
+		color: $share-insta;
+		
+		&:hover,
+		&:focus,
+		&:active {
+			color: $share-insta;
+		}
+	}
+	
+	.tm-share-yt {
+		color: $share-yt;
+		
+		&:hover,
+		&:focus,
+		&:active {
+			color: $share-yt;
+		}
+	}
+}
+
+.tm-social {
+	.tm-share-fb {
+		border: 1px solid $share-fb;
+	}
+	
+	.tm-share-tg {
+		border: 1px solid $share-tg;
+	}
+	
+	.tm-share-insta {
+		color: $share-insta;
+		border: 1px solid $share-insta;
+	}
+	
+	.tm-share-yt {
+		color: $share-yt;
+		border: 1px solid $share-yt;
+	}
+	
+	&:hover,
+	&:focus,
+	&:active,
+	> .uk-icon-button {
+		opacity: 1;
+	}
+}
+
+.uk-light {
+	.tm-share {
+		color: rgba(255, 255, 255, .7);
+		border: 1px solid rgba(255, 255, 255, .7);
+		
+		&:hover,
+		&:focus,
+		&:active,
+		> .uk-icon-button {
+			color: rgba(255, 255, 255, .9);
+			border: 1px solid rgba(255, 255, 255, .5);
+		}
+	}
+	
+}
+
+.tm-viber {
+	color: $share-vi;
+	
+	&:hover,
+	&:focus,
+	&:active {
+		color: $share-vi;
+	}
+}
+
+.tm-whatsapp {
+	color: $share-wa;
+	
+	&:hover,
+	&:focus,
+	&:active {
+		color: $share-wa;
+	}
+}
+
+.tm-skype {
+	color: #03A9F4;
+	
+	&:hover,
+	&:focus,
+	&:active {
+		color: #03A9F4;
+	}
+}

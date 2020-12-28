@@ -1,0 +1,70 @@
+//
+// Component: Modal
+//
+// ========================================================================
+
+// Variables
+// ========================================================================
+
+// Component
+// ========================================================================
+
+// @mixin hook-modal(){}
+
+@mixin hook-modal-header() {
+	border-bottom: $modal-header-border-width solid $modal-header-border;
+}
+
+@mixin hook-modal-footer() {
+	border-top: $modal-footer-border-width solid $modal-footer-border;
+}
+
+// Dialog
+// ========================================================================
+
+// @mixin hook-modal-dialog(){}
+
+// Full
+// ========================================================================
+
+// @mixin hook-modal-full(){}
+
+// Sections
+// ========================================================================
+
+// @mixin hook-modal-body(){}
+
+// Title
+// ========================================================================
+
+// @mixin hook-modal-title(){}
+
+// Close
+// ========================================================================
+
+@mixin hook-modal-close-full() {
+	top: 0;
+	right: 0;
+	padding: $modal-close-full-padding;
+	background: $modal-close-full-background;
+}
+
+// @mixin hook-modal-close(){}
+
+// @mixin hook-modal-close-hover(){}
+
+// @mixin hook-modal-close-default(){}
+
+// @mixin hook-modal-close-default-hover(){}
+
+// @mixin hook-modal-close-outside(){}
+
+// @mixin hook-modal-close-outside-hover(){}
+
+
+// @mixin hook-modal-close-full-hover(){}
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-modal-misc(){}

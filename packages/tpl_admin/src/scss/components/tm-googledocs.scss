@@ -1,0 +1,22 @@
+.doc-viewer {
+  width: calc(100% - 20px);
+  background: $color-blueultralight;
+  margin: 8px 0;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.docviewer {
+  width: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.docviewer_book {
+  height: 1100px;
+}
+
+.docviewer_album {
+  height: 540px;
+}

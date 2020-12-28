@@ -4,9 +4,9 @@
   "description": "Admin template",
   "main": "index.js",
   "scripts": {
-    "icons": "webpack --config webpack.config.icons.js --mode none --colors --progress && rm -r ../../app/sprite",
+    "icons": "webpack --config webpack.config.icons.js --mode none --colors --progress && rm -r ./assets/sprite",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production --colors --progress && webpack --config webpack.config.icons.js --mode none --colors --progress && rm -r ../../app/sprite",
+    "build": "webpack --mode production --colors --progress && webpack --config webpack.config.icons.js --mode none --colors --progress && rm -r ./assets/sprite",
     "watch_dev": "webpack --mode development --watch --colors",
     "watch_prod": "webpack --mode production --watch --colors",
     "npm update": "npm update"
