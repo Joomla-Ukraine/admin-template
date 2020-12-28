@@ -23,7 +23,7 @@ $data = (object) $displayData;
 	<div class="tm-sidebar-padding">
 
 		<h1 class="uk-h3 tm-logo uk-logo">
-			<a href="<?php echo Uri::base(); ?>" class="uk-link-reset" target="_blank">
+			<a href="<?php echo Uri::base(); ?>" class="uk-light" target="_blank">
 				<?php echo $data->logo; ?>
 			</a>
 		</h1>
