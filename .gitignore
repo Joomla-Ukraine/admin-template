@@ -1,3 +1,6 @@
 /.idea/
 /dist/
+/packages/tpl_admin/node_modules/
+/packages/tpl_admin/less/
+/packages/tpl_admin/package-lock.json
 phing-latest.phar
