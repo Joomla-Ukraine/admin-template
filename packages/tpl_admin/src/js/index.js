@@ -36,6 +36,13 @@ window.uikit_jcalendar_btn = ()=> {};
             })
         }
 
+        // Add uikit for cck image
+        if (document.querySelector('.cck_upload_image')) {
+            import(/* webpackChunkName: "module-cck-image" */ './modules/cck-image').then(module => {
+                module.default('.cck_upload_image');
+            })
+        }
+
         // Add user status
         if (document.querySelector('#status')) {
             import(/* webpackChunkName: "module-uk-status" */ './modules/status').then(module => {
