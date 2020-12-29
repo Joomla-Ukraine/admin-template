@@ -7,6 +7,7 @@ import "../scss/style.scss";
 import axios from "axios";
 
 window.axios = axios;
+window.uikit_jcalendar_btn = ()=> {};
 
 (
     () => {
@@ -23,8 +24,15 @@ window.axios = axios;
 
         // Add uikit checkbox
         if (document.querySelector('input[type=checkbox]')) {
-            import(/* webpackChunkName: "module-uk-checkbox" */ './modules/checkbox').then(module => {
+            import(/* webpackChunkName: "module-checkbox" */ './modules/checkbox').then(module => {
                 module.default('input[type=checkbox]');
+            })
+        }
+
+        // Add uikit for Joomla calendar
+        if (document.querySelector('.field-calendar')) {
+            import(/* webpackChunkName: "module-joomla-calendar" */ './modules/joomla-calendar').then(module => {
+                module.default();
             })
         }
 
