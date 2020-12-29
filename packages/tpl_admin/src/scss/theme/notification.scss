@@ -14,7 +14,13 @@
 // Message
 // ========================================================================
 
-// @mixin hook-notification-message(){}
+@mixin hook-notification-message(){
+	@extend .uk-margin-small;
+	//@extend .uk-box-shadow-medium;
+	//@extend .uk-background-default;
+	border-radius: 3px;
+	padding: 20px;
+}
 
 // Close
 // ========================================================================

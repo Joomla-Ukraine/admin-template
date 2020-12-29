@@ -18,6 +18,8 @@ $tm-global-font-size:                           16px;
 $color-white:                                   #fff;
 $color-black:                                   #666666;
 $color-blackdeep:                               #333333;
+$color-dark:                                    #232423;
+$color-dark-opacity:                            rgba($color-dark, .7);
 
 $color-steel:                                   #4f6976;
 $color-grey:                                    #8c9aa2;
@@ -25,48 +27,25 @@ $color-greydark:                                #4f6680;
 $color-greylight:                               #ddd;
 $color-greymuted:                               #999;
 $color-greysmoke:                               #f8f8f8;
+$color-greylighten:                             lighten($color-grey, 30%);
+$color-greywhite:                               #F5F6F7;
+$color-greysmokelight:                          #d5dce3;
 
 $color-blue:                                    #006ebf;
 $color-bluelight:                               #0f6ecd;
 $color-bluemuted:                               #337ab7;
 $color-bluedarked:                              #0F242E;
-
-$color-red:                                     #d9534f;
-$color-redlight:                                #FFEBEE; // del
-
-$color-green:                                   #26B99A;
-$color-greenlight:                              #CDFFCD; // del
-
-$color-orange:                                  #f0ad4e;
-$color-orangelight:                             #FFEDCA; // del
-
-
-////
-
-$color-dark:                                    #232423;
-$color-dark-opacity:                            rgba($color-dark, .7);
-$color-fullblack:                               #000;
-
-
-$color-greylighten:                             lighten($color-grey, 30%);
-$color-greywhite:                               #F5F6F7;
-$color-greysmokelight:                          #d5dce3;
-
-$color-gold:                                    #B2892D;
-$color-goldlight:                               #DAA520;
-$color-golddark:                                #6C5112;
 $color-bluedark:                                #004687;
 $color-bluelighten:                             #E4F2FF;
 $color-blueultralight:                          #F2F7FD;
-$color-yellow:                                  #FFBE0F;
 
+$color-red:                                     #d9534f;
+$color-green:                                   #26B99A;
+
+////
 $color-link:                                    $color-blue;
 $color-link-hover:                              $color-bluelight;
 $color-link-visited:                            #60009a;
-
-//
-// UIKit 3 new variables and variable overwrites
-//
 
 // Fonts
 $global-font-family:                            $tm-global-font-family;
@@ -111,13 +90,13 @@ $global-control-height:                         40px;
 $base-body-font-family:                         $tm-global-font-family;
 $base-body-background:                          #fafafa;
 $base-body-color:                               $color-blackdeep;
-$base-link-color:                               $color-bluedark;
-$base-link-text-decoration:                     none;
-$base-link-hover-color:                         $color-bluedark; //$color-blue;
+$base-link-color:                               $color-link;
+$base-link-text-decoration:                     underline;
+$base-link-hover-color:                         $color-link-hover;
 $base-link-hover-text-decoration:               none;
 $base-h5-font-size:                             17px;
 $base-ins-background:                           transparent;
-$base-heading-font-family:                      '#{$tm-font}';
+$base-heading-font-family:                      $global-font-family;
 $base-heading-font-weight:                      normal;
 $base-blockquote-footer-color:                  $color-grey;
 $base-em-color:                                 $global-color;
@@ -168,7 +147,7 @@ $alert-warning-color:                           $global-warning-background;
 $article-meta-color:                            $global-muted-color;
 $article-meta-link-color:                       $article-meta-color;
 $article-meta-link-hover-color:                 $global-color;
-$article-title-font-family:                     '#{$tm-font-bold}';
+$article-title-font-family:                     $global-font-family;
 $article-title-font-weight:                     300;
 $article-title-font-size:                       2.105rem;
 $article-title-line-height:                     1.1;
@@ -385,10 +364,10 @@ $nav-sublist-item-padding-vertical:              2px;
 $navbar-nav-item-font-size:                     $global-small-font-size;
 $navbar-nav-item-text-transform:                uppercase;
 $navbar-nav-item-height:                        46px;
-$navbar-nav-item-color:                         $color-gold;
-$navbar-nav-item-hover-color:                   $color-yellow;
-$navbar-nav-item-active-color:                  $color-yellow;
-$navbar-nav-item-onclick-color:                 $color-yellow;
+$navbar-nav-item-color:                         $color-steel;
+$navbar-nav-item-hover-color:                   $color-blue;
+$navbar-nav-item-active-color:                  $color-blue;
+$navbar-nav-item-onclick-color:                 $color-blue;
 $navbar-nav-item-font-family:                   $global-font-family;
 $navbar-dropdown-margin:                        15px;
 $navbar-dropdown-padding:                       25px;
@@ -402,9 +381,9 @@ $navbar-dropdown-grid-divider-border:           $navbar-dropdown-nav-divider-bor
 
 
 // Notification
-$notification-position:                         10px;
+$notification-position:                         20px;
 $notification-z-index:                          $global-z-index + 40;
-$notification-width:                            550px;
+$notification-width:                            450px;
 $notification-message-border:                   $notification-message-background;
 $notification-message-margin-top:               10px;
 $notification-message-padding:                  $global-small-gutter;
