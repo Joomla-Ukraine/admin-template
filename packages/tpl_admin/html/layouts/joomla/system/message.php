@@ -10,15 +10,17 @@
  * @license          GNU General Public License version 2 or later
  */
 
+use Joomla\CMS\Uri\Uri;
+
 defined('JPATH_BASE') or die;
 
-$msgList = $displayData['msgList'];
+$msgList = $displayData[ 'msgList' ];
 
-if (is_array($msgList) && !empty($msgList))
+if(is_array($msgList) && !empty($msgList))
 {
-	foreach ($msgList as $type => $msgs)
+	foreach($msgList as $type => $msgs)
 	{
-		switch ($type)
+		switch($type)
 		{
 			case 'message':
 				$_sfx  = 'success';
@@ -42,14 +44,14 @@ if (is_array($msgList) && !empty($msgList))
 				break;
 		}
 
-		if (!empty($msgs))
+		if(!empty($msgs))
 		{
 			$html = '<script>';
 			$html .= '(function(){document.addEventListener(\'DOMContentLoaded\', function(){';
 
-			foreach ($msgs as $msg)
+			foreach($msgs as $msg)
 			{
-				$html .= "UIkit.notification({message: '<span uk-icon=\"icon:" . $_icon . '; ratio: 0.92"></span> <span class="uk-text-middle">' . $msg . "</span>', status: '" . $_sfx . "', timeout : 5000, pos: 'top-center'});";
+				$html .= "UIkit.notification({message: '<div class=\"uk-grid uk-grid-small uk-flex-middle\" data-uk-grid><div class=\"uk-width-auto\"><svg width=\"25\" height=\"25\" aria-hidden=\"true\"><use xlink:href=\"" . Uri::base() . "templates/admin/assets/icons/icons.svg#$_icon\"></use></svg></div><div class=\"uk-width-expand\">$msg</div></div>', status: '$_sfx', timeout : 6000, pos: 'top-center'});";
 			}
 
 			$html .= '});})();';

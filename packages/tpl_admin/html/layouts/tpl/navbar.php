@@ -71,7 +71,7 @@ $data = (object) $displayData;
 							<a href="#" class="uk-padding-remove">
 								<span class="uk-inline uk-margin-small-right tm-status">
                                     <?php echo $data->avatar; ?>
-									<span id="status" data-enabled="true" data-interval="60000" class="tm-status-bull uk-position-top-right uk-label uk-label-success"></span>
+									<span id="status" class="tm-status-bull uk-position-top-right uk-label uk-label-success"></span>
 								</span>
 								<span class="uk-margin-small-right uk-visible@s"><?php echo($data->this->params->get('username', 0) == 0 ? $data->user->name : $data->user->email); ?></span>
 								<svg width="17" height="17" class="uk-visible@s" aria-hidden="true"><use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#chevron-down"></use></svg>

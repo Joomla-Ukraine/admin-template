@@ -78,7 +78,9 @@ $doc->addHeadLink(Uri::base(true) . 'templates/admin/assets/js/app.vendors.' . $
 
 // CSS
 $doc->addStyleSheet(Uri::base(true) . 'templates/admin/assets/css/app.main.' . $v . '.css');
+$doc->addStyleSheet(Uri::base(true) . 'templates/admin/assets/css/app.vendors.' . $v . '.css');
 $doc->addHeadLink(Uri::base(true) . 'templates/admin/assets/css/app.main.' . $v . '.css', 'preload', 'rel', [ 'as' => 'style' ]);
+$doc->addHeadLink(Uri::base(true) . 'templates/admin/assets/css/app.vendors.' . $v . '.css', 'preload', 'rel', [ 'as' => 'style' ]);
 
 // Plreload logos
 if($this->params->get('logo'))
