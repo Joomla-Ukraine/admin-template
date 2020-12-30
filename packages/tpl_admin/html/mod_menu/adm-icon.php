@@ -20,11 +20,10 @@ $tpl_params = $app->getTemplate(true)->params;
 ?>
 <ul class="tm-sidebar-nav uk-nav uk-nav-default">
 	<?php
-	foreach($list as $i => &$item) :
-
+	foreach($list as $i => &$item)
+	{
 		$class = '';
 		$attr  = '';
-
 		if(in_array($item->id, $path))
 		{
 			$class .= ' uk-active';
@@ -67,7 +66,7 @@ $tpl_params = $app->getTemplate(true)->params;
 		$icon = '';
 		if($item->anchor_css)
 		{
-			$icon = '<svg width="19" height="19" ' . ($item->level == 2 ? 'class="uk-margin-small-right uk-text-middle "' : '') . ' aria-hidden="true"><use xlink:href="' . Uri::base() . 'templates/admin/assets/icons/icons.svg#' . $item->anchor_css . '"></use></svg>';
+			$icon = '<svg width="20" height="20" ' . ($item->level == 2 ? 'class="uk-margin-small-right uk-text-middle "' : '') . ' aria-hidden="true"><use xlink:href="' . Uri::base() . 'templates/admin/assets/icons/icons.svg#' . $item->anchor_css . '"></use></svg>';
 		}
 
 		$adm_icon = '';
@@ -78,8 +77,8 @@ $tpl_params = $app->getTemplate(true)->params;
 
 		echo '<li' . $class . '>';
 
-		// Render the menu item.
-		switch($item->type) :
+		switch($item->type)
+		{
 			case 'separator':
 			case 'url':
 			case 'component':
@@ -89,7 +88,7 @@ $tpl_params = $app->getTemplate(true)->params;
 			default:
 				require JModuleHelper::getLayoutPath('mod_menu', 'adm-icon_url');
 				break;
-		endswitch;
+		}
 
 		if($item->deeper)
 		{
@@ -104,6 +103,6 @@ $tpl_params = $app->getTemplate(true)->params;
 		{
 			echo '</li>';
 		}
-	endforeach;
+	}
 	?>
 </ul>

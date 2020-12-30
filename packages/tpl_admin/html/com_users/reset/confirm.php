@@ -22,8 +22,8 @@ HTMLHelper::_('behavior.formvalidator');
 ?>
 <div class="reset-confirm<?php echo $this->pageclass_sfx ?>">
 
-	<form action="<?php echo Route::_('index.php?option=com_users&task=reset.confirm'); ?>" method="post"
-			class="form-validate form-horizontal well">
+	<form action="<?php echo Route::_('index.php?option=com_users&task=reset.confirm'); ?>" method="post" class="form-validate form-horizontal well">
+
 		<?php foreach($this->form->getFieldsets() as $fieldset) : ?>
 			<fieldset>
 				<p><?php echo Text::_($fieldset->label); ?></p>
@@ -45,6 +45,8 @@ HTMLHelper::_('behavior.formvalidator');
 				<button type="submit" class="btn btn-primary validate"><?php echo Text::_('JSUBMIT'); ?></button>
 			</div>
 		</div>
+
 		<?php echo HTMLHelper::_('form.token'); ?>
+
 	</form>
 </div>

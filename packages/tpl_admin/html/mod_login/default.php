@@ -10,39 +10,38 @@
  * @license          GNU General Public License version 2 or later
  */
 
-
 defined('_JEXEC') or die;
 
 require_once JPATH_SITE . '/components/com_users/helpers/route.php';
 
 ?>
 <form action="<?php echo JRoute::_(htmlspecialchars(JUri::getInstance()->toString()), true, $params->get('usesecure')); ?>" method="post" id="login-form" class="form-inline">
+
 	<?php if($params->get('pretext')) : ?>
 		<div class="pretext">
 			<p><?php echo $params->get('pretext'); ?></p>
 		</div>
 	<?php endif; ?>
+
 	<div class="userdata">
+
 		<div id="form-login-username" class="control-group">
 			<div class="controls">
 				<?php if(!$params->get('usetext')) : ?>
 					<div class="input-prepend">
 						<span class="add-on">
-							<span class="icon-user hasTooltip"
-									title="<?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?>"></span>
-							<label for="modlgn-username"
-									class="element-invisible"><?php echo JText::_('MOD_LOGIN_VALUE_USERNAME'); ?></label>
+							<span class="icon-user hasTooltip" title="<?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?>"></span>
+							<label for="modlgn-username" class="element-invisible"><?php echo JText::_('MOD_LOGIN_VALUE_USERNAME'); ?></label>
 						</span>
-						<input id="modlgn-username" type="text" name="username" class="input-small" tabindex="0"
-								size="18" placeholder="<?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?>" />
+						<input id="modlgn-username" type="text" name="username" class="input-small" tabindex="0" size="18" placeholder="<?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?>" />
 					</div>
 				<?php else: ?>
 					<label for="modlgn-username"><?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?></label>
-					<input id="modlgn-username" type="text" name="username" class="input-small" tabindex="0" size="18"
-							placeholder="<?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?>" />
+					<input id="modlgn-username" type="text" name="username" class="input-small" tabindex="0" size="18" placeholder="<?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?>" />
 				<?php endif; ?>
 			</div>
 		</div>
+
 		<div id="form-login-password" class="control-group">
 			<div class="controls">
 				<?php if(!$params->get('usetext')) : ?>

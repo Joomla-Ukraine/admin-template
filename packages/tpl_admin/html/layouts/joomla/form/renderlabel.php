@@ -11,24 +11,11 @@ defined('JPATH_BASE') or die;
 
 extract($displayData);
 
-/**
- * Layout variables
- * ---------------------
- * 	$text         : (string)  The label text
- * 	$description  : (string)  An optional description to use in a tooltip
- * 	$for          : (string)  The id of the input this label is for
- * 	$required     : (boolean) True if a required field
- * 	$classes      : (array)   A list of classes
- * 	$position     : (string)  The tooltip position. Bottom for alias
- */
-
 $classes = array_filter($classes);
 
 $id = $for . '-lbl';
-$title = '';
 
 $classes[] = 'uk-form-label';
-
 if ($required)
 {
 	$classes[] = 'required';

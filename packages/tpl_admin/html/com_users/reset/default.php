@@ -18,8 +18,9 @@ defined('_JEXEC') or die;
 
 ?>
 <div class="uk-article <?php echo $this->pageclass_sfx ?>">
-	<form id="user-registration" action="<?php echo Route::_('index.php?option=com_users&task=reset.request'); ?>"
-			method="post" class="form-validate uk-form">
+
+	<form id="user-registration" action="<?php echo Route::_('index.php?option=com_users&task=reset.request'); ?>" method="post" class="form-validate uk-form">
+
 		<?php foreach($this->form->getFieldsets() as $fieldset) : ?>
 			<div class="uk-margin">
 				<?php echo Text::_($fieldset->label); ?>
@@ -37,6 +38,8 @@ defined('_JEXEC') or die;
 		<div class="uk-margin">
 			<button type="submit" class="uk-button uk-button-primary validate"><?php echo Text::_('JSUBMIT'); ?></button>
 		</div>
+
 		<?php echo HTMLHelper::_('form.token'); ?>
 	</form>
+
 </div>
