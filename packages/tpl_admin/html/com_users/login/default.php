@@ -11,6 +11,7 @@
  */
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
@@ -20,14 +21,14 @@ defined('_JEXEC') or die;
 
 $cookieLogin = $this->user->get('cookieLogin');
 
-?>
-<?php if($this->user->get('guest') || !empty($cookieLogin)): ?>
-	<?php echo $this->loadTemplate('login'); ?>
-<?php else: ?>
-	<?php
-	$db   = Factory::getDBO();
-	$user = Factory::getUser();
+if(!$this->user->get('guest'))
+{
+	$db       = Factory::getDBO();
+	$user     = Factory::getUser();
+	$app      = Factory::getApplication('site');
+	$template = $app->getTemplate('tpl_admin');
 
+	// Avatar
 	$query = $db->getQuery(true);
 	$query->select('avatar');
 	$query->from('#__cck_store_item_users');
@@ -35,20 +36,58 @@ $cookieLogin = $this->user->get('cookieLogin');
 	$db->setQuery($query);
 	$_avatar = $db->loadResult();
 
+	// User groups
+	$grp_name = [];
+	foreach($user->groups as $group)
+	{
+		$query = $db->getQuery(true);
+		$query->select($db->quoteName('title'))->from('#__usergroups')->where($db->quoteName('id') . ' = ' . $db->quote((int) $group));
+		$db->setQuery($query);
+		$grp = $db->loadResult();
+
+		switch($group)
+		{
+			case '8':
+			case '7':
+				$color = '-danger';
+				break;
+			case '10':
+				$color = '-warning';
+				break;
+			case '11':
+				$color = '-success';
+				break;
+			case '2':
+				$color = '';
+				break;
+		}
+
+		$grp_name[] = '<span class="uk-label uk-label' . $color . ' uk-label-small">' . $grp . '</span>';
+	}
+
+	$profile = Route::_('index.php?option=com_users&view=profile&layout=edit');
+	if($template->params->get('edit_profile') == 1)
+	{
+		$profile = $template->params->get('edit_profile_link') . $user->id . '&return=' . base64_encode(JURI::base() . 'account');
+	}
+
 	if(!$_avatar)
 	{
 		$_avatar = 'templates/admin/images/user.svg';
 	}
 
 	$avatar = '<img src="' . $this->baseurl . '/' . $_avatar . '" class="uk-border-circle" width="110" alt="' . $user->name . '" title="' . $user->name . '">';
-
 	$logout = 'index.php?option=com_users&task=user.logout&' . Session::getFormToken() . '=1&return=' . base64_encode(URI::base() . 'account');
+}
 
-	?>
+?>
+<?php if($this->user->get('guest') || !empty($cookieLogin)): ?>
+	<?php echo $this->loadTemplate('login'); ?>
+<?php else: ?>
 	<div class="uk-card uk-card-small uk-card-default uk-card-body uk-margin">
-		<div class="uk-grid-divider uk-child-width-1-1@s uk-margin-medium uk-grid" uk-grid>
+		<div class="uk-grid-divider uk-child-width-1-1@s uk-margin-medium uk-grid" data-uk-grid>
 			<div class="uk-width-2-3@m uk-width-1-2@l uk-width-1-3@xl">
-				<ul class="uk-child-width-expand uk-grid-medium uk-grid" uk-grid>
+				<ul class="uk-child-width-expand uk-grid-medium uk-grid" data-uk-grid>
 					<li class="uk-width-auto uk-margin-small-right">
 						<?php echo $avatar; ?>
 					</li>
@@ -57,49 +96,8 @@ $cookieLogin = $this->user->get('cookieLogin');
 							<?php echo Text::_('TPL_ADMIN_HELLO'); ?>, <?php echo $user->name; ?>!
 						</h3>
 						<div class="uk-margin-small-top uk-margin">
-							<?php
-							$grp_name = [];
-							foreach($user->groups as $group)
-							{
-								$query = $db->getQuery(true);
-								$query->select($db->quoteName('title'))->from('#__usergroups')->where($db->quoteName('id') . ' = ' . $db->quote((int) $group));
-								$db->setQuery($query);
-								$grp = $db->loadResult();
-
-								switch($group)
-								{
-									case '8':
-									case '7':
-										$color = '-danger';
-										break;
-									case '10':
-										$color = '-warning';
-										break;
-									case '11':
-										$color = '-success';
-										break;
-									case '2':
-										$color = '';
-										break;
-								}
-
-								$grp_name[] = '<span class="uk-label uk-label' . $color . ' uk-label-small">' . $grp . '</span>';
-							}
-
-							echo implode(' ', $grp_name);
-
-							?>
+							<?php echo implode(' ', $grp_name); ?>
 							<div class="uk-margin-small">
-								<?php
-								$app      = Factory::getApplication('site');
-								$template = $app->getTemplate('tpl_admin');
-
-								$profile = Route::_('index.php?option=com_users&view=profile&layout=edit');
-								if($template->params->get('edit_profile') == 1)
-								{
-									$profile = $template->params->get('edit_profile_link') . $user->id . '&return=' . base64_encode(JURI::base() . 'account');
-								}
-								?>
 								<a href="<?php echo $profile; ?>" class="uk-button uk-button-default uk-button-small"><?php echo Text::_('TPL_ADMIN_PROFILE'); ?></a>
 							</div>
 						</div>
@@ -108,11 +106,11 @@ $cookieLogin = $this->user->get('cookieLogin');
 			</div>
 			<div class="uk-width-1-3@m uk-width-1-2@l uk-width-2-3@xl">
 				<?php
-				if($mods = JModuleHelper::getModules('account_slogin'))
+				if($mods = ModuleHelper::getModules('account_slogin'))
 				{
 					foreach($mods as $mod)
 					{
-						echo JModuleHelper::renderModule($mod, [ 'style' => 'ukDividerSmall2Green' ]);
+						echo ModuleHelper::renderModule($mod, [ 'style' => 'ukDividerSmall2Green' ]);
 					}
 				}
 				else
@@ -131,22 +129,22 @@ $cookieLogin = $this->user->get('cookieLogin');
 	</div>
 
 	<?php
-	if($mods = JModuleHelper::getModules('main_panel'))
+	if($mods = ModuleHelper::getModules('main_panel'))
 	{
 		echo '<div class="uk-card uk-card-small uk-card-default uk-card-body uk-margin">';
 		foreach($mods as $mod)
 		{
-			echo JModuleHelper::renderModule($mod, [ 'style' => 'main_panel' ]);
+			echo ModuleHelper::renderModule($mod, [ 'style' => 'main_panel' ]);
 		}
 		echo '</div>';
 	}
 
-	if($mods = JModuleHelper::getModules('account_main'))
+	if($mods = ModuleHelper::getModules('account_main'))
 	{
-		echo '<ul class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl uk-margin-medium uk-grid-medium uk-grid" uk-grid uk-height-match="target: > div > .uk-card">';
+		echo '<ul class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl uk-margin-medium uk-grid-medium uk-grid" data-uk-grid data-uk-height-match="target: > div > .uk-card">';
 		foreach($mods as $mod)
 		{
-			echo JModuleHelper::renderModule($mod, [ 'style' => 'main' ]);
+			echo ModuleHelper::renderModule($mod, [ 'style' => 'main' ]);
 		}
 		echo '</ul>';
 	}

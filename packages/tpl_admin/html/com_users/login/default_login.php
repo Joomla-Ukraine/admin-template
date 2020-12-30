@@ -109,17 +109,17 @@ HTMLHelper::_('behavior.formvalidator');
 	<?php echo JHtml::_('form.token'); ?>
 </form>
 <div class="uk-margin-top">
-	<ul class="uk-child-width-1-1@s uk-child-width-1-2@m uk-text-meta uk-text-center uk-flex uk-flex-center uk-grid-small" uk-grid>
+	<ul class="uk-child-width-1-1@s uk-child-width-1-2@m uk-text-meta uk-text-center uk-flex uk-flex-center uk-grid-small" data-uk-grid>
 		<li>
-			<a href="<?php echo Route::_('index.php?option=com_users&view=reset'); ?>">
-				<svg width="17" height="17" class="uk-text-muted" aria-hidden="true">
+			<a class="uk-text-muted tm-link" href="<?php echo Route::_('index.php?option=com_users&view=reset'); ?>">
+				<svg width="17" height="17" aria-hidden="true">
 					<use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#tm-key"></use>
 				</svg> <?php echo Text::_('COM_USERS_LOGIN_RESET'); ?>
 			</a>
 		</li>
 		<li>
-			<a href="<?php echo Route::_('index.php?option=com_users&view=remind'); ?>">
-				<svg width="17" height="17" class="uk-text-muted" aria-hidden="true">
+			<a class="uk-text-muted tm-link" href="<?php echo Route::_('index.php?option=com_users&view=remind'); ?>">
+				<svg width="17" height="17" aria-hidden="true">
 					<use xlink:href="<?php echo Uri::base(); ?>templates/admin/assets/icons/icons.svg#user"></use>
 				</svg> <?php echo Text::_('COM_USERS_LOGIN_REMIND'); ?>
 			</a>
