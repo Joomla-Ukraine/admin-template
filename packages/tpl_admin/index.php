@@ -41,7 +41,6 @@ $doc->addScriptDeclaration("jQuery(document).ready(function($){
     });
 });");
 
-$doc->addScript(Uri::base(true) . 'templates/admin/js/jq.js?' . $v);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>">

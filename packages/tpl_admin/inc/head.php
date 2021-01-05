@@ -15,7 +15,7 @@ use Joomla\CMS\Uri\Uri;
 
 defined('_JEXEC') or die;
 
-$v = '3.6.5.4';
+$v = '3.6.7.1';
 
 $db        = Factory::getDBO();
 $app       = Factory::getApplication();
