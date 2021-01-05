@@ -70,7 +70,7 @@
 
 .flatpickr-calendar.showTimeInput.hasTime .flatpickr-time {
 	height: 40px;
-	border-top: 1px solid $color-gold;
+	border-top: 1px solid $color-blue;
 }
 
 .flatpickr-calendar.noCalendar.hasTime .flatpickr-time {
@@ -133,12 +133,12 @@
 
 .flatpickr-months .flatpickr-prev-month:hover,
 .flatpickr-months .flatpickr-next-month:hover {
-	color: $color-gold;
+	color: $color-blue;
 }
 
 .flatpickr-months .flatpickr-prev-month:hover svg,
 .flatpickr-months .flatpickr-next-month:hover svg {
-	fill: $color-goldlight;
+	fill: $color-bluelight;
 }
 
 .flatpickr-months .flatpickr-prev-month svg,
@@ -385,21 +385,21 @@ span.flatpickr-weekday {
 .flatpickr-day.nextMonthDay:focus {
 	cursor: pointer;
 	outline: 0;
-	background: $color-goldlight;
-	border-color: $color-goldlight;
+	background: $color-bluelight;
+	border-color: $color-bluelight;
 	color: #fff;
 }
 
 .flatpickr-day.today {
-	border-color: $color-goldlight;
-	color: $color-gold;
+	border-color: $color-bluelight;
+	color: $color-blue;
 	font-family: $tm-font-semibold;
 }
 
 .flatpickr-day.today:hover,
 .flatpickr-day.today:focus {
-	border-color: $color-goldlight;
-	background: $color-goldlight;
+	border-color: $color-bluelight;
+	background: $color-bluelight;
 	color: #fff;
 }
 
@@ -421,10 +421,10 @@ span.flatpickr-weekday {
 .flatpickr-day.selected.nextMonthDay,
 .flatpickr-day.startRange.nextMonthDay,
 .flatpickr-day.endRange.nextMonthDay {
-	background: $color-goldlight;
+	background: $color-bluelight;
 	box-shadow: none;
 	color: #fff;
-	border-color: $color-goldlight;
+	border-color: $color-bluelight;
 }
 
 .flatpickr-day.selected.startRange,
@@ -442,7 +442,7 @@ span.flatpickr-weekday {
 .flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)),
 .flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)),
 .flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n+1)) {
-	box-shadow: -10px 0 0 $color-goldlight;
+	box-shadow: -10px 0 0 $color-bluelight;
 }
 
 .flatpickr-day.selected.startRange.endRange,
@@ -453,7 +453,7 @@ span.flatpickr-weekday {
 
 .flatpickr-day.inRange {
 	border-radius: 0;
-	box-shadow: -6px 0 0 $color-goldlight, 6px 0 0 $color-goldlight;
+	box-shadow: -6px 0 0 $color-bluelight, 6px 0 0 $color-bluelight;
 }
 
 .flatpickr-day.flatpickr-disabled,
