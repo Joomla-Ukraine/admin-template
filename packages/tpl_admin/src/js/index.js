@@ -50,5 +50,12 @@ window.uikit_jcalendar_btn = ()=> {};
             })
         }
 
+        // Add select
+        //if (document.querySelector('select')) {
+        //    import(/* webpackChunkName: "module-select" */ './modules/select').then(module => {
+       //         module.default('select');
+        //    })
+        //}
+
     }
 )();

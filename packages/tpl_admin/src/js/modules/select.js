@@ -2,8 +2,6 @@
 
 import Choices from "choices.js";
 
-import "choices.js/public/assets/styles/choices.css";
-
 /**
  * Add UIKIT3 checkbox class
  * @param elClass
