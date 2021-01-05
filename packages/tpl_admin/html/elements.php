@@ -22,7 +22,6 @@ function Module($position, $style = 'raw', $class)
 	$params   = [ 'style' => $style ];
 
 	$contents = '';
-
 	if(ModuleHelper::getModules($position))
 	{
 		$contents .= '<div' . ($class != '' ? ' class="' . $class . '"' : '') . '>';
