@@ -15,7 +15,7 @@ const isDevelopment = argv.mode === 'development',
 const distPath = path.join(__dirname, 'assets'),
     publicPath = process.env.ASSET_PATH || '/';
 
-const buildVersion = '3.6.5.4';
+const buildVersion = '3.6.7.1';
 
 const entry = {
         main: path.resolve(__dirname, './src/js/index.js'),

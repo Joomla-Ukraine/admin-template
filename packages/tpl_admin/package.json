@@ -47,12 +47,13 @@
     "webpack": "^4.44.2",
     "webpack-bundle-optimizer": "^1.0.2",
     "webpack-cli": "^3.3.12",
-    "webpack-merge-and-include-globally": "^2.1.26",
+    "webpack-merge-and-include-globally": "^2.2.2",
     "yargs": "^16.2.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "choices.js": "^9.0.1",
     "flatpickr": "^4.6.9",
-    "uikit": "^3.6.5"
+    "uikit": "^3.6.7"
   }
 }
