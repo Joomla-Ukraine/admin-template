@@ -12,16 +12,13 @@
 
 defined('_JEXEC') or die;
 
-$class = $item->anchor_title ? 'class="' . $item->anchor_title . '" ' : '';
-
+$class    = $item->anchor_title ? 'class="' . $item->anchor_title . '" ' : '';
+$linktype = $item->title;
 if($item->menu_image)
 {
 	$item->params->get('menu_text', 1) ? $linktype = '<img src="' . $item->menu_image . '" alt="' . $item->title . '" /><span class="image-title">' . $item->title . '</span> ' : $linktype = '<img src="' . $item->menu_image . '" alt="' . $item->title . '" />';
 }
-else
-{
-	$linktype = $item->title;
-}
+
 $flink = $item->flink;
 $flink = JFilterOutput::ampReplace(htmlspecialchars($flink));
 
@@ -31,7 +28,8 @@ if($item->parent && ($item->level == 1))
 	$caret = ' <i class="fa fa-caret-down" aria-hidden="true"></i>';
 }
 
-switch($item->browserNav) :
+switch($item->browserNav)
+{
 	default:
 	case 0:
 		?>
@@ -46,4 +44,4 @@ switch($item->browserNav) :
 		?><a <?php echo $class; ?>href="<?php echo $flink; ?>"
 		onclick="window.open(this.href,'targetWindow','<?php echo $options; ?>');return false;"><?php echo $icon; ?><?php echo $linktype . $adm_icon . $caret; ?></a><?php
 		break;
-endswitch;
+}
