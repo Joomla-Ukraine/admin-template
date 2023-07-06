@@ -6,42 +6,45 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$pagination-margin-horizontal: 3px;
+
 // Component
 // ========================================================================
 
 @mixin hook-pagination() {
-  padding: 0 !important;
+	padding: 0 !important;
 }
 
 // Items
 // ========================================================================
 
 @mixin hook-pagination-item() {
-  transition: color .1s ease-in-out;
-  box-sizing: border-box;
-  font-size: $global-font-size - 1.2;
-  width: $icon-button-size + 2;
-  height: $icon-button-size + 2;
-  vertical-align: middle;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: $icon-button-border-radius;
-  border: 1px solid #fff;
-  color: $color-blue;
+	align-items: center;
+	border: 1px solid #fff;
+	border-radius: $icon-button-border-radius;
+	box-sizing: border-box;
+	color: $color-primary;
+	display: inline-flex;
+	font-size: $global-font-size - 1.2;
+	font-family: $tm-font-semibold;
+	height: $icon-button-size + 2;
+	justify-content: center;
+	transition: color .1s ease-in-out;
+	vertical-align: middle;
+	width: $icon-button-size + 2;
 }
 
 @mixin hook-pagination-item-active() {
-  color: $color-blue;
-  font-family: $tm-font-semibold;
-  background: $color-blueultralight;
-  border: 1px solid $color-bluelight;
+	border: 1px solid $color-primary;
+	color: $color-primary;
 }
 
 @mixin hook-pagination-item-hover() {
-  color: $color-blue;
-  background: $color-blueultralight;
-  border: 1px solid $color-bluelighten;
+	border: 1px solid $color-primary;
+	color: $color-primary;
 }
 
 
@@ -63,36 +66,35 @@
 // ========================================================================
 
 @mixin hook-inverse-component-pagination() {
-
-  .uk-pagination > * > * {
-    color: $inverse-pagination-item-color;
-    @if (mixin-exists(hook-inverse-pagination-item)) {
-      @include hook-inverse-pagination-item();
-    }
-  }
-
-  .uk-pagination > * > :hover,
-  .uk-pagination > * > :focus {
-    color: $inverse-pagination-item-hover-color;
-    @if (mixin-exists(hook-inverse-pagination-item-hover)) {
-      @include hook-inverse-pagination-item-hover();
-    }
-  }
-
-  .uk-pagination > .uk-active > * {
-    color: $inverse-pagination-item-active-color;
-    @if (mixin-exists(hook-inverse-pagination-item-active)) {
-      @include hook-inverse-pagination-item-active();
-    }
-  }
-
-  .uk-pagination > .uk-disabled > * {
-    color: $inverse-pagination-item-disabled-color;
-    @if (mixin-exists(hook-inverse-pagination-item-disabled)) {
-      @include hook-inverse-pagination-item-disabled();
-    }
-  }
-
+	.uk-pagination > * > * {
+		color: $inverse-pagination-item-color;
+		@if (mixin-exists(hook-inverse-pagination-item)) {
+			@include hook-inverse-pagination-item();
+		}
+	}
+	
+	.uk-pagination > * > :hover,
+	.uk-pagination > * > :focus {
+		color: $inverse-pagination-item-hover-color;
+		@if (mixin-exists(hook-inverse-pagination-item-hover)) {
+			@include hook-inverse-pagination-item-hover();
+		}
+	}
+	
+	.uk-pagination > .uk-active > * {
+		color: $inverse-pagination-item-active-color;
+		@if (mixin-exists(hook-inverse-pagination-item-active)) {
+			@include hook-inverse-pagination-item-active();
+		}
+	}
+	
+	.uk-pagination > .uk-disabled > * {
+		color: $inverse-pagination-item-disabled-color;
+		@if (mixin-exists(hook-inverse-pagination-item-disabled)) {
+			@include hook-inverse-pagination-item-disabled();
+		}
+	}
+	
 }
 
 // @mixin hook-inverse-pagination-item(){}

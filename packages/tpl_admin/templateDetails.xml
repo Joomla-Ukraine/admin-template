@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.8"
+<extension version="4.0"
            type="template"
            client="site"
            method="upgrade">
     <name>admin</name>
-    <creationDate>@date@</creationDate>
+    <creationDate>10.01.2020</creationDate>
     <author>Denys Nosov</author>
     <authorEmail>denys@joomla-ua.org</authorEmail>
     <authorUrl>https://joomla-ua.org</authorUrl>
     <copyright>Denys Nosov</copyright>
     <license>commerce</license>
-    <version>@version@</version>
+    <version>1.10.0</version>
     <description>Front-end admin template</description>
 
     <files>
@@ -42,9 +42,6 @@
     <languages folder="language">
         <language tag="en-GB">en-GB/en-GB.tpl_admin.ini</language>
         <language tag="en-GB">en-GB/en-GB.tpl_admin.sys.ini</language>
-
-        <language tag="ru-RU">ru-RU/ru-RU.tpl_admin.ini</language>
-        <language tag="ru-RU">ru-RU/ru-RU.tpl_admin.sys.ini</language>
     </languages>
 
     <config>
@@ -91,28 +88,6 @@
 		                default=""
 		                filter="string"
                 />
-
-                <field
-		                name="but_stats"
-		                type="radio"
-		                class="btn-group"
-		                default="0"
-		                label="TPL_ADMIN_STATS"
-                >
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-
-                <field
-		                name="but_soc"
-		                type="radio"
-		                class="btn-group"
-		                default="0"
-		                label="TPL_ADMIN_SOCIAL"
-                >
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
 
                 <field
 		                name="username"
@@ -214,10 +189,7 @@
     <updateservers>
         <server type="extension"
                 priority="1"
-                name="admin"
-        >
-            https://joomla-ua.org/update/tmpl/admin.xml
-        </server>
+                name="admin">https://joomla-ua.org/update/tmpl/admin.xml</server>
     </updateservers>
 
 </extension>

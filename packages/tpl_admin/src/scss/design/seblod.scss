@@ -1,3 +1,27 @@
+.cck-pos-header {
+	.cck_cgx_form {
+		float: none !important;
+	}
+}
+
+.vanilla-calendar_to-input {
+	z-index: 1000;
+	@extend .uk-box-shadow-medium;
+}
+
+.visually-hidden {
+	display: none;
+}
+
+.tm-icon-button-danger {
+	@extend .uk-button-danger;
+}
+
+.tm-icon-button-danger:hover,
+.tm-icon-button-danger:focus {
+	background-color: $button-danger-hover-background;
+	color: $button-danger-hover-color;
+}
 
 body .cck_button {
 	height: 25px !important;
@@ -5,20 +29,50 @@ body .cck_button {
 	margin: 0 5px;
 }
 
-.cck_page_list {
-	@extend .uk-section-default;
-	@extend .uk-box-shadow-medium;
-	@extend .uk-padding-small;
+fieldset {
+	border: 0 none;
+	padding: 0;
 }
 
-th .hasTooltip {
-	white-space: nowrap !important;
+.icon-minus,
+.icon-plus,
+.icon-circle,
+.icon-menu,
+.icon-menu-2,
+.icon-arrow-down-3, .icon-arrow-up-3 {
+	height: 25px !important;
+	width: 25px !important;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
 	display: block;
-	min-width: 60px;
 }
 
-.hasTooltip > span {
-	float: left;
+.icon-minus {
+	@include svg-fill('~uikit/src/images/icons/minus-circle.svg', '#000', '#da2c2d');
+}
+
+.icon-plus {
+	@include svg-fill('~uikit/src/images/icons/plus-circle.svg', '#000', '#37b421');
+}
+
+.icon-circle {
+	@include svg-fill('~uikit/src/images/icons/move.svg', '#000', '#4f6976');
+}
+
+.icon-menu {
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle stroke=\'%23000\' cx=\'10\' cy=\'3\' r=\'2\' /%3E%3Ccircle stroke=\'%23000\' cx=\'10\' cy=\'10\' r=\'2\' /%3E%3Ccircle stroke=\'%23000\' cx=\'10\' cy=\'17\' r=\'2\' /%3E%3C/svg%3E', '#000', $global-link-color);
+}
+
+.icon-menu-2 {
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect fill=\'%23000\' x=\'6\' y=\'4\' width=\'12\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'6\' y=\'9\' width=\'12\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'6\' y=\'14\' width=\'12\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'2\' y=\'4\' width=\'2\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'2\' y=\'9\' width=\'2\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'2\' y=\'14\' width=\'2\' height=\'1\' /%3E%3C/svg%3E', '#000', $global-link-color);
+}
+
+.icon-arrow-down-3 {
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'5 7 15 7 10 12\' fill=\'%23000\' /%3E%3C/svg%3E', '#000', $global-link-color);
+}
+
+.icon-arrow-up-3 {
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'5 13 10 8 15 13\' fill=\'%23000\' /%3E%3C/svg%3E', '#000', $global-link-color);
 }
 
 aside.cck_cgx_button {
@@ -26,26 +80,18 @@ aside.cck_cgx_button {
 	white-space: nowrap;
 }
 
-// image
-.cck_form_upload_image {
-	@extend .uk-text-center;
-	@extend .uk-margin-small-top;
-}
-
-.cck_upload_image .cck_form_upload_image .uk-input {
-	width: 100%;
-}
-
 // Group X
 .cck_form_group_x {
 	@extend .uk-card;
 	@extend .tm-card-flat-border;
 	@extend .uk-padding-small;
+	
 	margin: 5px;
 }
 
 .cck_forms {
 	@extend .uk-margin;
+	
 	margin: 5px;
 }
 
@@ -56,7 +102,7 @@ aside.cck_cgx_button {
 	margin: 0;
 	
 	.cck_cgx_form {
-		float: none;
+		float: none !important;
 	}
 	
 	.cck_label {
@@ -80,11 +126,11 @@ aside.cck_cgx_button {
 	@extend .uk-padding-small;
 	@extend .uk-display-block;
 	@extend .uk-overflow-hidden;
-	border-bottom: 0 none !important;
 	
 	.cck_upload_image,
 	.cck_label_upload_image {
 		@extend .uk-margin-small;
+		
 		clear: both;
 	}
 	
@@ -98,9 +144,31 @@ aside.cck_cgx_button {
 	}
 }
 
+.cck_page_list {
+	@extend .uk-section-default;
+	@extend .uk-box-shadow-medium;
+	@extend .uk-padding-small;
+	@extend .uk-border-rounded;
+}
+
+// image
+.cck_form_upload_image {
+	@extend .uk-text-center;
+	@extend .uk-margin-small-top;
+}
+
+.cck_upload_image .cck_form_upload_image .uk-input {
+	width: 100%;
+}
+
+// field X
+.collection-group-wrap {
+	border-bottom: 0 none !important;
+}
+
 .collection-group-button {
-	padding-top: 6px!important;
-	float: right!important;
+	padding-top: 6px !important;
+	float: right !important;
 }
 
 .collection-group-button .icon-minus,
@@ -109,19 +177,21 @@ aside.cck_cgx_button {
 	width: 20px;
 	height: 20px;
 	float: left;
+	
 	@extend .uk-margin-small-right;
+	
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 }
 
 .collection-group-button .icon-minus {
-	//.svg-fill("../../images/backgrounds/minus-circle.svg", "#000", @global-danger-background);
+	@include svg-fill('~uikit/src/images/icons/minus-circle.svg', '#000', $global-danger-background);
 }
 
 .collection-group-button .icon-plus {
-	//.svg-fill("../../images/backgrounds/plus-circle.svg", "#000", @global-success-background);
+	@include svg-fill('~uikit/src/images/icons/plus-circle.svg', '#000', $color-primary);
 }
 
 .collection-group-button .icon-circle {
-	//.svg-fill("../../images/backgrounds/move.svg", "#000", @global-primary-background);
+	@include svg-fill('~uikit/src/images/icons/move.svg', '#000', $global-primary-background);
 }

@@ -1,31 +1,33 @@
-@import '~uikit/src/scss/variables';
 @import 'variables';
 
 // Import default variables and available mixins.
 @import 'mixins/font-face';
+@import 'mixins/svg';
 
 // Import Template
 @import 'elements/fonts';
+@import 'elements/content-visibility';
+@import 'elements/no-focus-outline';
 
 // Import UIkit
-@import 'import';
+@import 'theme/_import.scss';
+@import '~uikit/src/scss/components/_import.scss';
 
 // Design and elements
 @import 'design/design';
 @import 'design/seblod';
 
-@import 'elements/border';
-@import 'elements/button';
+@import 'elements/background';
 @import 'elements/colors';
-@import 'elements/form';
 @import 'elements/text';
+@import 'elements/margin';
+@import 'elements/padding';
+@import 'elements/button';
+@import 'elements/border';
+@import 'elements/figure';
+@import 'elements/responsive-embed';
+@import 'elements/screenreaders';
+@import 'elements/validate';
 
-@import 'components/tm-admin-button';
-@import 'components/tm-menu';
-@import 'components/tm-calendar';
-@import 'components/tm-image';
-@import 'components/tm-card';
-
-@import 'vendors/choices';
-
-@import 'design/responsive';
+@import 'components/menu';
+@import 'components/modules';

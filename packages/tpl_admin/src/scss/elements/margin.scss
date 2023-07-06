@@ -1,0 +1,23 @@
+.tm-margin-xsmall {
+  margin-bottom: 5px;
+}
+
+* + .tm-margin-xsmall {
+  margin-top: 5px !important;
+}
+
+.tm-margin-xsmall-top {
+  margin-top: 5px !important;
+}
+
+.tm-margin-xsmall-bottom {
+  margin-bottom: 5px !important;
+}
+
+.tm-margin-xsmall-left {
+  margin-left: 5px !important;
+}
+
+.tm-margin-xsmall-right {
+  margin-right: 5px !important;
+}

@@ -1,0 +1,35 @@
+@import '../variables.scss';
+
+$choices-selector: 'choices' !default;
+$choices-font-size-lg: 16px !default;
+$choices-font-size-md: 14px !default;
+$choices-font-size-sm: 12px !default;
+$choices-guttering: 24px !default;
+$choices-border-radius: 2.5px !default;
+$choices-border-radius-item: 20px !default;
+$choices-bg-color: #f9f9f9 !default;
+$choices-bg-color-disabled: #eaeaea !default;
+$choices-bg-color-dropdown: #fff !default;
+$choices-text-color: #333 !default;
+$choices-keyline-color: #ddd !default;
+$choices-primary-color: $color-primary;
+$choices-disabled-color: #eaeaea !default;
+$choices-highlight-color: $color-primary;
+$choices-button-dimension: 8px !default;
+$choices-button-offset: 8px !default;
+$choices-z-index: 10000;
+
+@import '~choices.js/src/styles/choices.scss';
+
+.#{$choices-selector}__list--single {
+	padding: 1px 16px 4px 4px;
+}
+
+.#{$choices-selector}__placeholder {
+	opacity: .9;
+}
+
+%choices-dropdown {
+	width: calc(100% - 2px);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}

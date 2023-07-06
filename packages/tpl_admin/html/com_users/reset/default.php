@@ -1,45 +1,42 @@
 <?php
 /**
- * Admin Template
+ * Seblod Admin Template
  *
- * @package          Joomla.Site
- * @subpackage       admin
+ * @version       2.x
+ * @package       admin
+ * @author        Denys D. Nosov (denys@joomla-ua.org)
+ * @copyright (C) 2018-2023 by Denys D. Nosov (https://joomla-ua.org)
+ * @license       GNU General Public License version 2 or later; see LICENSE.md
  *
- * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
- * @license          GNU General Public License version 2 or later
- */
+ **/
+
+defined('_JEXEC') or die;
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 
-defined('_JEXEC') or die;
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = $this->document->getWebAssetManager();
+$wa->useScript('keepalive')->useScript('form.validate');
 
 ?>
-<div class="uk-article <?php echo $this->pageclass_sfx ?>">
+<div class="uk-article com-users-reset reset">
 
-	<form id="user-registration" action="<?php echo Route::_('index.php?option=com_users&task=reset.request'); ?>" method="post" class="form-validate uk-form">
+	<form id="user-registration" action="<?php echo Route::_('index.php?option=com_users&task=reset.request'); ?>" method="post" class="com-users-reset__form form-validate uk-form">
 
 		<?php foreach($this->form->getFieldsets() as $fieldset) : ?>
-			<div class="uk-margin">
-				<?php echo Text::_($fieldset->label); ?>
-			</div>
-			<div class="uk-margin">
-				<?php foreach($this->form->getFieldset($fieldset->name) as $name => $field) : ?>
-					<?php echo $field->label; ?>
-					<div class="uk-form-controls">
-						<?php echo $field->input; ?>
-					</div>
-				<?php endforeach; ?>
-			</div>
+			<?php if(isset($fieldset->label)) : ?>
+				<legend><?php echo Text::_($fieldset->label); ?></legend>
+			<?php endif; ?>
+			<?php echo $this->form->renderFieldset($fieldset->name); ?>
 		<?php endforeach; ?>
 
-		<div class="uk-margin">
-			<button type="submit" class="uk-button uk-button-primary validate"><?php echo Text::_('JSUBMIT'); ?></button>
+		<div class="com-users-reset__submit uk-margin">
+			<button type="submit" class="uk-button uk-button-primary validate">
+				<?php echo Text::_('JSUBMIT'); ?>
+			</button>
 		</div>
-
 		<?php echo HTMLHelper::_('form.token'); ?>
 	</form>
-
 </div>

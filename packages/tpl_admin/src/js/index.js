@@ -1,61 +1,70 @@
 "use strict";
 
 //  SCSS
-import "../scss/style.scss";
+import '../scss/style.scss';
 
 // JS
-import axios from "axios";
+import focusOutline from '@denysdesign/js-focus-outline';
+import status from './modules/status';
 
-window.axios = axios;
-window.uikit_jcalendar_btn = ()=> {};
+(() => {
+    document.addEventListener('DOMContentLoaded', () => {
 
-(
-    () => {
+        // Focus outline
+        focusOutline();
+        status();
 
-        // Add Button Cache
-        document.getElementById('remove_cache')
-            .addEventListener('click', function (e) {
-                e.preventDefault();
-
-                import(/* webpackChunkName: "module-button-cache" */ './modules/button-cache').then(module => {
-                    module.default();
-                })
-            });
-
-        // Add uikit checkbox
-        if (document.querySelector('input[type=checkbox]')) {
-            import(/* webpackChunkName: "module-checkbox" */ './modules/checkbox').then(module => {
-                module.default('input[type=checkbox]');
-            })
-        }
-
-        // Add uikit for Joomla calendar
-        if (document.querySelector('.field-calendar')) {
-            import(/* webpackChunkName: "module-joomla-calendar" */ './modules/joomla-calendar').then(module => {
+        if (document.querySelector('#system.cck_page_list')) {
+            import(
+                /* webpackChunkName: "m-seb-list" */
+                './modules/seb_list').then(module => {
                 module.default();
             })
         }
 
-        // Add uikit for cck image
+        if (document.querySelector('.js-calendar')) {
+            import(
+                /* webpackMode: "lazy" */
+                /* webpackPrefetch: true */
+                /* webpackPreload: true */
+                /* webpackChunkName: "m-js-calendar" */
+                './modules/calendar').then(module => {
+                module.default();
+            })
+        }
+
+        if (document.querySelector('.js-select')) {
+            import(
+                /* webpackMode: "lazy" */
+                /* webpackPrefetch: true */
+                /* webpackPreload: true */
+                /* webpackChunkName: "m-js-select" */
+                './modules/choices').then(module => {
+                module.default();
+            })
+        }
+
+        if (document.querySelector('.js-tags')) {
+            import(
+                /* webpackMode: "lazy" */
+                /* webpackPrefetch: true */
+                /* webpackPreload: true */
+                /* webpackChunkName: "m-js-tags" */
+                './modules/tags').then(module => {
+                module.default();
+            })
+        }
+
         if (document.querySelector('.cck_upload_image')) {
-            import(/* webpackChunkName: "module-cck-image" */ './modules/cck-image').then(module => {
-                module.default('.cck_upload_image');
+            import(
+                /* webpackMode: "lazy" */
+                /* webpackPrefetch: true */
+                /* webpackPreload: true */
+                /* webpackChunkName: "m-js-image" */
+                './modules/seb_image').then(module => {
+                module.default();
             })
         }
 
-        // Add user status
-        if (document.querySelector('#status')) {
-            import(/* webpackChunkName: "module-uk-status" */ './modules/status').then(module => {
-                module.default('status');
-            })
-        }
-
-        // Add select
-        //if (document.querySelector('select')) {
-        //    import(/* webpackChunkName: "module-select" */ './modules/select').then(module => {
-       //         module.default('select');
-        //    })
-        //}
-
-    }
-)();
+    });
+})();

@@ -4,8 +4,8 @@
 // ========================================================================
 
 @mixin hook-close() {
-	transition: 0.1s ease-in-out;
-	transition-property: color, opacity;
+  transition: 0.1s ease-in-out;
+  transition-property: color, opacity;
 }
 
 // Variables
@@ -28,20 +28,19 @@
 // @mixin hook-inverse-close-hover(){}
 
 @mixin hook-inverse-component-close() {
-	
-	.uk-close {
-		color: $inverse-close-color;
-		@if (mixin-exists(hook-inverse-close)) {
-			@include hook-inverse-close();
-		}
-	}
-	
-	.uk-close:hover,
-	.uk-close:focus {
-		color: $inverse-close-hover-color;
-		@if (mixin-exists(hook-inverse-close-hover)) {
-			@include hook-inverse-close-hover();
-		}
-	}
-	
+  .uk-close {
+    color: $inverse-close-color;
+    @if (mixin-exists(hook-inverse-close)) {
+      @include hook-inverse-close();
+    }
+  }
+  
+  .uk-close:hover,
+  .uk-close:focus {
+    color: $inverse-close-hover-color;
+    @if (mixin-exists(hook-inverse-close-hover)) {
+      @include hook-inverse-close-hover();
+    }
+  }
+  
 }

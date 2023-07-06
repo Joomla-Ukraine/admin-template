@@ -10,7 +10,7 @@
 // ========================================================================
 
 @mixin hook-slidenav() {
-	transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
 }
 
 // @mixin hook-slidenav-hover(){}
@@ -43,29 +43,28 @@
 // ========================================================================
 
 @mixin hook-inverse-component-slidenav() {
-	
-	.uk-slidenav {
-		color: $inverse-slidenav-color;
-		@if (mixin-exists(hook-inverse-slidenav)) {
-			@include hook-inverse-slidenav();
-		}
-	}
-	
-	.uk-slidenav:hover,
-	.uk-slidenav:focus {
-		color: $inverse-slidenav-hover-color;
-		@if (mixin-exists(hook-inverse-slidenav-hover)) {
-			@include hook-inverse-slidenav-hover();
-		}
-	}
-	
-	.uk-slidenav:active {
-		color: $inverse-slidenav-active-color;
-		@if (mixin-exists(hook-inverse-slidenav-active)) {
-			@include hook-inverse-slidenav-active();
-		}
-	}
-	
+  .uk-slidenav {
+    color: $inverse-slidenav-color;
+    @if (mixin-exists(hook-inverse-slidenav)) {
+      @include hook-inverse-slidenav();
+    }
+  }
+  
+  .uk-slidenav:hover,
+  .uk-slidenav:focus {
+    color: $inverse-slidenav-hover-color;
+    @if (mixin-exists(hook-inverse-slidenav-hover)) {
+      @include hook-inverse-slidenav-hover();
+    }
+  }
+  
+  .uk-slidenav:active {
+    color: $inverse-slidenav-active-color;
+    @if (mixin-exists(hook-inverse-slidenav-active)) {
+      @include hook-inverse-slidenav-active();
+    }
+  }
+  
 }
 
 // @mixin hook-inverse-slidenav(){}

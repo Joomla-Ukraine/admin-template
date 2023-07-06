@@ -6,6 +6,11 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$badge-font-size:                               12px;
+
 // Component
 // ========================================================================
 
@@ -24,23 +29,3 @@
 
 // @mixin hook-inverse-badge(){}
 // @mixin hook-inverse-badge-hover(){}
-
-@mixin hook-inverse-component-badge() {
-	
-	.uk-badge {
-		background-color: $inverse-badge-background;
-		color: $inverse-badge-color;
-		@if (mixin-exists(hook-inverse-badge)) {
-			@include hook-inverse-badge();
-		}
-	}
-	
-	.uk-badge:hover,
-	.uk-badge:focus {
-		color: $inverse-badge-hover-color;
-		@if (mixin-exists(hook-inverse-badge-hover)) {
-			@include hook-inverse-badge-hover();
-		}
-	}
-	
-}

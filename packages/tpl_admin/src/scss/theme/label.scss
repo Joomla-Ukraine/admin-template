@@ -6,6 +6,13 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$label-border-radius: 2px;
+$label-text-transform: uppercase;
+$label-font-size: 0.75rem;
+
 // Component
 // ========================================================================
 
@@ -32,7 +39,6 @@
 // ========================================================================
 
 @mixin hook-inverse-component-label() {
-	
 	.uk-label {
 		background-color: $inverse-label-background;
 		color: $inverse-label-color;

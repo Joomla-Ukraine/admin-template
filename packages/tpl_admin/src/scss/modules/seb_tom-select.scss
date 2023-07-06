@@ -1,0 +1,111 @@
+@import '../variables.scss';
+
+$select-color-item: rgba($color-primary, .05);
+$select-color-item-text: darken($color-primary, 15%);
+$select-color-item-active-text: $color-primary;
+$select-color-item-border: $color-primary;
+$select-color-item-active: $color-primary-dark;
+$select-color-item-active-border: $color-primary-dark;
+$select-width-item-border: 1px;
+$select-font-size: 14px;
+$select-line-height: 20px;
+$select-color-dropdown-item-active: $select-color-item;
+$select-color-highlight: rgba($color-primary, .1);
+$select-margin-item-x: 6px;
+
+$select-shadow-input: none;
+$select-shadow-input-focus: none;
+
+@import '~tom-select/src/scss/tom-select.scss';
+@include ts-caret();
+
+.js-tags {
+	height: auto;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.#{$select-ns}-wrapper {
+	display: flex;
+	min-height: $select-line-height + ($select-padding-y*2) + ($select-border-width *2);
+	
+	&.multi {
+		
+		&.has-items .#{$select-ns}-control {
+			$padding-x: $select-padding-x - 3px;
+			padding-left: $padding-x;
+			--ts-pr-min: $padding-x;
+		}
+		
+		.#{$select-ns}-control {
+			border: none;
+			box-shadow: none;
+			
+			[data-value] {
+				border-radius: 500px;
+				background-color: $select-color-item;
+				
+				&.active {
+					background-color: $color-primary-dark;
+				}
+				
+				.remove {
+					background: none;
+					font-size: 18px;
+				}
+			}
+		}
+		
+		&.disabled .#{$select-ns}-control [data-value] {
+			color: #999;
+			text-shadow: none;
+			background: none;
+			box-shadow: none;
+			
+			&, .remove {
+				border-color: #e6e6e6;
+			}
+			
+			.remove {
+				background: none;
+			}
+		}
+		
+	}
+	
+	&.single {
+		.#{$select-ns}-control {
+			box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+			@include selectize-vertical-gradient(#fefefe, #f2f2f2);
+		}
+	}
+}
+
+.#{$select-ns}-wrapper.single .#{$select-ns}-control, .#{$select-ns}-dropdown.single {
+	border-color: #b8b8b8;
+}
+
+.#{$select-ns}-control {
+	.dropdown-active & {
+		border-radius: $select-border-radius $select-border-radius 0 0;
+	}
+}
+
+.#{$select-ns}-dropdown {
+	
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+	
+	.optgroup-header {
+		padding-top: $select-padding-dropdown-item-y + 2px;
+		font-weight: bold;
+		font-size: 0.85em;
+	}
+	
+	.optgroup {
+		border-top: 1px solid $select-color-dropdown-border-top;
+		
+		&:first-child {
+			border-top: 0 none;
+		}
+	}
+}

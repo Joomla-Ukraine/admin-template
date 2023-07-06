@@ -6,6 +6,14 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$text-lead-font-size:                           1.25rem;
+$text-lead-line-height:                         1.618;
+$text-meta-link-color:                          $text-meta-color;
+$text-meta-link-hover-color:                    $global-color;
+
 // Style modifiers
 // ========================================================================
 
@@ -33,20 +41,22 @@
 // ========================================================================
 
 @mixin hook-inverse-component-text() {
-	
-	.uk-text-muted {
-		color: $inverse-text-muted-color !important;
-	}
-	.uk-text-emphasis {
-		color: $inverse-text-emphasis-color !important;
-	}
-	.uk-text-primary {
-		color: $inverse-text-primary-color !important;
-	}
-	.uk-text-secondary {
-		color: $inverse-text-secondary-color !important;
-	}
-	
+  .uk-text-muted {
+    color: $inverse-text-muted-color !important;
+  }
+  
+  .uk-text-emphasis {
+    color: $inverse-text-emphasis-color !important;
+  }
+  
+  .uk-text-primary {
+    color: $inverse-text-primary-color !important;
+  }
+  
+  .uk-text-secondary {
+    color: $inverse-text-secondary-color !important;
+  }
+  
 }
 
 // @mixin hook-inverse-text-lead(){}

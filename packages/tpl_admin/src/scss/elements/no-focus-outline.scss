@@ -1,0 +1,10 @@
+.no-focus-outline {
+  a:focus,
+  &:focus {
+    outline: none;
+  }
+  
+  *:focus {
+    outline: 0;
+  }
+}

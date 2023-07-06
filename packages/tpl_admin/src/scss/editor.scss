@@ -1,0 +1,15 @@
+@import 'variables';
+
+@import 'mixins/font-face';
+
+// Import Template
+@import 'elements/fonts';
+
+// Import UIkit
+@import '~uikit/src/scss/components/_import.scss';
+
+@import 'elements/colors';
+@import 'elements/text';
+@import 'elements/button';
+@import 'elements/border';
+@import 'elements/figure';

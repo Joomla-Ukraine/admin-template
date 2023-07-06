@@ -1,0 +1,16 @@
+//
+// https://web.dev/content-visibility/
+//
+.css-render {
+	content-visibility: auto;
+}
+
+/* Phone portrait and smaller */
+@media (max-width: $breakpoint-xsmall-max) {
+	.uk-visible\@s { content-visibility: auto; }
+}
+
+/* Phone landscape and smaller */
+@media (max-width: $breakpoint-small-max) {
+	.uk-visible\@m { content-visibility: auto; }
+}

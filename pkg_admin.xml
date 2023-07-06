@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension type="package"
-           version="3.8"
+           version="3.9"
            method="upgrade">
     <name>pkg_admin</name>
     <packagename>admin</packagename>
     <creationDate>@date@</creationDate>
     <packager>Joomla! Ukraine</packager>
-    <copyright>(C) 2018-2020 Denys Nosov, Joomla! Ukraine</copyright>
-    <packagerurl>http://joomla-ua.org</packagerurl>
+    <copyright>(C) 2018-2023 Denys Nosov, Joomla! Ukraine</copyright>
+    <packagerurl>https://joomla-ua.org</packagerurl>
     <author>Denys Nosov, Joomla! Ukraine</author>
     <authorEmail>denys@joomla-ua.org</authorEmail>
     <authorUrl>https://joomla-ua.org</authorUrl>
@@ -20,10 +20,7 @@
     <updateservers>
         <server type="extension"
                 priority="1"
-                name="admin"
-        >
-            https://joomla-ua.org/update/tmpl/admin.xml
-        </server>
+                name="admin">https://joomla-ua.org/update/tmpl/admin.xml</server>
     </updateservers>
 
     <files folder="packages">

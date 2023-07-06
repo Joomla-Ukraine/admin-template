@@ -1,3 +1,5 @@
+// @formatter:off
+
 //
 // Component: Tab
 //
@@ -10,101 +12,88 @@
 //
 // New
 //
-
-$tab-border-width: $global-border-width !default;
-$tab-border: $global-border !default;
-
-$tab-item-border-width: 2px;
-$tab-item-font-size: $global-small-font-size !default;
-$tab-item-text-transform: uppercase !default;
-
-$tab-item-active-border: $global-primary-background !default;
+$tab-border-width:                $global-border-width;
+$tab-border:                      $global-border;
+$tab-item-border-width:           4px;
+$tab-item-font-size:              1rem;
+$tab-item-active-border:          $global-primary-background;
+$tab-margin-horizontal:           40px;
+$tab-item-padding-horizontal:     0;
+$tab-item-padding-vertical:       5px;
+$tab-item-color:                  $color-blackdeep;
+$tab-item-active-border:          $color-primary;
+$tab-item-hover-color:            $global-color;
+$tab-item-hover-text-decoration:  none;
+$tab-item-active-color:           $color-primary;
+$tab-item-font-size:              $global-font-size;
+$tab-item-disabled-color:         $global-muted-color;
+$tab-border-width:                $global-border-width !default;
+$tab-border:                      $global-border !default;
+$tab-item-border-width:           3px;
+$tab-item-font-size:              $global-small-font-size !default;
+$tab-item-active-border:          $global-primary-background !default;
 
 
 // Component
 // ========================================================================
 
-@mixin hook-tab() {
-	
-	position: relative;
-	
-	&::before {
-		content: "";
-		position: absolute;
-		bottom: 0;
-		left: $tab-margin-horizontal;
-		right: 0;
-		border-bottom: $tab-border-width solid $tab-border;
-	}
-	
-}
+//@mixin hook-tab() {}
 
 @mixin hook-tab-item() {
+	@extend .tm-text-semibold;
 	border-bottom: $tab-item-border-width solid transparent;
 	font-size: $tab-item-font-size;
-	text-transform: $tab-item-text-transform;
 	transition: color 0.1s ease-in-out;
 }
 
 @mixin hook-tab-item-active() {
-	@extend .tm-text-semibold;
 	border-color: $tab-item-active-border;
 }
 
-@mixin hook-tab-bottom() {
-	
-	&::before {
-		top: 0;
-		bottom: auto;
-	}
-	
-}
+//@mixin hook-tab-bottom() {}
 
 @mixin hook-tab-bottom-item() {
-	border-top: $tab-item-border-width solid transparent;
 	border-bottom: none;
+	border-top: $tab-item-border-width solid transparent;
 }
 
 @mixin hook-tab-left() {
-	
 	&::before {
-		top: 0;
+		border-bottom: none;
+		border-left: $tab-border-width solid $tab-border;
 		bottom: 0;
 		left: auto;
 		right: 0;
-		border-left: $tab-border-width solid $tab-border;
-		border-bottom: none;
+		top: 0;
 	}
 	
 }
 
 @mixin hook-tab-right() {
-	
 	&::before {
-		top: 0;
+		border-bottom: none;
+		border-left: $tab-border-width solid $tab-border;
 		bottom: 0;
 		left: 0;
 		right: auto;
-		border-left: $tab-border-width solid $tab-border;
-		border-bottom: none;
+		top: 0;
 	}
 	
 }
 
 @mixin hook-tab-left-item() {
-	border-right: $tab-item-border-width solid transparent;
 	border-bottom: none;
+	border-right: $tab-item-border-width solid transparent;
 }
 
 @mixin hook-tab-right-item() {
-	border-left: $tab-item-border-width solid transparent;
 	border-bottom: none;
+	border-left: $tab-item-border-width solid transparent;
 }
 
 @mixin hook-tab-misc() {
-	
 	.uk-tab .uk-dropdown {
-		margin-left: ($tab-margin-horizontal + $tab-item-padding-horizontal)
+		margin-left: ($tab-margin-horizontal + $tab-item-padding-horizontal);
 	}
 	
 }
@@ -140,7 +129,6 @@ $tab-item-active-border: $global-primary-background !default;
 $inverse-tab-border: $inverse-global-border !default;
 
 @mixin hook-inverse-component-tab() {
-	
 	.uk-tab {
 		@if (mixin-exists(hook-inverse-tab)) {
 			@include hook-inverse-tab();
@@ -179,7 +167,6 @@ $inverse-tab-border: $inverse-global-border !default;
 }
 
 @mixin hook-inverse-tab() {
-	
 	&::before {
 		border-color: $inverse-tab-border;
 	}

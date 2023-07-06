@@ -2,6 +2,56 @@
 
 module.exports = {
     plugins: [
+        require("@fullhuman/postcss-purgecss")({
+            content: [
+                './index.php',
+                './html/**/*.php',
+                './inc/!**!/!*.php',
+                './src/!**!/!*.js',
+                './app/js/!*.js',
+            ],
+            safelist: {
+                standard: [/data-calendar-.*/],
+                deep: [
+                    /@/, /\\@/,
+                    /uk-drop/,
+                    /uk-alert/,
+                    /uk-table/,
+                    /uk-offcanvas/,
+                    /uk-label/,
+                    /uk-button/,
+                    /uk-text/,
+                    /uk-padding/,
+                    /uk-margin/,
+                    /uk-form-horizontal/,
+                    /uk-radio/,
+                    /uk-notification/,
+                    /uk-badge/,
+                    /uk-align/,
+                    /uk-width/,
+                    /uk-background/,
+
+                    /tm-/,
+
+                    /cck/,
+                    /collection-/,
+                    /icon-/,
+                    /horizontal_/,
+
+                    /vanilla-calendar/,
+                    /vanilla-calendar-/,
+                    /choices/,
+                    /is-/,
+                    /ts-/,
+
+                    /icon-eye/,
+                    /form-control-feedback/,
+                    /invalid/,
+                    /form-control-danger/,
+                ]
+            }
+        }),
+
         require('cssnano')({
             preset: [
                 'advanced', {
@@ -42,6 +92,6 @@ module.exports = {
                     zindex: false
                 }
             ]
-        })
+        }),
     ]
 };

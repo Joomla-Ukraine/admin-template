@@ -7,11 +7,8 @@
     </tstamp>
 
     <property name="build" value="build"/>
-
     <property name="temp" value="temp"/>
-
     <property name="dist" value="dist"/>
-
     <property name="filename" value="pkg_admin_v${VERSION}.zip"/>
 
     <target name="init" depends="clean">
@@ -21,13 +18,11 @@
     </target>
 
     <target name="temp">
-
         <copy todir="${temp}">
             <fileset dir="packages">
                 <include name="**"/>
             </fileset>
         </copy>
-
     </target>
 
     <target name="replace">
@@ -42,7 +37,6 @@
         </copy>
 
         <!---->
-
         <copy file="packages/tpl_admin/templateDetails.xml" todir="${temp}/temp/tpl_admin">
             <filterchain>
                 <replacetokens>
@@ -56,7 +50,6 @@
         <copy file="${temp}/temp/tpl_admin/templateDetails.xml" todir="${temp}/tpl_admin"/>
 
         <!---->
-
         <copy file="packages/tpl_admin/index.php" todir="${temp}/temp/tpl_admin">
             <filterchain>
                 <replacetokens>
@@ -70,21 +63,6 @@
         <copy file="${temp}/temp/tpl_admin/index.php" todir="${temp}/tpl_admin"/>
 
         <!---->
-
-        <copy file="packages/tpl_admin/inc/head.php" todir="${temp}/temp/tpl_admin/inc">
-            <filterchain>
-                <replacetokens>
-                    <token key="version" value="${VERSION}" />
-                    <token key="date" value="${DATE}" />
-                </replacetokens>
-            </filterchain>
-        </copy>
-
-        <delete file="${temp}/tpl_admin/inc/head.php"/>
-        <copy file="${temp}/temp/tpl_admin/inc/head.php" todir="${temp}/tpl_admin/inc"/>
-
-        <!---->
-
         <copy file="packages/file_lib/file_lib.xml" todir="${temp}/temp/file_lib">
             <filterchain>
                 <replacetokens>

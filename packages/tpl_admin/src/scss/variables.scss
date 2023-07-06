@@ -1,76 +1,75 @@
+// @formatter:off
+
 //
 // Fonts
 //
+$tm-font:                                       r-regular;
+$tm-font-light:                                 r-light;
+$tm-font-semibold:                              r-medium;
+$tm-font-bold:                                  r-bold;
+$tm-font-black:                                 r-black;
+$tm-font-monospace:                             monospace;
 
-$tm-font:                                       ssp-400;
-$tm-font-semibold:                              ssp-600;
-$tm-font-bold:                                  ssp-700;
-$tm-font-black:                                 ssp-900;
-$tm-font-cond:                                  ssp-300;
-
-$tm-global-font-family:                         -apple-system, BlinkMacSystemFont, '#{$tm-font}', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$tm-global-font-family:                         '#{$tm-font}', BlinkMacSystemFont, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 $tm-global-font-weight:                         normal;
 $tm-global-font-size:                           16px;
+$tm-global-line-height:                         1.8125;
 
 //
 // Colors
 //
 $color-white:                                   #fff;
-$color-black:                                   #666666;
-$color-blackdeep:                               #333333;
-$color-dark:                                    #232423;
-$color-dark-opacity:                            rgba($color-dark, .7);
 
+$color-dark:                                    #2b3134;
+$color-dark-opacity:                            rgba($color-dark, .7);
+$color-blackdeep:                               #333;
 $color-steel:                                   #4f6976;
 $color-grey:                                    #8c9aa2;
-$color-greydark:                                #4f6680;
-$color-greylight:                               #ddd;
-$color-greymuted:                               #999;
-$color-greysmoke:                               #f8f8f8;
-$color-greylighten:                             lighten($color-grey, 30%);
-$color-greywhite:                               #F5F6F7;
-$color-greysmokelight:                          #d5dce3;
-
-$color-blue:                                    #006ebf;
-$color-bluelight:                               #0f6ecd;
-$color-bluemuted:                               #337ab7;
-$color-bluedarked:                              #0F242E;
-$color-bluedark:                                #004687;
-$color-bluelighten:                             #E4F2FF;
-$color-blueultralight:                          #F2F7FD;
+$color-greylight:                               lighten($color-grey, 33%);
+$color-greylighten:                             #f8fafb;
+$color-greyen:                                  #5A738E;
+$color-greyblue:                                #f8f8f8;
+$color-greysmokelight:                          #e5e5e5;
 
 $color-red:                                     #d9534f;
-$color-green:                                   #26B99A;
+$color-orange:                                  #faa05a;
+$color-blue:                                    #006ebf;
+$color-blue-dark:                               darken($color-blue, 20%);
 
-////
-$color-link:                                    $color-blue;
-$color-link-hover:                              $color-bluelight;
-$color-link-visited:                            #60009a;
+$color-primary:                                 #26B99A;
+$color-primary-dark:                            darken($color-primary, 20%);
+$color-primary-lighten:                         rgba($color-primary, .05);
+$color-secondary:                               #337ab7;
+$color-primary-dark:                            darken($color-secondary, 20%);
+
+//
+// UIKit 3 new variables and variable overwrites
+//
 
 // Fonts
-$global-font-family:                            $tm-global-font-family;
-$global-font-size:                              $tm-global-font-size;
+$global-font-family:                             $tm-global-font-family;
+$global-font-size:                               $tm-global-font-size;
+$global-line-height:                             $tm-global-line-height;
+
 $global-small-font-size:                        .875rem;
 $global-xlarge-font-size:                       2rem;
 $global-xlarge-margin:                          140px;
 $global-xxlarge-font-size:                      2.625rem;
-$global-line-height:                            1.3;
 
 // Colors
-$global-color:                                  $color-steel;
-$global-link-color:                             $color-blackdeep;
-$global-link-hover-color:                       $color-steel;
-$global-muted-color:                            #999;
-$global-emphasis-color:                         $color-greydark;
+$global-color:                                  $color-grey;
+$global-link-color:                             $color-blue;
+$global-link-hover-color:                       $color-blue-dark;
+$global-muted-color:                            $color-grey;
+$global-emphasis-color:                         $color-grey;
 
 // Backgrounds
 $global-background:                             $color-white;
-$global-muted-background:                       $color-greysmoke;
 $global-danger-background:                      $color-red;
-$global-primary-background:                     $color-bluemuted;
-$global-secondary-background:                   $color-bluedarked;
-$global-success-background:                     $color-green;
-$global-warning-background:                     #faa05a;
+$global-muted-background:                       $color-greylighten;
+$global-primary-background:                     $color-primary;
+$global-secondary-background:                   $color-secondary;
+$global-warning-background:                     $color-orange;
 
 // Box-Shadows
 $global-small-box-shadow:                        0 2px 8px rgba(0,0,0,0.1);
@@ -80,407 +79,24 @@ $global-xlarge-box-shadow:                       0 28px 50px rgba(0,0,0,0.18);
 
 // Border
 $global-border-width:                           1px;
-$global-border:                                 $color-greysmoke;
+$global-border:                                 $color-greysmokelight;
 $border-rounded-border-radius:                  10px;
 
 //
 $global-control-height:                         40px;
 
-// Base
-$base-body-font-family:                         $tm-global-font-family;
-$base-body-background:                          #fafafa;
-$base-body-color:                               $color-blackdeep;
-$base-link-color:                               $color-link;
-$base-link-text-decoration:                     underline;
-$base-link-hover-color:                         $color-link-hover;
-$base-link-hover-text-decoration:               none;
-$base-h5-font-size:                             17px;
-$base-ins-background:                           transparent;
-$base-heading-font-family:                      $global-font-family;
-$base-heading-font-weight:                      normal;
-$base-blockquote-footer-color:                  $color-grey;
-$base-em-color:                                 $global-color;
-$base-blockquote-font-size:                     $global-font-size;
-$base-blockquote-font-style:                    italic;
-$base-blockquote-footer-line-height:            1.5;
-$base-code-padding-horizontal:                  6px;
-$base-code-padding-vertical:                    2px;
-$base-code-background:                          $global-muted-background;
-$base-blockquote-color:                         $global-emphasis-color;
-$base-blockquote-footer-color:                  $global-color;
-$base-pre-padding:                              10px;
-$base-pre-background:                           $global-background;
-$base-pre-border-width:                         $global-border-width;
-$base-pre-border:                               $global-border;
-$base-pre-border-radius:                        3px;
+// Inverse
+$global-inverse-color:                           #fff;
+$inverse-global-color:                           rgba($global-inverse-color, 0.7);
+$inverse-global-emphasis-color:                  $global-inverse-color;
+$inverse-global-muted-color:                     rgba($global-inverse-color, 0.7);
+$inverse-global-inverse-color:                   $global-color;
+$inverse-global-primary-background:              $global-inverse-color;
+$inverse-global-muted-background:                rgba($global-inverse-color, 0.1);
+$inverse-global-border:                          rgba($global-inverse-color, 0.2);
 
 //
-// UIKit components
+// Variables
 //
+@import '~uikit/src/scss/variables';
 
-// Accordion
-$accordion-icon-margin-left:                    10px;
-$accordion-icon-color:                          $global-color;
-$internal-accordion-open-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22#000%22%20width%3D%2213%22%20height%3D%221%22%20x%3D%220%22%20y%3D%226%22%20%2F%3E%0A%3C%2Fsvg%3E';
-$internal-accordion-close-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22#000%22%20width%3D%2213%22%20height%3D%221%22%20x%3D%220%22%20y%3D%226%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22#000%22%20width%3D%221%22%20height%3D%2213%22%20x%3D%226%22%20y%3D%220%22%20%2F%3E%0A%3C%2Fsvg%3E';
-
-// Alert
-$alert-margin-vertical:                         $global-margin;
-$alert-padding:                                 $global-small-gutter;
-$alert-padding-right:                           $alert-padding + 14px;
-$alert-background:                              $global-muted-background;
-$alert-color:                                   $global-color;
-$alert-close-opacity:                           0.4;
-$alert-close-hover-opacity:                     0.8;
-$alert-close-top:                               $alert-padding + 5px;
-$alert-close-right:                             $alert-padding;
-$alert-danger-background:                       lighten(mix(white, $global-danger-background, 40%), 20%);
-$alert-danger-color:                            $global-danger-background;
-$alert-primary-background:                      lighten(mix(white, $global-primary-background, 40%), 20%);
-$alert-primary-color:                           $global-primary-background;
-$alert-success-background:                      lighten(mix(white, $global-success-background, 40%), 25%);
-$alert-success-color:                           $global-success-background;
-$alert-warning-background:                      lighten(mix(white, $global-warning-background, 45%), 15%);
-$alert-warning-color:                           $global-warning-background;
-
-// Article
-$article-meta-color:                            $global-muted-color;
-$article-meta-link-color:                       $article-meta-color;
-$article-meta-link-hover-color:                 $global-color;
-$article-title-font-family:                     $global-font-family;
-$article-title-font-weight:                     300;
-$article-title-font-size:                       2.105rem;
-$article-title-line-height:                     1.1;
-$article-meta-font-size:                        $global-font-size;
-$article-meta-link-hover-color:                 $global-color;
-
-// Background
-$background-default-background:                  $global-background;
-$background-muted-background:                    $global-muted-background;
-$background-primary-background:                  $global-primary-background;
-$background-secondary-background:                $global-secondary-background;
-
-// Badge
-$badge-size:                                     22px;
-$badge-padding-vertical:                         0;
-$badge-padding-horizontal:                       5px;
-$badge-border-radius:                            500px;
-$badge-background:                               $global-primary-background;
-$badge-color:                                    $global-inverse-color;
-$badge-font-size:                                $global-small-font-size;
-$badge-hover-color:                              $global-inverse-color;
-
-// Breadcrumb
-$breadcrumb-item-font-size:                     $global-small-font-size;
-$breadcrumb-item-color:                         $global-muted-color;
-$breadcrumb-item-hover-color:                   $global-color;
-$breadcrumb-item-hover-text-decoration:         none;
-$breadcrumb-item-active-color:                  $global-color;
-$breadcrumb-divider:                            '/';
-$breadcrumb-divider-margin-horizontal:          20px;
-$breadcrumb-divider-font-size:                  $breadcrumb-item-font-size;
-$breadcrumb-divider-color:                      $global-muted-color;
-
-// Button
-$button-border-radius:                           3px;
-$button-border-width:                            $global-border-width;
-$button-line-height:                             $global-control-height - ($button-border-width * 2);
-$button-small-line-height:                       $global-control-small-height - ($button-border-width * 2);
-$button-large-line-height:                       $global-control-large-height - ($button-border-width * 2);
-$button-font-size:                               $global-small-font-size;
-$button-small-font-size:                         $global-small-font-size;
-$button-large-font-size:                         $global-small-font-size;
-$button-padding-horizontal:                      $global-gutter;
-$button-small-padding-horizontal:                $global-small-gutter;
-$button-large-padding-horizontal:                $global-medium-gutter;
-$button-default-background:                      transparent;
-$button-default-color:                           $global-emphasis-color;
-$button-default-hover-background:                transparent;
-$button-default-hover-color:                     $color-bluelight;
-$button-default-active-background:               transparent;
-$button-default-active-color:                    $global-emphasis-color;
-$button-default-border:                          $color-grey;
-$button-default-hover-border:                    $color-bluelight;
-$button-default-active-border:                   $color-steel;
-$button-default-hover-background:                lighten($color-greylighten, 8%);
-$button-primary-background:                      $global-primary-background;
-$button-primary-color:                           $global-inverse-color;
-$button-primary-hover-background:                darken($button-primary-background, 5%);
-$button-primary-hover-color:                     $global-inverse-color;
-$button-primary-active-background:               darken($button-primary-background, 10%);
-$button-primary-active-color:                    $global-inverse-color;
-$button-secondary-background:                    $global-success-background;
-$button-secondary-color:                         $global-inverse-color;
-$button-secondary-hover-background:              darken($button-secondary-background, 5%);
-$button-secondary-hover-color:                   $global-inverse-color;
-$button-secondary-active-background:             darken($button-secondary-background, 10%);
-$button-secondary-active-color:                  $global-inverse-color;
-$button-danger-background:                       $global-danger-background;
-$button-danger-color:                            $global-inverse-color;
-$button-danger-hover-background:                 darken($button-danger-background, 5%);
-$button-danger-hover-color:                      $global-inverse-color;
-$button-danger-active-background:                darken($button-danger-background, 10%);
-$button-danger-active-color:                     $global-inverse-color;
-$button-disabled-background:                     transparent;
-$button-disabled-color:                          $global-muted-color;
-$button-disabled-border:                         $global-border;
-$button-text-line-height:                        $global-line-height;
-$button-text-color:                              $global-emphasis-color;
-$button-text-hover-color:                        $global-emphasis-color;
-$button-text-disabled-color:                     $global-muted-color;
-$button-text-transform:                          uppercase;
-$button-text-border-width:                       $global-border-width;
-$button-text-border:                             $button-text-hover-color;
-$button-link-line-height:                        $global-line-height;
-$button-link-color:                              $global-link-color;
-$button-link-hover-color:                        $global-link-hover-color;
-$button-link-hover-text-decoration:              underline;
-$button-link-disabled-color:                     $global-muted-color;
-
-// Card
-$card-title-font-size:                          $global-large-font-size;
-$card-title-line-height:                        1.4;
-$card-hover-background:                         $global-background;
-$card-default-background:                       $global-background;
-$card-default-hover-background:                 $card-default-background;
-$card-primary-hover-background:                 $card-primary-background;
-$card-secondary-hover-background:               $card-secondary-background;
-$card-hover-box-shadow:                         $global-large-box-shadow;
-$card-default-background:                       $color-white;
-$card-default-box-shadow:                       $global-medium-box-shadow;
-$card-default-hover-box-shadow:                 $global-large-box-shadow;
-$card-default-header-border-width:              $global-border-width;
-$card-default-header-border:                    $global-border;
-$card-default-footer-border-width:              $global-border-width;
-$card-default-footer-border:                    $global-border;
-$card-primary-box-shadow:                       $global-medium-box-shadow;
-$card-primary-hover-box-shadow:                 $global-large-box-shadow;
-$card-secondary-box-shadow:                     $global-medium-box-shadow;
-$card-secondary-hover-box-shadow:               $global-large-box-shadow;
-
-// Description list
-$description-list-term-font-size:               $global-small-font-size;
-$description-list-term-font-weight:             normal;
-$description-list-term-text-transform:          uppercase;
-
-// Divider
-$divider-small-width:                           100px;
-
-// Dotnav
-$dotnav-item-background:                        transparent;
-$dotnav-item-border-width:                      1px;
-$dotnav-item-border:                            rgba($global-color, 0.4);
-$dotnav-item-hover-border:                      transparent;
-$dotnav-item-onclick-border:                    transparent;
-$dotnav-item-active-border:                     transparent;
-$dotnav-item-width:                             20px;
-$dotnav-item-height:                            $dotnav-item-width;
-$dotnav-item-background:                        rgba($color-white, .5);
-$dotnav-item-active-background:                 rgba($color-bluelight, .1);
-$dotnav-item-hover-background:                  rgba($color-bluelight, .1);
-$dotnav-item-onclick-background:                rgba($color-bluelight, .1);
-$dotnav-item-border:                            rgba($color-bluelight, .5);
-$dotnav-item-hover-border:                      $color-blue;
-$dotnav-item-onclick-border:                    $color-blue;
-$dotnav-item-active-border:                     $color-bluelight;
-
-// Dropdown
-$dropdown-padding:                               25px;
-$dropdown-background:                            $global-background;
-$dropdown-nav-font-size:                         $global-small-font-size;
-$dropdown-box-shadow:                            0 5px 12px rgba(0,0,0,0.15);
-
-// Form
-$form-background:                               $global-background;
-$form-focus-background:                         $global-background;
-$form-color:                                    $global-color;
-$form-border-width:                             $global-border-width;
-$form-border:                                   lighten($color-grey, 20%);
-$form-line-height:                              $form-height - (2* $form-border-width);
-$form-small-line-height:                        $form-small-height - (2* $form-border-width);
-$form-large-line-height:                        $form-large-height - (2* $form-border-width);
-$form-radio-background:                         transparent;
-$form-stacked-margin-bottom:                    5px;
-$form-radio-checked-background:                 $global-primary-background;
-$form-radio-checked-focus-background:           darken($global-primary-background, 10%);
-$form-focus-border:                             $global-primary-background;
-$form-disabled-border:                          $global-border;
-$form-danger-border:                            $global-danger-background;
-$form-success-border:                           $global-success-background;
-$form-blank-focus-border:                       $global-border;
-$form-blank-focus-border-style:                 dashed;
-$form-radio-border-width:                       $global-border-width;
-$form-radio-border:                             darken($global-border, 10%);
-$form-radio-focus-border:                       $global-primary-background;
-$form-radio-checked-border:                     transparent;
-$form-radio-disabled-border:                    $global-border;
-$form-label-color:                              $global-emphasis-color;
-$form-label-font-size:                          $global-small-font-size;
-
-// Heading
-$heading-primary-font-size:                     1.6rem;
-$heading-primary-line-height:                   1.2;
-$heading-primary-font-size-m:                   2rem; // 54px
-$heading-primary-line-height-m:                 1.1;
-$heading-hero-font-size:                        3rem; // 64px
-$heading-hero-line-height:                      1.1;
-$heading-hero-font-size-s:                      4.5rem; // 96px
-$heading-hero-line-height-s:                    1;
-$heading-hero-font-size-m:                      7rem; // 128px
-$heading-hero-line-height-m:                    .85;
-
-// Label
-$label-border-radius:                           2px;
-$label-text-transform:                          uppercase;
-
-// List
-$list-large-margin-top:                         $global-small-margin;
-$list-striped-border-width:                     $global-border-width;
-$list-striped-border:                           $global-border;
-
-// Modal
-$modal-header-background:                       $modal-dialog-background;
-$modal-footer-background:                       $modal-dialog-background;
-$modal-header-border-width:                     $global-border-width;
-$modal-header-border:                           $global-border;
-$modal-footer-border-width:                     $global-border-width;
-$modal-footer-border:                           $global-border;
-$modal-close-full-padding:                      $global-margin;
-$modal-close-full-background:                   $modal-dialog-background;
-
-$lightbox-background:                           rgba(0, 0, 0, .75);
-
-// Nav
-$nav-default-font-size:                         $global-small-font-size;
-$nav-default-divider-border:                    $color-greylighten;
-$nav-default-item-color:                        $color-dark;
-//$nav-default-item-hover-color:                  $color-blue;
-$nav-sublist-padding-vertical:                   5px;
-$nav-sublist-padding-left:                       18px;
-$nav-sublist-deeper-padding-left:                15px;
-$nav-sublist-item-padding-vertical:              2px;
-
-// Navbar
-$navbar-nav-item-font-size:                     $global-small-font-size;
-$navbar-nav-item-text-transform:                uppercase;
-$navbar-nav-item-height:                        46px;
-$navbar-nav-item-color:                         $color-steel;
-$navbar-nav-item-hover-color:                   $color-blue;
-$navbar-nav-item-active-color:                  $color-blue;
-$navbar-nav-item-onclick-color:                 $color-blue;
-$navbar-nav-item-font-family:                   $global-font-family;
-$navbar-dropdown-margin:                        15px;
-$navbar-dropdown-padding:                       25px;
-$navbar-dropdown-background:                    $global-background;
-$navbar-dropdown-grid-gutter-horizontal:        ($navbar-dropdown-padding * 2);
-$navbar-dropdown-nav-font-size:                 $global-small-font-size;
-$navbar-dropdown-box-shadow:                    0 5px 12px rgba(0, 0, 0, 0.15);
-$navbar-dropbar-box-shadow:                     0 5px 7px rgba(0, 0, 0, 0.05);
-$navbar-dropdown-grid-divider-border-width:     $global-border-width;
-$navbar-dropdown-grid-divider-border:           $navbar-dropdown-nav-divider-border;
-
-
-// Notification
-$notification-position:                         20px;
-$notification-z-index:                          $global-z-index + 40;
-$notification-width:                            450px;
-$notification-message-border:                   $notification-message-background;
-$notification-message-margin-top:               10px;
-$notification-message-padding:                  $global-small-gutter;
-$notification-message-background:               $global-muted-background;
-$notification-message-color:                    $global-color;
-$notification-message-font-size:                $global-medium-font-size;
-$notification-message-line-height:              1.4;
-$notification-message-font-size:                17px;
-$notification-close-top:                        $notification-message-padding + 5px;
-$notification-close-right:                      $notification-message-padding;
-$notification-message-primary-color:            $global-primary-background;
-$notification-message-success-color:            $global-success-background;
-$notification-message-warning-color:            $global-warning-background;
-$notification-message-danger-color:             $global-danger-background;
-$notify-message-primary-background:             rgba($notification-message-primary-color, .8);
-$notify-message-success-background:             rgba($notification-message-success-color, .8);
-$notify-message-warning-background:             rgba($notification-message-warning-color, .95);
-$notify-message-danger-background:              rgba($notification-message-danger-color, .8);
-
-// Pagination
-$pagination-margin-horizontal:                  3px;
-
-// Placeholder
-$placeholder-background:                        transparent;
-$placeholder-border-width:                      2px;
-$placeholder-border:                            $global-border;
-
-// Progress
-$progress-border-radius:                        500px;
-$progress-bar-background:                       $global-success-background;
-
-// Search
-$search-default-background:                     transparent;
-$search-default-border-width:                   $global-border-width;
-$search-default-border:                         $global-border;
-$search-default-width:                          180px;
-$search-navbar-width:                           400px;
-$search-navbar-height:                          40px;
-$search-navbar-font-size:                       $global-font-size;
-
-// Subnav
-$subnav-item-font-size:                         $global-small-font-size;
-$subnav-item-text-transform:                    uppercase;
-
-// Tab
-$tab-border-width:                              $global-border-width;
-$tab-border:                                    $global-border;
-$tab-item-border-width:                         2px;
-$tab-item-font-size:                            $global-small-font-size;
-$tab-item-text-transform:                       uppercase;
-$tab-margin-horizontal:                         20px;
-$tab-item-padding-horizontal:                   10px;
-$tab-item-padding-vertical:                     5px;
-$tab-item-color:                                $global-muted-color;
-$tab-item-active-border:                        $global-primary-background;
-$tab-item-hover-color:                          $global-color;
-$tab-item-hover-text-decoration:                none;
-$tab-item-active-color:                         $global-emphasis-color;
-$tab-item-font-size:                            $global-font-size;
-$tab-item-disabled-color:                       $global-muted-color;
-
-// Table
-$table-margin-vertical:                         $global-margin;
-$table-cell-padding-vertical:                   16px;
-$table-cell-padding-horizontal:                 12px;
-$table-header-cell-font-weight:                 bold;
-$table-header-cell-color:                       $global-color;
-$table-header-cell-font-size:                   $global-small-font-size;
-$table-striped-border-width:                    $global-border-width;
-$table-striped-border:                          $color-grey;
-$table-footer-font-size:                        $global-small-font-size;
-$table-caption-font-size:                       $global-small-font-size;
-$table-caption-color:                           $global-muted-color;
-$table-divider-border-width:                    $global-border-width;
-$table-divider-border:                          $color-greylight;
-$table-hover-row-background:                    rgba($color-greywhite, .5);
-$table-small-cell-padding-vertical:             10px;
-$table-small-cell-padding-horizontal:           12px;
-$table-large-cell-padding-vertical:             22px;
-$table-large-cell-padding-horizontal:           12px;
-$table-expand-min-width:                        150px;
-
-// Text
-$text-lead-font-size:                           1.25rem;
-$text-lead-line-height:                         1.618;
-$text-meta-link-color:                          $text-meta-color;
-$text-meta-link-hover-color:                    $global-color;
-
-// Thumbnav
-$thumbnav-item-background:                      rgba($global-background, 0.4);
-$thumbnav-item-hover-background:                transparent;
-$thumbnav-item-active-background:               transparent;
-
-// Utility
-$dropcap-font-size:                             2.5rem;
-
-// Offcanvas
-$offcanvas-bar-width:                           330px;
-$offcanvas-bar-background:                      $color-dark;
-$offcanvas-overlay-background:                  $color-dark-opacity;

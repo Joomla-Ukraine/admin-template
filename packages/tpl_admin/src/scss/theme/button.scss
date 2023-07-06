@@ -1,3 +1,5 @@
+// @formatter:off
+
 //
 // Component: Button
 //
@@ -6,20 +8,68 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$button-border-width:               0;
+$button-line-height:                $global-control-height - ($button-border-width * 2);
+$button-small-line-height:          $global-control-small-height - ($button-border-width * 2);
+$button-large-line-height:          $global-control-large-height - ($button-border-width * 2);
+$button-font-size:                  $global-small-font-size;
+$button-large-font-size:            $global-font-size;
+
+//$button-default-hover-background:   transparent;
+//$button-default-active-background:  transparent;
+
+/*$button-default-background:         $button-default-background;
+$button-default-color:              $color-primary;
+$button-default-hover-background:   lighten($color-greylighten, 20%);
+$button-default-hover-color:        $color-primary;
+$button-default-hover-background:   lighten($color-greylighten, 20%);
+$button-default-active-color:       $color-primary;*/
+
+$button-text-color:                 $color-grey;
+$button-text-hover-color:           $global-emphasis-color;
+$button-text-border-width:          $global-border-width;
+$button-text-border:                $button-text-hover-color;
+
+$button-default-border:             $global-border;
+$button-default-hover-border:       darken($global-border, 10%);
+$button-default-active-border:      darken($global-border, 20%);
+
+
+$button-disabled-background:        transparent;
+$button-disabled-border:            $global-border;
+
+$button-primary-background:         $color-primary;
+$button-primary-color:              $global-inverse-color;
+$button-primary-hover-background:   darken($color-primary, 10%);
+$button-primary-hover-color:        $global-inverse-color;
+$button-primary-active-background:  darken($color-primary, 10%);
+$button-primary-active-color:       $global-inverse-color;
+
+$button-secondary-background:       $global-secondary-background;
+$button-secondary-color:            $global-inverse-color;
+$button-secondary-hover-background: darken($button-secondary-background, 5%);
+$button-secondary-hover-color:      $global-inverse-color;
+$button-secondary-active-background: darken($button-secondary-background, 10%);
+$button-secondary-active-color:     $global-inverse-color;
+
+$button-link-color:                 $color-steel;
+
 // Component
 // ========================================================================
 
 @mixin hook-button() {
-	border-radius: $button-border-radius;
-	text-transform: $button-text-transform;
+	border-radius: 4px;
+	background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 90%);
+	text-transform: uppercase;
 	transition: 0.1s ease-in-out;
 	transition-property: color, background-color, border-color;
 }
 
 // @mixin hook-button-hover(){}
-
 // @mixin hook-button-focus(){}
-
 // @mixin hook-button-active(){}
 
 // Style modifiers
@@ -29,7 +79,8 @@
  * Default
  */
 @mixin hook-button-default() {
-	border: $button-border-width solid $button-default-border;
+	text-shadow: none !important;
+	border: $button-border-width solid transparent;
 }
 
 @mixin hook-button-default-hover() {
@@ -44,6 +95,7 @@
 // Primary
 //
 @mixin hook-button-primary() {
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 	border: $button-border-width solid transparent;
 }
 
@@ -54,10 +106,11 @@
 // Secondary
 //
 @mixin hook-button-secondary() {
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 	border: $button-border-width solid transparent;
 }
 
-// @mixin hook-button-secondary-hover(){}
+//@mixin hook-button-secondary-hover(){}
 
 // @mixin hook-button-secondary-active(){}
 
@@ -65,10 +118,11 @@
 // Danger
 //
 @mixin hook-button-danger() {
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 	border: $button-border-width solid transparent;
 }
 
-// @mixin hook-button-danger-hover(){}
+//@mixin hook-button-danger-hover(){}
 
 // @mixin hook-button-danger-active(){}
 
@@ -89,35 +143,29 @@
 // ========================================================================
 
 @mixin hook-button-text() {
-	
 	position: relative;
 	
 	&::before {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 100%;
 		border-bottom: $button-text-border-width solid $button-text-border;
+		bottom: 0;
+		content: '';
+		left: 0;
+		position: absolute;
+		right: 100%;
 		transition: right 0.3s ease-out;
 	}
-	
 }
 
 @mixin hook-button-text-hover() {
-	
 	&::before {
 		right: 0;
 	}
-	
 }
 
 @mixin hook-button-text-disabled() {
-	
 	&::before {
 		display: none;
 	}
-	
 }
 
 // Link modifier
@@ -129,7 +177,6 @@
 // ========================================================================
 
 @mixin hook-button-misc() {
-	
 	/* Group
 	 ========================================================================== */
 	
@@ -154,7 +201,6 @@
 		position: relative;
 		z-index: 1;
 	}
-	
 }
 
 // Inverse
@@ -176,7 +222,6 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 // @mixin hook-inverse-button-secondary(){}
 // @mixin hook-inverse-button-secondary-hover(){}
 // @mixin hook-inverse-button-secondary-active(){}
-
 
 // @mixin hook-inverse-button-text-hover(){}
 // @mixin hook-inverse-button-text-disabled(){}
@@ -209,6 +254,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-default {
 		background-color: $inverse-button-default-background;
 		color: $inverse-button-default-color;
+		
 		@if (mixin-exists(hook-inverse-button-default)) {
 			@include hook-inverse-button-default();
 		}
@@ -218,6 +264,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-default:focus {
 		background-color: $inverse-button-default-hover-background;
 		color: $inverse-button-default-hover-color;
+		
 		@if (mixin-exists(hook-inverse-button-default-hover)) {
 			@include hook-inverse-button-default-hover();
 		}
@@ -227,6 +274,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-default.uk-active {
 		background-color: $inverse-button-default-active-background;
 		color: $inverse-button-default-active-color;
+		
 		@if (mixin-exists(hook-inverse-button-default-active)) {
 			@include hook-inverse-button-default-active();
 		}
@@ -238,6 +286,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-primary {
 		background-color: $inverse-button-primary-background;
 		color: $inverse-button-primary-color;
+		
 		@if (mixin-exists(hook-inverse-button-primary)) {
 			@include hook-inverse-button-primary();
 		}
@@ -247,6 +296,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-primary:focus {
 		background-color: $inverse-button-primary-hover-background;
 		color: $inverse-button-primary-hover-color;
+		
 		@if (mixin-exists(hook-inverse-button-primary-hover)) {
 			@include hook-inverse-button-primary-hover();
 		}
@@ -256,6 +306,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-primary.uk-active {
 		background-color: $inverse-button-primary-active-background;
 		color: $inverse-button-primary-active-color;
+		
 		@if (mixin-exists(hook-inverse-button-primary-active)) {
 			@include hook-inverse-button-primary-active();
 		}
@@ -267,6 +318,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-secondary {
 		background-color: $inverse-button-secondary-background;
 		color: $inverse-button-secondary-color;
+		
 		@if (mixin-exists(hook-inverse-button-secondary)) {
 			@include hook-inverse-button-secondary();
 		}
@@ -276,6 +328,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-secondary:focus {
 		background-color: $inverse-button-secondary-hover-background;
 		color: $inverse-button-secondary-hover-color;
+		
 		@if (mixin-exists(hook-inverse-button-secondary-hover)) {
 			@include hook-inverse-button-secondary-hover();
 		}
@@ -285,6 +338,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-secondary.uk-active {
 		background-color: $inverse-button-secondary-active-background;
 		color: $inverse-button-secondary-active-color;
+		
 		@if (mixin-exists(hook-inverse-button-secondary-active)) {
 			@include hook-inverse-button-secondary-active();
 		}
@@ -295,6 +349,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	//
 	.uk-button-text {
 		color: $inverse-button-text-color;
+		
 		@if (mixin-exists(hook-inverse-button-text)) {
 			@include hook-inverse-button-text();
 		}
@@ -303,6 +358,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-text:hover,
 	.uk-button-text:focus {
 		color: $inverse-button-text-hover-color;
+		
 		@if (mixin-exists(hook-inverse-button-text-hover)) {
 			@include hook-inverse-button-text-hover();
 		}
@@ -310,6 +366,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	
 	.uk-button-text:disabled {
 		color: $inverse-button-text-disabled-color;
+		
 		@if (mixin-exists(hook-inverse-button-text-disabled)) {
 			@include hook-inverse-button-text-disabled();
 		}
@@ -320,6 +377,7 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	//
 	.uk-button-link {
 		color: $inverse-button-link-color;
+		
 		@if (mixin-exists(hook-inverse-button-link)) {
 			@include hook-inverse-button-link();
 		}
@@ -329,5 +387,4 @@ $inverse-button-text-hover-color: $inverse-global-emphasis-color !default;
 	.uk-button-link:focus {
 		color: $inverse-button-link-hover-color;
 	}
-	
 }

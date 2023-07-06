@@ -6,19 +6,23 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$grid-divider-border:                           rgba($color-greysmokelight, .5);
+
 // Miscellaneous
 // ========================================================================
 
 // @mixin hook-grid-misc(){}
 
 @mixin hook-inverse-component-grid() {
-	
-	.uk-grid-divider > :not(.uk-first-column)::before {
-		border-left-color: $inverse-grid-divider-border;
-	}
-	
-	.uk-grid-divider.uk-grid-stack > .uk-grid-margin::before {
-		border-top-color: $inverse-grid-divider-border;
-	}
-	
+  .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left-color: $inverse-grid-divider-border;
+  }
+  
+  .uk-grid-divider.uk-grid-stack > .uk-grid-margin::before {
+    border-top-color: $inverse-grid-divider-border;
+  }
+  
 }

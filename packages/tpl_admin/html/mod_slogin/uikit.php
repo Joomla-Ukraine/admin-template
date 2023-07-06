@@ -1,20 +1,20 @@
 <?php
 /**
- * Admin Template
+ * Seblod Admin Template
  *
- * @package          Joomla.Site
- * @subpackage       admin
+ * @version       2.x
+ * @package       admin
+ * @author        Denys D. Nosov (denys@joomla-ua.org)
+ * @copyright (C) 2018-2023 by Denys D. Nosov (https://joomla-ua.org)
+ * @license       GNU General Public License version 2 or later; see LICENSE.md
  *
- * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
- * @license          GNU General Public License version 2 or later
- */
+ **/
 
-
-defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die;
 
 ?>
 <div class="jlslogin">
+
 	<?php if($type === 'logout') : ?>
 		<form action="<?php echo JRoute::_('index.php', true, $params->get('usesecure')); ?>" method="post" id="login-form">
 
@@ -27,7 +27,7 @@ defined('_JEXEC') or die('Restricted access');
 			<?php endif; ?>
 
 			<?php if($show_fusion_form == 1) : ?>
-				<ul class="uk-child-width-expand uk-grid-small uk-grid" data-uk-grid>
+				<ul class="uk-child-width-expand uk-grid-small uk-grid" uk-grid>
 					<li>
 						<div class="uk-text-success uk-margin"><?php echo JText::_('TPL_ADMIN_DETACH_PROVIDERS_MODULE') ?></div>
 						<div id="slogin-buttons-unattach" class="slogin-buttons slogin-compact">

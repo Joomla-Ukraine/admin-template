@@ -1,29 +1,31 @@
 <?php
 /**
- * Admin Template
+ * Seblod Admin Template
  *
- * @package          Joomla.Site
- * @subpackage       admin
+ * @version       2.x
+ * @package       admin
+ * @author        Denys D. Nosov (denys@joomla-ua.org)
+ * @copyright (C) 2018-2023 by Denys D. Nosov (https://joomla-ua.org)
+ * @license       GNU General Public License version 2 or later; see LICENSE.md
  *
- * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
- * @license          GNU General Public License version 2 or later
- */
-
-use Joomla\CMS\Uri\Uri;
+ **/
 
 defined('_JEXEC') or die;
 
-$app        = JFactory::getApplication();
+use Joomla\CMS\Factory;
+use Joomla\CMS\Layout\FileLayout;
+
+$app        = Factory::getApplication();
 $tpl_params = $app->getTemplate(true)->params;
 
 ?>
 <ul class="tm-sidebar-nav uk-nav uk-nav-default">
 	<?php
-	foreach($list as $i => &$item)
-	{
+	foreach($list as $i => $item) :
+
 		$class = '';
 		$attr  = '';
+
 		if(in_array($item->id, $path))
 		{
 			$class .= ' uk-active';
@@ -66,19 +68,37 @@ $tpl_params = $app->getTemplate(true)->params;
 		$icon = '';
 		if($item->anchor_css)
 		{
-			$icon = '<svg width="20" height="20" ' . ($item->level == 2 ? 'class="uk-margin-small-right uk-text-middle "' : '') . ' aria-hidden="true"><use xlink:href="' . Uri::base() . 'templates/admin/assets/icons/icons.svg#' . $item->anchor_css . '"></use></svg>';
+			$_icon_class = [];
+			if($item->level == 2)
+			{
+				$_icon_class = [ 'class' => 'tm-margin-xsmall-right uk-text-middle' ];
+			}
+
+			$_icon_size = [];
+			if($item->level == 2)
+			{
+				$_icon_size = [ 'size' => 19 ];
+			}
+
+			$icon = (new FileLayout('tpl.icon'))->render(array_merge([
+				'icon' => $item->anchor_css
+			], $_icon_class, $_icon_size));
 		}
 
 		$adm_icon = '';
 		if($item->access == '3' && $item->level <= $tpl_params[ 'access_level' ] && $tpl_params[ 'access_icon' ] == 1)
 		{
-			$adm_icon = ' <span class="tm-label-sidebar uk-text-top"><svg width="16" height="16" aria-hidden="true"><use xlink:href="' . Uri::base() . 'templates/admin/assets/icons/icons.svg#lock"></use></svg></span>';
+			$_adm_icon = (new FileLayout('tpl.icon'))->render([
+				'icon' => 'lock',
+				'size' => 17
+			]);
+			$adm_icon  = ' <span class="tm-label-sidebar uk-text-top">' . $_adm_icon . '</span>';
 		}
 
 		echo '<li' . $class . '>';
 
-		switch($item->type)
-		{
+		// Render the menu item.
+		switch($item->type) :
 			case 'separator':
 			case 'url':
 			case 'component':
@@ -88,7 +108,7 @@ $tpl_params = $app->getTemplate(true)->params;
 			default:
 				require JModuleHelper::getLayoutPath('mod_menu', 'adm-icon_url');
 				break;
-		}
+		endswitch;
 
 		if($item->deeper)
 		{
@@ -103,6 +123,6 @@ $tpl_params = $app->getTemplate(true)->params;
 		{
 			echo '</li>';
 		}
-	}
+	endforeach;
 	?>
 </ul>

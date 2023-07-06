@@ -1,0 +1,92 @@
+//
+// Mobile menu
+//
+.tm-sidebar-nav {
+	margin: 0 -18px auto -18px;
+	
+	a {
+		padding: 8px 18px !important;
+	}
+	
+	.uk-nav-header {
+		padding-left: 18px;
+		padding-top: 6px;
+		padding-bottom: 7px;
+		border-top: 1px solid rgba(255, 255, 255, .15);
+		background: rgba(255, 255, 255, .03);
+	}
+	
+	ul a {
+		padding: 8px 0 8px 36px !important;
+	}
+	
+	> li {
+		&.uk-active > a {
+			background: rgba(255, 255, 255, .15);
+			color: #fff;
+		}
+		
+		&.uk-parent li.uk-active > a {
+			color: #fff;
+		}
+	}
+	
+	ul li {
+		position: relative;
+		display: block;
+		
+		&.uk-active::before {
+			background: rgba(255, 255, 255, 0.81);
+		}
+		
+		&:before {
+			background: #425668;
+			bottom: auto;
+			content: '';
+			height: 8px;
+			left: 8px;
+			margin-top: 18px;
+			position: absolute;
+			right: auto;
+			width: 8px;
+			z-index: 1;
+			border-radius: 50%;
+		}
+		
+		&:after {
+			border-left: 1px solid #425668;
+			bottom: 0;
+			content: '';
+			left: 12px;
+			position: absolute;
+			top: 0;
+		}
+	}
+}
+
+.tm-sidebar-nav .uk-active {
+	border-right: 4px solid #1abb9c;
+}
+
+.tm-sidebar-nav ul .uk-active {
+	border-right: none;
+}
+
+.tm-sidebar-icon {
+	margin-top: 3px;
+}
+
+@media (max-width: $breakpoint-small-max) {
+	.tm-sidebar-nav {
+		margin: 0;
+	}
+}
+
+@media (min-width: $breakpoint-small) {
+	.uk-offcanvas-bar {
+		margin-left: -12px;
+	}
+}
+	
+	
+

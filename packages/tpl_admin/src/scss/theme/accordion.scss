@@ -10,49 +10,49 @@
 // New
 //
 
+$accordion-icon-margin-left: 10px;
+$accordion-icon-color: $color-primary;
+$internal-accordion-close-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' fill=\'#27A5ED\'%3E%3Cpath d=\'M16 30c-2.7689 0-5.4757-.8211-7.77798-2.3594-2.30229-1.5384-4.0967-3.7249-5.15633-6.283-1.05962-2.5582-1.33687-5.3731-.79668-8.0889.5402-2.7157 1.87357-5.21025 3.8315-7.16819 1.95794-1.95793 4.45249-3.2913 7.16819-3.8315 2.7158-.54019 5.5307-.26294 8.0889.79668 2.5581 1.05963 4.7446 2.85404 6.283 5.15633C29.1789 10.5243 30 13.2311 30 16c0 3.713-1.475 7.274-4.1005 9.8995C23.274 28.525 19.713 30 16 30Zm0-25.99999c-2.3734 0-4.6934.70378-6.66684 2.02236C7.35977 7.34095 5.8217 9.21509 4.91345 11.4078c-.90825 2.1927-1.14589 4.6055-.68287 6.9333.46303 2.3278 1.60591 4.466 3.28414 6.1442 1.67823 1.6782 3.81648 2.8211 6.14418 3.2841 2.3278.4631 4.7406.2254 6.9333-.6828 2.1927-.9083 4.0669-2.4464 5.3854-4.4198C27.2962 20.6935 28 18.3734 28 16c0-3.1826-1.2643-6.23484-3.5147-8.48528C22.2349 5.26429 19.1826 4.00001 16 4.00001ZM16 21.4l-7-7 1.4-1.4 5.6 5.6 5.6-5.6 1.4 1.4-7 7Z\'/%3E%3C/svg%3E%0A';
+$internal-accordion-open-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' fill=\'#27A5ED\'%3E%3Cpath d=\'M16 30c-2.7689 0-5.4757-.8211-7.77798-2.3594-2.30229-1.5384-4.0967-3.7249-5.15633-6.283-1.05962-2.5582-1.33687-5.3731-.79668-8.0889.5402-2.7157 1.87357-5.21025 3.8315-7.16819 1.95794-1.95793 4.45249-3.2913 7.16819-3.8315 2.7158-.54019 5.5307-.26294 8.0889.79668 2.5581 1.05963 4.7446 2.85404 6.283 5.15633C29.1789 10.5243 30 13.2311 30 16c0 3.713-1.475 7.274-4.1005 9.8995C23.274 28.525 19.713 30 16 30Zm0-25.99999c-2.3734 0-4.6934.70378-6.66684 2.02236C7.35977 7.34095 5.8217 9.21509 4.91345 11.4078c-.90825 2.1927-1.14589 4.6055-.68287 6.9333.46303 2.3278 1.60591 4.466 3.28414 6.1442 1.67823 1.6782 3.81648 2.8211 6.14418 3.2841 2.3278.4631 4.7406.2254 6.9333-.6828 2.1927-.9083 4.0669-2.4464 5.3854-4.4198C27.2962 20.6935 28 18.3734 28 16c0-3.1826-1.2643-6.23484-3.5147-8.48528C22.2349 5.26429 19.1826 4.00001 16 4.00001ZM16 11.6l-7 7 1.4 1.4 5.6-5.6 5.6 5.6 1.4-1.4-7-7Z\'/%3E%3C/svg%3E%0A';
+
 // Component
 // ========================================================================
 
 // @mixin hook-accordion(){}
-
 
 // Item
 // ========================================================================
 
 // @mixin hook-accordion-item(){}
 
-
 // Title
 // ========================================================================
 
-
 @mixin hook-accordion-title() {
-	
 	overflow: hidden;
 	
 	&::before {
-		content: "";
-		width: ($accordion-title-line-height * 1em);
-		height: ($accordion-title-line-height * 1em);
-		margin-left: $accordion-icon-margin-left;
-		float: right;
-		@include svg-fill($internal-accordion-close-image, "#000", $accordion-icon-color);
-		background-repeat: no-repeat;
+		
+		@include svg-fill($internal-accordion-close-image, '#27A5ED', $accordion-icon-color);
 		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		content: '';
+		float: right;
+		height: 28px;
+		margin-left: $accordion-icon-margin-left;
+		width: 28px;
 	}
 	
 	.uk-open > &::before {
-		@include svg-fill($internal-accordion-open-image, "#000", $accordion-icon-color);
+		@include svg-fill($internal-accordion-open-image, '#27A5ED', $accordion-icon-color);
 	}
-	
 }
-
 
 // Content
 // ========================================================================
 
 // @mixin hook-accordion-content(){}
-
 
 // Miscellaneous
 // ========================================================================
@@ -68,14 +68,11 @@
 // @mixin hook-inverse-accordion-title-hover(){}
 
 @mixin hook-inverse-component-accordion() {
-	
 	.uk-accordion-title::before {
-		@include svg-fill($internal-accordion-close-image, "#000", $inverse-global-color);
+		@include svg-fill($internal-accordion-close-image, '#27A5ED', $inverse-global-color);
 	}
 	
 	.uk-open > .uk-accordion-title::before {
-		@include svg-fill($internal-accordion-open-image, "#000", $inverse-global-color);
+		@include svg-fill($internal-accordion-open-image, '#27A5ED', $inverse-global-color);
 	}
-	
 }
-

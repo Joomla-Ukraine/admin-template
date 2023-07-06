@@ -6,6 +6,16 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$subnav-item-font-size: $global-small-font-size;
+$subnav-item-text-transform: uppercase;
+$subnav-item-color: $color-steel;
+$subnav-item-hover-color: $color-primary;
+$subnav-item-active-color: $color-primary-dark;
+
+
 // Component
 // ========================================================================
 
@@ -52,7 +62,6 @@
 // ========================================================================
 
 @mixin hook-inverse-component-subnav() {
-	
 	.uk-subnav > * > :first-child {
 		color: $inverse-subnav-item-color;
 		@if (mixin-exists(hook-inverse-subnav-item)) {

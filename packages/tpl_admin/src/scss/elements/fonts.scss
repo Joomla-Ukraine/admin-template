@@ -1,25 +1,20 @@
 @include tm-font($tm-font, $tm-font, '400', 'normal');
-@include tm-font($tm-font-cond, $tm-font-cond, '300', 'normal');
-@include tm-font($tm-font-semibold, $tm-font-semibold, '600', 'normal');
+@include tm-font($tm-font-semibold, $tm-font-semibold, '500', 'normal');
 @include tm-font($tm-font-bold, $tm-font-bold, '700', 'normal');
 @include tm-font($tm-font-black, $tm-font-black, '900', 'normal');
 
 %tm-font-regular {
-  font-family: #{$tm-font};
-}
-
-%tm-font-cond {
-  font-family: #{$tm-font-cond};
+	font-family: #{$tm-font} !important;
 }
 
 %tm-font-semibold {
-  font-family: #{$tm-font-semibold} !important;
+	font-family: #{$tm-font-semibold} !important;
 }
 
 %tm-font-bold {
-  font-family: #{$tm-font-bold} !important;
+	font-family: #{$tm-font-bold} !important;
 }
 
 %tm-font-black {
-  font-family: #{$tm-font-black} !important;
+	font-family: #{$tm-font-black} !important;
 }

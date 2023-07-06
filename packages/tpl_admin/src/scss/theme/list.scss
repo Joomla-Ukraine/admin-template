@@ -6,18 +6,24 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$list-large-margin-top:                         30px;
+$list-striped-border-width:                     $global-border-width;
+$list-striped-border:                           $global-border;
+
 // Style modifiers
 // ========================================================================
 
 // @mixin hook-list-divider(){}
 
 @mixin hook-list-striped() {
-	
-	&:nth-of-type(odd) {
-		border-top: $list-striped-border-width solid $list-striped-border;
-		border-bottom: $list-striped-border-width solid $list-striped-border;
-	}
-	
+  &:nth-of-type(odd) {
+    border-bottom: $list-striped-border-width solid $list-striped-border;
+    border-top: $list-striped-border-width solid $list-striped-border;
+  }
+  
 }
 
 // @mixin hook-list-bullet(){}
@@ -33,40 +39,38 @@
 // @mixin hook-inverse-list-divider(){}
 
 @mixin hook-inverse-component-list() {
-	
-	.uk-list-divider > li:nth-child(n+2) {
-		border-top-color: $inverse-list-divider-border;
-		@if (mixin-exists(hook-inverse-list-divider)) {
-			@include hook-inverse-list-divider();
-		}
-	}
-	
-	.uk-list-striped > li {
-		@if (mixin-exists(hook-inverse-list-striped)) {
-			@include hook-inverse-list-striped();
-		}
-	}
-	
-	.uk-list-striped > li:nth-of-type(odd) {
-		background-color: $inverse-list-striped-background;
-	}
-	
-	.uk-list-bullet > li::before {
-		@include svg-fill($internal-list-bullet-image, '#000', $inverse-list-bullet-icon-color);
-		@if (mixin-exists(hook-inverse-list-bullet)) {
-			@include hook-inverse-list-bullet();
-		}
-	}
-	
+  .uk-list-divider > li:nth-child(n+2) {
+    border-top-color: $inverse-list-divider-border;
+    @if (mixin-exists(hook-inverse-list-divider)) {
+      @include hook-inverse-list-divider();
+    }
+  }
+  
+  .uk-list-striped > li {
+    @if (mixin-exists(hook-inverse-list-striped)) {
+      @include hook-inverse-list-striped();
+    }
+  }
+  
+  .uk-list-striped > li:nth-of-type(odd) {
+    background-color: $inverse-list-striped-background;
+  }
+  
+  .uk-list-bullet > li::before {
+    @include svg-fill($internal-list-bullet-image, '#000', $inverse-list-bullet-icon-color);
+    @if (mixin-exists(hook-inverse-list-bullet)) {
+      @include hook-inverse-list-bullet();
+    }
+  }
+  
 }
 
 @mixin hook-inverse-list-striped() {
-	
-	&:nth-of-type(odd) {
-		border-top-color: $inverse-global-border;
-		border-bottom-color: $inverse-global-border;
-	}
-	
+  &:nth-of-type(odd) {
+    border-bottom-color: $inverse-global-border;
+    border-top-color: $inverse-global-border;
+  }
+  
 }
 
 // @mixin hook-inverse-list-bullet(){}

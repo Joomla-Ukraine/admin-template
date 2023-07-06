@@ -1,3 +1,5 @@
+// @formatter:off
+
 //
 // Component: Article
 //
@@ -9,61 +11,64 @@
 //
 // New
 //
+$article-meta-color:                            $global-muted-color;
+$article-meta-link-color:                       $article-meta-color;
+$article-meta-link-hover-color:                 $global-color;
+$article-title-font-family:                     '#{$tm-font-bold}';
+$article-title-font-weight:                     300;
+$article-title-font-size:                       1.9rem;
+$article-title-line-height:                     1.1;
+$article-meta-font-size:                        $global-font-size;
+$article-meta-link-hover-color:                 $global-color;
 
 // Component
 // ========================================================================
 
 @mixin hook-article() {
-  
   font-size: 1.12rem;
   line-height: 1.618;
   
   .tm-article {
-    a:not(.uk-button) {
-      overflow-wrap: break-word;
-      word-break: break-word;
-      word-wrap: break-word;
-      color: $color-blue;
-      text-decoration: underline;
-    }
     
-    a:hover:not(.uk-button) {
-      background-color: rgba($global-primary-background, .1);
-      color: $color-bluedark;
-    }
-    
-    h2, .uk-h2,
-    h3, .uk-h3,
-    h4, .uk-h4,
-    h5, .uk-h5,
-    h6, .uk-h6 {
+    h2,
+    .uk-h2,
+    h3,
+    .uk-h3,
+    h4,
+    .uk-h4,
+    h5,
+    .uk-h5,
+    h6,
+    .uk-h6 {
       @extend %tm-font-bold;
+      
       color: $color-blackdeep;
     }
     
-    h2, .uk-h2 {
+    h2,
+    .uk-h2 {
       font-size: 1.8rem;
       line-height: $base-h2-line-height;
     }
     
-    h3, .uk-h3 {
+    h3,
+    .uk-h3 {
       font-size: 1.5rem;
       line-height: 1;
     }
     
     .tm-related-news {
-      
       font-size: $global-font-size !important;
       line-height: $global-line-height !important;
       
       a,
       a:hover {
         background-color: transparent !important;
-        color: inherit !important;
-        text-decoration: none !important;
         border-bottom: 0 none !important;
         box-shadow: none !important;
+        color: inherit !important;
         overflow-wrap: inherit !important;
+        text-decoration: none !important;
         word-break: inherit !important;
         word-wrap: inherit !important;
       }
@@ -76,21 +81,19 @@
 
 // @mixin hook-article-adjacent(){}
 
-
 // Title
 // ========================================================================
 
-@mixin hook-article-title(){
+@mixin hook-article-title() {
+  color: $color-secondary;
   font-family: $article-title-font-family;
   font-weight: $article-title-font-weight;
-  color: $color-bluedark;
 }
 
 // Meta
 // ========================================================================
 
 @mixin hook-article-meta() {
-  
   a {
     color: $article-meta-link-color;
   }
@@ -99,7 +102,6 @@
     color: $article-meta-link-hover-color;
     text-decoration: none;
   }
-  
 }
 
 // Miscellaneous
@@ -113,7 +115,6 @@
 // @mixin hook-inverse-article-meta(){}
 
 @mixin hook-inverse-component-article() {
-  
   .uk-article-title {
     @if (mixin-exists(hook-inverse-article-title)) {
       @include hook-inverse-article-title();
@@ -122,18 +123,16 @@
   
   .uk-article-meta {
     color: $inverse-article-meta-color;
+    
     @if (mixin-exists(hook-inverse-article-meta)) {
       @include hook-inverse-article-meta();
     }
   }
-  
 }
 
 /* Phone landscape and smaller */
 @media (max-width: $breakpoint-xsmall-max) {
-
   .uk-article {
     font-size: 1.18rem;
   }
-  
 }

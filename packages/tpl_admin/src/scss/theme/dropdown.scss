@@ -6,18 +6,26 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$dropdown-padding:                               25px;
+$dropdown-background:                            $global-background;
+$dropdown-nav-font-size:                         $global-small-font-size;
+$dropdown-box-shadow:                            0 5px 12px rgba(0,0,0,0.15);
+
 // Component
 // ========================================================================
 
 @mixin hook-dropdown() {
-	box-shadow: $dropdown-box-shadow;
+  box-shadow: $dropdown-box-shadow;
 }
 
 // Nav
 // ========================================================================
 
 @mixin hook-dropdown-nav() {
-	font-size: $dropdown-nav-font-size;
+  font-size: $dropdown-nav-font-size;
 }
 
 // @mixin hook-dropdown-nav-item(){}

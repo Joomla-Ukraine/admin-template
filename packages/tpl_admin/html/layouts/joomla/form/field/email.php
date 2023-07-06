@@ -1,13 +1,18 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  Layout
+ * Seblod Admin Template
  *
- * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
+ * @version       2.x
+ * @package       admin
+ * @author        Denys D. Nosov (denys@joomla-ua.org)
+ * @copyright (C) 2018-2023 by Denys D. Nosov (https://joomla-ua.org)
+ * @license       GNU General Public License version 2 or later; see LICENSE.md
+ *
+ **/
 
-defined('JPATH_BASE') or die;
+defined('_JEXEC') or die;
+
+use Joomla\CMS\String\PunycodeHelper;
 
 extract($displayData);
 
@@ -41,41 +46,31 @@ extract($displayData);
  * @var   boolean $hasValue       Has this field a value assigned?
  * @var   array   $options        Options available for this field.
  * @var   array   $inputType      Options available for this field.
- * @var   array   $spellcheck     Options available for this field.
  * @var   string  $accept         File types that are accepted.
+ * @var   string  $dataAttribute  Miscellaneous data attributes preprocessed for HTML output
+ * @var   array   $dataAttributes Miscellaneous data attribute for eg, data-*.
  */
 
-$autocomplete = !$autocomplete ? 'autocomplete="off"' : 'autocomplete="' . $autocomplete . '"';
-$autocomplete = $autocomplete === 'autocomplete="on"' ? '' : $autocomplete;
-
-$class = 'uk-input';
-
 $attributes = [
+	'type="email"',
+	'inputmode="email"',
+	'name="' . $name . '"',
+	'class="uk-input validate-email' . (!empty($class) ? ' ' . $class : '') . '"',
+	'id="' . $id . '"',
+	'value="' . htmlspecialchars(PunycodeHelper::emailToUTF8($value), ENT_COMPAT, 'UTF-8') . '"',
 	$spellcheck ? '' : 'spellcheck="false"',
 	!empty($size) ? 'size="' . $size . '"' : '',
+	!empty($description) ? 'aria-describedby="' . ($id ? : $name) . '-desc"' : '',
 	$disabled ? 'disabled' : '',
 	$readonly ? 'readonly' : '',
 	$onchange ? 'onchange="' . $onchange . '"' : '',
-	$autocomplete,
+	!empty($autocomplete) ? 'autocomplete="' . $autocomplete . '"' : '',
 	$multiple ? 'multiple' : '',
 	!empty($maxLength) ? 'maxlength="' . $maxLength . '"' : '',
-	'' !== $hint ? 'placeholder="' . htmlspecialchars($hint, ENT_COMPAT, 'UTF-8') . '"' : '',
-	$required ? 'required aria-required="true"' : '',
+	strlen($hint) ? 'placeholder="' . htmlspecialchars($hint, ENT_COMPAT, 'UTF-8') . '"' : '',
+	$required ? 'required' : '',
 	$autofocus ? 'autofocus' : '',
+	$dataAttribute,
 ];
 
-// Including fallback code for HTML5 non supported browsers.
-JHtml::_('jquery.framework');
-JHtml::_('script', 'system/html5fallback.js', [
-	'version'     => 'auto',
-	'relative'    => true,
-	'conditional' => 'lt IE 9'
-]);
-
-?>
-<input type="email" name="<?php
-echo $name; ?>"<?php
-echo !empty($class) ? ' class="validate-email ' . $class . '"' : ' class="validate-email"'; ?> id="<?php
-echo $id; ?>" value="<?php
-echo htmlspecialchars(JStringPunycode::emailToUTF8($value), ENT_COMPAT, 'UTF-8'); ?>"
-	<?php echo implode(' ', $attributes); ?> />
+echo '<input ' . implode(' ', array_values(array_filter($attributes))) . '>';

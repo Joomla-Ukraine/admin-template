@@ -1,11 +1,9 @@
 "use strict";
 
-const webpack = require('webpack');
 const path = require('path');
-const argv = require('yargs').argv;
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
-const distPath = path.join(__dirname, 'assets');
+const distPath = path.join(__dirname, './app');
 
 const config = {
     entry: {
@@ -19,6 +17,7 @@ const config = {
         rules: [
             {
                 test: /\.svg$/,
+                type: 'asset',
                 use: [
                     {
                         loader: 'svg-sprite-loader',
@@ -27,7 +26,7 @@ const config = {
                             spriteFilename: "icons.svg",
                             runtimeCompat: true,
                             outputPath: 'icons/',
-                            publicPath: '/assets/'
+                            publicPath: './app/icons/'
                         }
                     },
                     {
@@ -38,7 +37,7 @@ const config = {
         ]
     },
     plugins: [
-        new SpriteLoaderPlugin()
+        new SpriteLoaderPlugin({plainSprite: true})
     ]
 };
 

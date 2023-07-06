@@ -6,11 +6,11 @@
  * @subpackage       a
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2016-2020 (C) Joomla! Ukraine, http://joomla-ua.org. All rights reserved.
- * @license          GNU General Public License version 2 or later
+ * @copyright        2016-2019 (C) Joomla! Ukraine, http://joomla-ua.org. All rights reserved.
+ * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
 
-use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Layout\FileLayout;
 
 defined('JPATH_BASE') or die;
 
@@ -24,19 +24,19 @@ if(is_array($msgList) && !empty($msgList))
 		{
 			case 'message':
 				$_sfx  = 'success';
-				$_icon = 'info';
+				$_icon = 'settings-cog-check';
 				break;
 			case 'warning':
 				$_sfx  = 'warning';
-				$_icon = 'warning';
+				$_icon = 'alert-circle';
 				break;
 			case 'error':
 				$_sfx  = 'danger';
-				$_icon = 'warning';
+				$_icon = 'alert-circle';
 				break;
 			case 'notice':
 				$_sfx  = 'primary';
-				$_icon = 'check';
+				$_icon = 'scroll-text';
 				break;
 			default:
 				$_sfx  = $type;
@@ -51,7 +51,12 @@ if(is_array($msgList) && !empty($msgList))
 
 			foreach($msgs as $msg)
 			{
-				$html .= "UIkit.notification({message: '<div class=\"uk-grid uk-grid-small uk-flex-middle\" data-uk-grid><div class=\"uk-width-auto\"><svg width=\"25\" height=\"25\" aria-hidden=\"true\"><use xlink:href=\"" . Uri::base() . "templates/admin/assets/icons/icons.svg#$_icon\"></use></svg></div><div class=\"uk-width-expand\">$msg</div></div>', status: '$_sfx', timeout : 6000, pos: 'top-center'});";
+				$icon    = (new FileLayout('tpl.icon'))->render([
+					'icon' => $_icon,
+					'size' => 32
+				]);
+				$massage = '<div class="uk-grid uk-grid-small uk-flex uk-flex-middle" data-grid><div class="uk-width-auto">' . str_replace("\n", '', $icon) . '</div><div class="uk-width-expand">' . $msg . '</div></div>';
+				$html    .= "UIkit.notification({message: '" . $massage . "', status: '" . $_sfx . "', pos: 'top-center'});";
 			}
 
 			$html .= '});})();';

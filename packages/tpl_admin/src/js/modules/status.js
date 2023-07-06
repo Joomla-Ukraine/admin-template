@@ -1,34 +1,39 @@
 "use strict";
 
-/**
- * User online
- * @param {string} el - Status selector
- */
-export default function userStatus(el) {
-    const elStatus = document.getElementById(el),
-        timeOut = null;
+import '../../scss/modules/seb_tom-select.scss';
 
-    checkStatus(elStatus, timeOut);
-    document.addEventListener('mouseup', () => {
-        checkStatus(elStatus, timeOut);
-    });
+export default function status() {
+    let timeout = null,
+        status = document.querySelector('#status');
+
+    if (status.length) {
+        if (status.data('enabled') === true) {
+
+            checkStatus(timeout, status);
+
+            document.addEventListener('mousemove', () => {
+                checkStatus(timeout, status);
+            });
+
+        } else {
+            status.style.display = 'none';
+        }
+    }
 }
 
-/**
- * Check Status User online
- * @param timeOut
- * @param elStatus
- */
-function checkStatus(elStatus, timeOut) {
-    clearTimeout(timeOut);
-    elStatus.classList.remove('uk-label-warning');
-    elStatus.classList.add('uk-label-success');
+function checkStatus(timeout, status) {
+    clearTimeout(timeout, status);
 
-    return setTimeout(
+    status.text(status.data('online-text'));
+    status.removeClass('uk-label-warning');
+    status.addClass('uk-label-success');
+
+    setTimeout(
         () => {
-            elStatus.classList.remove('uk-label-success');
-            elStatus.classList.add('uk-label-warning');
+            status.text(status.data('away-text'));
+            status.removeClass('uk-label-success');
+            status.addClass('uk-label-warning');
         },
-        300000
+        status.data('interval')
     );
 }

@@ -3,115 +3,201 @@
 const webpack = require('webpack'),
     path = require('path'),
     argv = require('yargs').argv;
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Optimizer = require("webpack-bundle-optimizer");
-const TerserPlugin = require('terser-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
-const isDevelopment = argv.mode === 'development',
-    isProduction = !isDevelopment;
-const distPath = path.join(__dirname, 'assets'),
-    publicPath = process.env.ASSET_PATH || '/';
+const chalk = require("chalk"),
+    ProgressBarPlugin = require("progress-bar-webpack-plugin"),
+    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+    ImageMinimizerPlugin = require("image-minimizer-webpack-plugin"),
+    TerserPlugin = require('terser-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
+    ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin'),
+    {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
-const buildVersion = '3.6.7.1';
+const {version} = require('./package.json'),
+    isDevelopment = argv.mode === 'development',
+    isProduction = !isDevelopment,
+    distPath = path.join(__dirname, './app');
 
 const entry = {
         main: path.resolve(__dirname, './src/js/index.js'),
         uk: path.resolve(__dirname, './src/js/uikit.js')
     },
     output = {
-        filename: `./js/app.[name].${buildVersion}.js`,
+        filename: `./js/app.[name].${version}.js`,
         path: distPath,
-        publicPath: `${publicPath}templates/admin/assets/`,
-        chunkFilename: `./js/app.[name].${buildVersion}.js`,
+        //publicPath: '/app/',
+        chunkFilename: `./js/app.[name].${version}.js`,
+        pathinfo: false
+    },
+    resolveAlias = {
+        alias: {
+            'uikit-util': path.resolve(__dirname, 'node_modules/uikit/src/js/util')
+        }
     };
 
-const cleanDirs = ['**/assets/js/*', '**/assets/css/*', '**/assets/fonts/*'];
+const cleanDirs = [
+        '**/app/js/*',
+        '**/app/css/*',
+        '**/app/fonts/*',
+        '**/app/img/*'
+    ],
+    copyFiles = {
+        patterns: [
+            {
+                from: './src/img',
+                to: './img'
+            }
+        ]
+    };
 
-const modules = {
-    rules: [
-        {
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            include: path.resolve(__dirname, 'src/js'),
-            use: [{
-                loader: 'babel-loader'
-            }]
-        },
-        {
-            test: /\.(sa|sc|c)ss$/,
-            use: [
-                'style-loader',
-                MiniCssExtractPlugin.loader,
-                {
-                    loader: 'css-loader',
-                    options: {sourceMap: false}
-                },
-                {
-                    loader: 'postcss-loader',
-                    options: {sourceMap: false, config: {path: 'postcss.config.js'}}
-                },
-                {
-                    loader: 'sass-loader',
-                    options: {sourceMap: false}
-                }
-            ],
-        },
-        {
-            test: /\.(woff|woff2)$/,
-            use: [
-                {
-                    loader: "file-loader",
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'fonts/',
-                        publicPath: "../fonts/"
+const rulesJS = {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        include: path.resolve(__dirname, 'src/js'),
+        use: [
+            'thread-loader',
+            'babel-loader'
+        ]
+    },
+    rulesStyle = {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+            'style-loader',
+            MiniCssExtractPlugin.loader,
+            {
+                loader: 'css-loader',
+                options: {sourceMap: false}
+            },
+            {
+                loader: 'postcss-loader',
+                options: {sourceMap: false}
+            },
+            {
+                loader: 'sass-loader',
+                options: {
+                    sourceMap: false,
+                    sassOptions: {
+                        quietDeps: true
                     }
                 }
-            ]
+            }
+        ]
+    },
+    rulesStyleDev = {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+            'style-loader',
+            {
+                loader: 'css-loader'
+            },
+            {
+                loader: 'sass-loader',
+                options: {
+                    sassOptions: {
+                        quietDeps: true
+                    }
+                }
+            }
+        ],
+    },
+    rulesFonts = {
+        test: /\.(woff|woff2)$/,
+        type: 'asset/resource',
+        generator: {
+            filename: 'fonts/[name][ext][query]'
         }
-    ]
-};
+    },
+    rulesImg = {
+        test: /\.(jpe?g|png|gif|svg|webp|avif)$/,
+        type: 'asset/resource',
+        generator: {
+            filename: 'img/[name][ext][query]'
+        }
+    };
 
-const pluginClean = new CleanWebpackPlugin({
+const pluginProgressBar = new ProgressBarPlugin({
+        format: `  :msg [:bar] ${chalk.green.bold(":percent")} (:elapsed s)`,
+    }),
+    pluginClean = new CleanWebpackPlugin({
         default: cleanDirs
     }),
-    pluginOptimizer = new Optimizer(),
     pluginMiniCss = new MiniCssExtractPlugin({
-        filename: `./css/app.[name].${buildVersion}.css`,
-        chunkFilename: `./css/app.[name].${buildVersion}.css`,
+        filename: `./css/app.[name].${version}.css`,
+        chunkFilename: `./css/app.[name].${version}.css`
     }),
     pluginMCP = new webpack.optimize.ModuleConcatenationPlugin(),
+    pluginCopy = new CopyWebpackPlugin(copyFiles),
     pluginReplace = new ReplaceInFileWebpackPlugin([
         {
-            dir: path.join(__dirname, 'inc'),
+            dir: path.join(__dirname, '/inc'),
             files: ['head.php'],
             rules: [
                 {
                     search: /\$v = '(.*?)';/ig,
-                    replace: '$v = \'' + buildVersion + '\';'
+                    replace: '$v = \'' + version + '\';'
+                }
+            ]
+        }, {
+            dir: path.join(__dirname, '/html/layouts/tpl'),
+            files: ['icon.php'],
+            rules: [
+                {
+                    search: /\$v = '(.*?)';/ig,
+                    replace: '$v = \'' + version + '\';'
                 }
             ]
         }
     ]),
+    pluginImageMin = new ImageMinimizerPlugin({
+        minimizer: {
+            implementation: ImageMinimizerPlugin.imageminMinify,
+            options: {
+                plugins: [
+                    ["gifsicle", {interlaced: true}],
+                    ["jpegtran", {progressive: true}],
+                    ["optipng", {optimizationLevel: 5}],
+                    ["svgo", {
+                        plugins: [{
+                            name: "preset-default",
+                            params: {
+                                overrides: {
+                                    removeViewBox: false,
+                                    addAttributesToSVGElement: {
+                                        params: {
+                                            attributes: [
+                                                {xmlns: "https://www.w3.org/2000/svg"}
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }]
+                    }]
+                ]
+            }
+        }
+    }),
     pluginTerser = new TerserPlugin({
         terserOptions: {
+            parse: {
+                ecma: 8
+            },
             compress: {
-                warnings: false,
+                ecma: 5,
+                //warnings: false,
+                comparisons: false,
+                inline: 2,
+                //drop_console: true,
                 module: false,
                 ie8: false,
                 keep_classnames: undefined,
                 keep_fnames: true,
                 arrows: false,
                 collapse_vars: false,
-                comparisons: false,
                 computed_props: false,
                 hoist_funs: false,
                 hoist_props: false,
                 hoist_vars: false,
-                inline: false,
                 loops: false,
                 negate_iife: false,
                 properties: false,
@@ -128,38 +214,33 @@ const pluginClean = new CleanWebpackPlugin({
                 dead_code: true,
                 evaluate: true
             },
-            mangle: true
+            mangle: {
+                safari10: true
+            },
+            output: {
+                ecma: 5,
+                comments: false
+            }
         },
-        sourceMap: false,
-        cache: true,
-        parallel: true,
+        parallel: 4,
         extractComments: false
     });
 
-const watchOptions = {
-        aggregateTimeout: 100,
-        ignored: [
-            './src/fonts/*',
-            'node_modules'
-        ]
-    },
-    stats = {
-        warnings: false,
-        entrypoints: false,
-        children: false
-    };
-
 const chunks = {
     cacheGroups: {
-        vendor: {
+        vendors: {
             test(mod) {
-                let node_modules = mod.context.includes('node_modules'),
-                    uikit = ['uikit'].some(str => mod.context.includes(str));
+                if (mod.context) {
+                    let node_modules = mod.context.includes('node_modules'),
+                        uikit = ['uikit'].some(str => mod.context.includes(str)),
+                        axios = ['axios'].some(str => mod.context.includes(str));
 
-                return !(!node_modules || uikit);
+                    return !(!node_modules || uikit || axios);
+                }
             },
             name: 'vendors',
-            chunks: 'all',
+            chunks: "all",
+            priority: 10,
             enforce: true
         }
     }
@@ -169,52 +250,89 @@ const configProd = {
     mode: 'production',
     entry: entry,
     output: output,
-    devtool: false,
-    node: {
-        console: false,
-        process: false,
-        Buffer: false,
-        setImmediate: false
+    cache: {
+        type: "filesystem"
     },
-    watchOptions: watchOptions,
-    module: modules,
+    devtool: false,
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000,
+    },
+    module: {
+        rules: [
+            rulesJS,
+            rulesStyle,
+            rulesFonts,
+            rulesImg
+        ]
+    },
+    resolve: resolveAlias,
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        pluginProgressBar,
         pluginClean,
         pluginMiniCss,
         pluginMCP,
-        pluginReplace,
-        pluginOptimizer
+        pluginCopy,
+        pluginReplace
     ],
     optimization: {
+        moduleIds: "deterministic",
         nodeEnv: 'production',
         removeAvailableModules: true,
-        usedExports: false,
+        usedExports: true,
         minimize: true,
         minimizer: [
-            pluginTerser
+            pluginTerser,
+            pluginImageMin
         ],
         splitChunks: chunks
     },
-    stats: stats
+    stats: 'errors-only'
 };
 
 const configDev = {
     mode: 'development',
     entry: entry,
     output: output,
-    devtool: 'source-map',
-    watchOptions: watchOptions,
-    module: modules,
+    cache: {
+        type: "filesystem"
+    },
+    devtool: 'eval-cheap-module-source-map',
+    module: {
+        rules: [
+            rulesJS,
+            rulesStyleDev,
+            rulesFonts,
+            rulesImg
+        ]
+    },
+    resolve: resolveAlias,
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('development')
+            }
+        }),
+        pluginProgressBar,
         pluginMiniCss,
+        pluginCopy,
         pluginReplace,
         pluginMCP
     ],
     optimization: {
+        moduleIds: "deterministic",
         nodeEnv: 'development',
+        removeAvailableModules: true,
+        usedExports: false,
+        minimize: false,
         splitChunks: chunks
-    },
-    stats: stats
+    }
 };
 
 if (isProduction) {

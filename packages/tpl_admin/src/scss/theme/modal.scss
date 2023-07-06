@@ -1,4 +1,4 @@
-//
+// @formatter:off
 // Component: Modal
 //
 // ========================================================================
@@ -6,10 +6,23 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$modal-background:                              rgba(0,0,0,.1);
+$modal-header-background:                       $modal-dialog-background;
+$modal-footer-background:                       $modal-dialog-background;
+$modal-header-border-width:                     $global-border-width;
+$modal-header-border:                           $global-border;
+$modal-footer-border-width:                     $global-border-width;
+$modal-footer-border:                           $global-border;
+$modal-close-full-padding:                      $global-margin;
+$modal-close-full-background:                   $modal-dialog-background;
+
 // Component
 // ========================================================================
 
-// @mixin hook-modal(){}
+@mixin hook-modal(){}
 
 @mixin hook-modal-header() {
 	border-bottom: $modal-header-border-width solid $modal-header-border;
@@ -22,7 +35,11 @@
 // Dialog
 // ========================================================================
 
-// @mixin hook-modal-dialog(){}
+@mixin hook-modal-dialog(){
+	@extend .uk-overflow-hidden;
+	@extend .uk-box-shadow-medium;
+	@extend .uk-border-rounded;
+}
 
 // Full
 // ========================================================================

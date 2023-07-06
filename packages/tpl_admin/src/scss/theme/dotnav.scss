@@ -6,6 +6,21 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$dotnav-item-active-background: $color-primary;
+$dotnav-item-border-width: 1px;
+$dotnav-item-border: transparent;
+$dotnav-item-hover-border: transparent;
+$dotnav-item-onclick-border: transparent;
+$dotnav-item-active-border: transparent;
+$dotnav-item-width: 12px;
+$dotnav-item-height: $dotnav-item-width;
+$dotnav-item-background: transparent;
+$dotnav-item-hover-border: transparent;
+$dotnav-item-onclick-border: transparent;
+
 // Component
 // ========================================================================
 
@@ -60,7 +75,6 @@ $inverse-dotnav-item-background: transparent !default;
 }
 
 @mixin hook-inverse-component-dotnav() {
-	
 	.uk-dotnav > * > * {
 		background-color: $inverse-dotnav-item-background;
 		@if (mixin-exists(hook-inverse-dotnav-item)) {

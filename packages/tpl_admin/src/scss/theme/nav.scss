@@ -1,3 +1,4 @@
+// @formatter:off
 //
 // Component: Nav
 //
@@ -6,6 +7,33 @@
 
 // Variables
 // ========================================================================
+
+//
+// New
+//
+$nav-item-padding-vertical:                     14px;
+$nav-item-padding-horizontal:                   22px;
+
+$nav-divider-margin-vertical:                   22px;
+$nav-divider-margin-horizontal:                 0;
+
+$nav-default-font-size:                         15px;
+$nav-default-divider-border:                    $color-greylighten;
+$nav-default-item-color:                        $color-blackdeep;
+$nav-default-item-hover-color:                  $color-primary;
+$nav-default-item-active-color:                 $color-primary;
+$nav-sublist-padding-vertical:                  5px;
+$nav-sublist-padding-left:                      18px;
+$nav-sublist-deeper-padding-left:               15px;
+$nav-sublist-item-padding-vertical:             2px;
+
+$nav-primary-item-color:                        $global-link-color;
+$nav-primary-item-hover-color:                  $color-primary;
+$nav-primary-item-active-color:                 $color-primary;
+$nav-primary-item-font-size:                    .9375rem;
+
+$inverse-nav-default-item-color:                 $inverse-global-muted-color;
+
 
 // Sublists
 // ========================================================================
@@ -45,7 +73,9 @@
 
 // @mixin hook-nav-primary(){}
 
-// @mixin hook-nav-primary-item(){}
+@mixin hook-nav-primary-item(){
+	padding: ($nav-item-padding-vertical*1.5) $nav-item-padding-horizontal;
+}
 
 // @mixin hook-nav-primary-item-hover(){}
 
@@ -64,20 +94,6 @@
 // ========================================================================
 
 @mixin hook-inverse-component-nav() {
-	
-	//
-	// Parent icon modifier
-	//
-	.uk-nav-parent-icon > .uk-parent > a::after {
-		@include svg-fill($internal-nav-parent-close-image, '#000', $inverse-nav-parent-icon-color);
-		@if (mixin-exists(hook-inverse-nav-parent-icon)) {
-			@include hook-inverse-nav-parent-icon();
-		}
-	}
-	
-	.uk-nav-parent-icon > .uk-parent.uk-open > a::after {
-		@include svg-fill($internal-nav-parent-open-image, '#000', $inverse-nav-parent-icon-color);
-	}
 	
 	//
 	// Default

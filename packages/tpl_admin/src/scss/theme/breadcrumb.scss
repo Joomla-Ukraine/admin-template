@@ -6,10 +6,24 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$breadcrumb-divider-margin-horizontal:          10px;
+$breadcrumb-item-font-size:                     13px;
+$breadcrumb-item-color:                         $color-steel;
+$breadcrumb-item-hover-color:                   $color-steel;
+$breadcrumb-item-active-color:                  $color-steel;
+$breadcrumb-divider-color:                      $color-steel;
+
 // Component
 // ========================================================================
 
-// @mixin hook-breadcrumb(){}
+@mixin hook-breadcrumb(){
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
 
 // Items
 // ========================================================================
@@ -40,43 +54,45 @@
 // @mixin hook-inverse-breadcrumb-divider(){}
 
 @mixin hook-inverse-component-breadcrumb() {
-	
-	.uk-breadcrumb > * > * {
-		color: $inverse-breadcrumb-item-color;
-		@if (mixin-exists(hook-inverse-breadcrumb-item)) {
-			@include hook-inverse-breadcrumb-item();
-		}
-	}
-	
-	.uk-breadcrumb > * > :hover,
-	.uk-breadcrumb > * > :focus {
-		color: $inverse-breadcrumb-item-hover-color;
-		@if (mixin-exists(hook-inverse-breadcrumb-item-hover)) {
-			@include hook-inverse-breadcrumb-item-hover();
-		}
-	}
-	
-	.uk-breadcrumb > .uk-disabled > * {
-		@if (mixin-exists(hook-inverse-breadcrumb-item-disabled)) {
-			@include hook-inverse-breadcrumb-item-disabled();
-		}
-	}
-	
-	.uk-breadcrumb > :last-child > * {
-		color: $inverse-breadcrumb-item-active-color;
-		@if (mixin-exists(hook-inverse-breadcrumb-item-active)) {
-			@include hook-inverse-breadcrumb-item-active();
-		}
-	}
-	
-	//
-	// Divider
-	//
-	.uk-breadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
-		color: $inverse-breadcrumb-divider-color;
-		@if (mixin-exists(hook-inverse-breadcrumb-divider)) {
-			@include hook-inverse-breadcrumb-divider();
-		}
-	}
-	
+  .uk-breadcrumb > * > * {
+    color: $inverse-breadcrumb-item-color;
+    
+    @if (mixin-exists(hook-inverse-breadcrumb-item)) {
+      @include hook-inverse-breadcrumb-item();
+    }
+  }
+  
+  .uk-breadcrumb > * > :hover,
+  .uk-breadcrumb > * > :focus {
+    color: $inverse-breadcrumb-item-hover-color;
+    
+    @if (mixin-exists(hook-inverse-breadcrumb-item-hover)) {
+      @include hook-inverse-breadcrumb-item-hover();
+    }
+  }
+  
+  .uk-breadcrumb > .uk-disabled > * {
+    @if (mixin-exists(hook-inverse-breadcrumb-item-disabled)) {
+      @include hook-inverse-breadcrumb-item-disabled();
+    }
+  }
+  
+  .uk-breadcrumb > :last-child > * {
+    color: $inverse-breadcrumb-item-active-color;
+    
+    @if (mixin-exists(hook-inverse-breadcrumb-item-active)) {
+      @include hook-inverse-breadcrumb-item-active();
+    }
+  }
+  
+  //
+  // Divider
+  //
+  .uk-breadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
+    color: $inverse-breadcrumb-divider-color;
+    
+    @if (mixin-exists(hook-inverse-breadcrumb-divider)) {
+      @include hook-inverse-breadcrumb-divider();
+    }
+  }
 }

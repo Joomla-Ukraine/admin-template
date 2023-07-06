@@ -6,105 +6,117 @@
  * @subpackage       admin
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
- * @license          GNU General Public License version 2 or later
+ * @copyright        2018-2019 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
 
 header('Content-type: application/json; charset=utf-8');
 
+$data = [
+	'data' => [
+		[
+			'tag'   => "Bikes4Ukraine",
+			'count' => rand(0, 100),
+		],
+		[
+			'tag'   => "find Bikes4Ukraine",
+			'count' => rand(0, 100),
+		],
+		[
+			'tag'   => "Venezuela",
+			'count' => rand(0, 100),
+		],
+		[
+			'tag'   => "Rodrigo Figueredo",
+			'count' => rand(0, 100),
+		],
+		[
+			'tag'   => "CERT-UA",
+			'count' => rand(0, 100),
+		],
+		[
+			'tag'   => "Bushmaster",
+			'count' => rand(0, 100),
+		]
+	]
+];
+
+echo json_encode($data);
+
+die;
 define('_JEXEC', 1);
-define('JPATH_BASE', dirname(__DIR__, 3));
+define('JPATH_BASE', $_SERVER[ 'DOCUMENT_ROOT' ]);
 
 require_once JPATH_BASE . '/includes/defines.php';
 require_once JPATH_BASE . '/includes/framework.php';
 
+error_reporting(1);
+ini_set('display_errors', 1);
+
 use Joomla\CMS\Factory;
 
-$app    = Factory::getApplication('site');
-$app->loadDispatcher();
+$_app = Factory::getApplication('site');
+$user = Factory::getUser();
 
-echo (new tags())->run();
+$_app->initialise();
 
-class tags
+if($user->get('id') < 1)
 {
-	/**
-	 * @throws \Exception
-	 * @since 1.0
-	 */
-	public function __construct()
+	return;
+}
+
+$app    = Factory::getApplication();
+$search = $app->input->getString('term');
+
+if(isset($search))
+{
+	$db    = Factory::getDbo();
+	$query = $db->getQuery(true);
+
+	$query->select([ 'a.metakey' ]);
+	$query->from($db->quoteName('#__content') . ' AS a');
+	$query->where(($db->quoteName('a.metakey') . ' LIKE ' . $db->quote('%' . $search . '%') . ' OR ' . $db->quoteName('a.metakey') . ' LIKE ' . $db->quote($search . '%')));
+	$query->group('a.metakey');
+	$query->order('a.metakey ASC');
+	$db->setQuery($query, 0, 30);
+	$rows = $db->loadObjectList();
+
+	sort($rows);
+	$data = [];
+	foreach($rows as $mod)
 	{
-		$this->user   = Factory::getUser();
-		$this->app    = Factory::getApplication();
-		$this->db     = Factory::getDbo();
-		$this->search = $this->app->input->getString('term');
-	}
-
-	/**
-	 * @return string
-	 *
-	 * @since 1.0
-	 */
-	public function run()
-	{
-
-		if($this->user->id < 1)
+		sort($arr);
+		$arr = explode(',', $mod->metakey);
+		$i   = 0;
+		foreach($arr as $row)
 		{
-			return false;
-		}
-
-		if(isset($this->search))
-		{
-			$query = $this->db->getQuery(true);
-
-			$query->select([ 'a.metakey' ]);
-			$query->from($this->db->quoteName('#__content') . ' AS a');
-			$query->where(($this->db->quoteName('a.metakey') . ' LIKE ' . $this->db->quote('%' . $this->search . '%') . ' OR ' . $this->db->quoteName('a.metakey') . ' LIKE ' . $this->db->quote($this->search . '%')));
-			$query->group('a.metakey');
-			$query->order('a.metakey ASC');
-			$this->db->setQuery($query, 0, 30);
-			$rows = $this->db->loadObjectList();
-
-			sort($rows);
-			$data = [];
-			foreach($rows as $mod)
+			if(trim($row) != '' && $i <= 15)
 			{
-				sort($arr);
-				$arr = explode(',', $mod->metakey);
-				$i   = 0;
-				foreach($arr as $row)
+				$pos = strpos(mb_strtolower(trim($row)), mb_strtolower($search));
+				if($pos !== false)
 				{
-					if(trim($row) != '' && $i <= 15)
-					{
-						$pos = strpos(mb_strtolower(trim($row)), mb_strtolower($this->search));
-						if($pos !== false)
-						{
-							$str    = trim($row);
-							$str    = str_replace([
-								'"',
-								'»',
-								'«',
-								'”',
-								'“'
-							], '', $str);
-							$data[] = $str;
-						}
-					}
-
-					$i++;
+					$str    = trim($row);
+					$str    = str_replace([
+						'"',
+						'»',
+						'«',
+						'”',
+						'“'
+					], '', $str);
+					$data[] = $str;
 				}
 			}
-
-			$inputs = array_unique($data, SORT_LOCALE_STRING);
-
-			$keyword = [];
-			foreach($inputs as $k => $v)
-			{
-				$keyword[] = $v;
-			}
-
-			return json_encode($keyword);
+			$i++;
 		}
-
-		return false;
 	}
+
+	$inputs = array_unique($data, SORT_LOCALE_STRING);
+
+	$keyword = [];
+	foreach($inputs as $k => $v)
+	{
+		$keyword[] = $v;
+	}
+
+	echo json_encode($keyword);
 }

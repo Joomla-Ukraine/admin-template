@@ -1,109 +1,171 @@
 <?php
 /**
- * Admin Template
+ * Seblod Admin Template
  *
- * @package          Joomla.Site
- * @subpackage       admin
+ * @version       2.x
+ * @package       admin
+ * @author        Denys D. Nosov (denys@joomla-ua.org)
+ * @copyright (C) 2018-2023 by Denys D. Nosov (https://joomla-ua.org)
+ * @license       GNU General Public License version 2 or later; see LICENSE.md
  *
- * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
- * @license          GNU General Public License version 2 or later
- */
+ **/
 
-defined('_JEXEC') or die();
+defined('_JEXEC') or die;
 
 use Joomla\CMS\Layout\FileLayout;
 use Joomla\CMS\Uri\Uri;
 
 require_once __DIR__ . '/inc/head.php';
 
-$doc = JFactory::getDocument();
-
-// Select 2
-$doc->addStyleSheet(Uri::base(true) . 'templates/admin/js/jui/jquery-ui.min.css');
-$doc->addStyleSheet(Uri::base(true) . 'templates/admin/js/select2/css/select2.min.css');
-$doc->addStyleSheet(Uri::base(true) . 'templates/admin/js/tageditor/jquery.tag-editor.css');
-
-$doc->addScript(Uri::base(true) . 'templates/admin/js/select2/js/select2.min.js');
-$doc->addScript(Uri::base(true) . 'templates/admin/js/jui/jquery-ui.min.js');
-$doc->addScript(Uri::base(true) . 'templates/admin/js/tageditor/jquery.caret.min.js');
-$doc->addScript(Uri::base(true) . 'templates/admin/js/tageditor/jquery.tag-editor.min.js');
-
-$doc->addScriptDeclaration("jQuery(document).ready(function($){
-    $('.select2').select2();
-    $('.tags').tagEditor({ 
-        placeholder: '+ тег',
-        forceLowercase: false,
-        autocomplete: { 
-            source: '/templates/admin/ajax/tags.php', 
-            minLength: 3 
-        } 
-    });
-});");
-
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>">
 <head>
 	<jdoc:include type="head" />
-	<jdoc:include type="message" />
 </head>
 <body>
 <main class="uk-container-expand">
-
 	<div class="uk-grid-collapse" data-uk-grid data-uk-height-viewport="offset-top: true; offset-bottom: 0">
 
 		<?php if(!$user->guest): ?>
-			<?php echo (new FileLayout('tpl.sidebar'))->render([
-				'this'      => $this,
-				'logo'      => $logo,
-				'ac_edit'   => $ac_edit,
-				'ac_button' => $account_button
-			]);
-			?>
+			<aside class="tm-sidebar-left tm-bg-bluedark uk-width-auto uk-position-relative <?php echo($ac_edit == 0 ? 'uk-visible@m' : 'uk-visible@xl'); ?>">
+				<div class="tm-sidebar-padding">
+					<h1 class="uk-h3 tm-logo uk-light">
+						<a href="<?php echo URI::base(); ?>" class="uk-logo" target="_blank">
+							<?php echo $logo; ?>
+						</a>
+					</h1>
+
+					<?php
+					echo (new FileLayout('tpl.modules.account_button'))->render([
+						'params' => $this->params
+					]);
+					?>
+
+					<?php if($this->countModules('account')): ?>
+						<div class="uk-light uk-margin-small-top">
+							<jdoc:include type="modules" name="account" style="raw" />
+						</div>
+					<?php endif; ?>
+				</div>
+			</aside>
 		<?php endif; ?>
 
-		<div class="uk-width-1-1@s uk-width-expand uk-background-muted">
+		<div class="uk-width-1-1@s uk-width-expand tm-container-expand">
 
-			<?php echo (new FileLayout('tpl.navbar'))->render([
-				'this'        => $this,
-				'avatar'      => $avatar,
-				'user'        => $user,
-				'users_count' => $users_count,
-				'profile'     => $profile,
-				'logout'      => $logout,
-				'ac_edit'     => $ac_edit,
-			]);
-			?>
+			<div class="uk-navbar-container tm-navbar-container uk-margin-bottom uk-navbar-transparent uk-active">
 
-			<?php if($user->guest && $option === 'com_users'): ?>
-				<?php echo (new FileLayout('tpl.component'))->render([
-					'section' => true,
-					'logo'    => $logo2
-				]);
-				?>
-			<?php elseif($user->guest && $option === 'com_cck'): ?>
-				<?php echo (new FileLayout('tpl.component'))->render([
-					'section' => false,
-					'logo'    => $logo2
-				]);
-				?>
+				<div class="uk-container-expand">
+
+					<?php if(!$user->guest && $this->countModules('account')): ?>
+						<nav class="tm-navbar uk-navbar" data-uk-navbar>
+
+							<div class="uk-navbar-left tm-navbar tm-font-xxxsmall">
+								<a class="uk-navbar-toggle <?php echo($ac_edit == 0 ? 'uk-hidden@m' : 'uk-hidden@xl'); ?>" data-uk-toggle="target: #offcanvas">
+									<?php
+									echo (new FileLayout('tpl.icon'))->render([
+										'icon' => 'menu',
+										'size' => 48
+									]);
+									?>
+								</a>
+
+								<?php if($this->countModules('admin_lang')) : ?>
+									<ul class="uk-navbar-nav uk-margin-left">
+										<li class="uk-active uk-flex-middle">
+											<jdoc:include type="modules" name="admin_lang" style="raw" />
+										</li>
+									</ul>
+								<?php endif; ?>
+
+								<?php
+								echo (new FileLayout('tpl.modules.users_count'))->render([
+									'params' => $this->params,
+									'db'     => $db
+								]);
+
+								echo (new FileLayout('tpl.modules.remove_cache'))->render([
+									'params' => $this->params,
+									'user'   => $user
+								]);
+								?>
+
+								<?php if($this->params->get('html_tm')): ?>
+									<?php echo eval('?> ' . $this->params->get('html_tm')); ?>
+								<?php endif; ?>
+
+								<jdoc:include type="modules" name="admin_menu" style="raw" />
+							</div>
+
+							<div class="uk-navbar-right tm-navbar">
+								<?php
+								echo (new FileLayout('tpl.modules.avatar'))->render([
+									'params'  => $this->params,
+									'baseurl' => $this->baseurl,
+									'user'    => $user,
+									'db'      => $db
+								]);
+								?>
+							</div>
+
+						</nav>
+					<?php endif; ?>
+
+				</div>
+			</div>
+
+			<?php if(($user->guest && $option === 'com_users') || ($user->guest && $option === 'com_cck')): ?>
+				<div class="uk-flex uk-flex-middle" data-uk-height-viewport>
+					<div class="tm-container uk-width-2xlarge uk-align-center">
+						<div class="uk-section-default uk-box-shadow-medium uk-padding-large uk-border-rounded">
+							<h1 class="uk-h3">
+								<a href="<?php echo URI::base(); ?>" target="_blank">
+									<?php echo $logo2; ?>
+								</a>
+							</h1>
+							<jdoc:include type="message" />
+							<jdoc:include type="component" />
+						</div>
+					</div>
+				</div>
 			<?php else: ?>
 				<div class="tm-container">
+					<jdoc:include type="message" />
 					<jdoc:include type="component" />
 				</div>
 			<?php endif; ?>
 
 		</div>
 	</div>
+
 </main>
 
-<?php if(!$user->guest && $this->countModules('account')) : ?>
-	<?php echo (new FileLayout('tpl.offcanvas'))->render([
-		'logo' => $logo,
-	]);
-	?>
+<?php if(!$user->guest && $this->countModules('account')): ?>
+	<aside class="uk-offcanvas" id="offcanvas" data-uk-offcanvas="overlay: true; mode: slide">
+		<div class="uk-offcanvas-bar tm-sidebar-left tm-bg-bluedark">
+			<button class="uk-offcanvas-close uk-light tm-button-link" type="button">
+				<?php
+				echo (new FileLayout('tpl.icon'))->render([
+					'icon'  => 'close',
+					'class' => 'tm-light',
+					'size'  => 24
+				]);
+				?>
+			</button>
+			<div class="tm-sidebar-padding-bottom">
+				<div class="uk-margin-small">
+					<h1 class="uk-h3 uk-light">
+						<a href="<?php echo URI::base(); ?>" class="uk-link-reset" target="_blank">
+							<?php echo $logo; ?>
+						</a>
+					</h1>
+				</div>
+				<div class="uk-light uk-margin-small-top">
+					<jdoc:include type="modules" name="account" style="raw" />
+				</div>
+			</div>
+		</div>
+	</aside>
 <?php endif; ?>
-
 </body>
 </html>

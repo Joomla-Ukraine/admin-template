@@ -8,10 +8,15 @@ module.exports = {
                 "modules": false,
                 "targets": {
                     "browsers": [
-                        "cover 99.5%"
+                        '> 1%',
+                        'last 2 versions',
+                        'Firefox ESR',
                     ]
                 }
             }
         ]
+    ],
+    "plugins": [
+        "@babel/plugin-transform-runtime"
     ]
 };

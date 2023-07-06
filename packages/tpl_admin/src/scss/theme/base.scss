@@ -1,3 +1,5 @@
+// @formatter:off
+
 //
 // Component: Base
 //
@@ -9,32 +11,57 @@
 //
 // New
 //
+$base-body-font-family:                         $tm-global-font-family;
+$base-body-background:                          $color-white;           // rgba(246,247,249,0.4);
+$base-body-color:                               $color-blackdeep;
+$base-link-color:                               $global-link-color;
+$base-link-text-decoration:                     none;
+$base-link-hover-color:                         $global-link-hover-color;
+$base-link-hover-text-decoration:               none;
+$base-h5-font-size:                             17px;
+$base-ins-background:                           transparent;
+$base-heading-font-family:                      '#{$tm-font}';
+$base-heading-font-weight:                      normal;
+$base-blockquote-footer-color:                  $color-grey;
+$base-em-color:                                 $global-color;
+$base-blockquote-font-size:                     $global-font-size;
+$base-blockquote-font-style:                    italic;
+$base-blockquote-footer-line-height:            1.5;
+$base-code-padding-horizontal:                  6px;
+$base-code-padding-vertical:                    2px;
+$base-code-background:                          $global-muted-background;
+$base-blockquote-color:                         $global-emphasis-color;
+$base-blockquote-footer-color:                  $global-color;
+$base-pre-padding:                              10px;
+$base-pre-background:                           $global-background;
+$base-pre-border-width:                         $global-border-width;
+$base-pre-border:                               $global-border;
+$base-pre-border-radius:                        3px;
 
 // Body
 // ========================================================================
 
 @mixin hook-base-body() {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 // Links
 // ========================================================================
 
-@mixin hook-base-link() {
-	/*    &:focus {
-			outline: none;
-		}*/
-}
+//@mixin hook-base-link() {}
 
 @mixin hook-base-link-hover() {
-	-webkit-transition: .4s ease-in-out;
-	transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 // Text-level semantics
 // ========================================================================
+
+dd {
+  margin-left: 40px !important;
+}
 
 // Headings
 // ========================================================================
@@ -58,37 +85,34 @@
 
 // @mixin hook-base-hr(){}
 
-
 // Blockquotes
 // ========================================================================
 
 @mixin hook-base-blockquote() {
-	color: $base-blockquote-color;
+  color: $base-blockquote-color;
 }
 
 @mixin hook-base-blockquote-footer() {
-	
-	color: $base-blockquote-footer-color;
-	
-	&::before {
-		content: "— ";
-	}
-	
+  color: $base-blockquote-footer-color;
+  
+  &::before {
+    content: '— ';
+  }
 }
 
 // Preformatted text
 // ========================================================================
 
 @mixin hook-base-code() {
-	padding: $base-code-padding-vertical $base-code-padding-horizontal;
-	background: $base-code-background;
+  background: $base-code-background;
+  padding: $base-code-padding-vertical $base-code-padding-horizontal;
 }
 
 @mixin hook-base-pre() {
-	padding: $base-pre-padding;
-	border: $base-pre-border-width solid $base-pre-border;
-	border-radius: $base-pre-border-radius;
-	background: $base-pre-background;
+  background: $base-pre-background;
+  border: $base-pre-border-width solid $base-pre-border;
+  border-radius: $base-pre-border-radius;
+  padding: $base-pre-padding;
 }
 
 // Miscellaneous
@@ -117,138 +141,154 @@ $inverse-base-blockquote-footer-color: $inverse-global-color !default;
 // @mixin hook-inverse-base-hr(){}
 
 @mixin hook-inverse-base-blockquote() {
-	color: $inverse-base-blockquote-color;
+  color: $inverse-base-blockquote-color;
 }
 
 @mixin hook-inverse-base-blockquote-footer() {
-	color: $inverse-base-blockquote-footer-color;
+  color: $inverse-base-blockquote-footer-color;
 }
 
 @mixin hook-inverse-component-base() {
-	
-	color: $inverse-base-color;
-	
-	// Base
-	// ========================================================================
-	
-	//
-	// Link
-	//
-	
-	a,
-	.uk-link {
-		color: $inverse-base-link-color;
-		@if (mixin-exists(hook-inverse-base-link)) {
-			@include hook-inverse-base-link();
-		}
-	}
-	
-	a:hover,
-	.uk-link:hover {
-		color: $inverse-base-link-hover-color;
-		@if (mixin-exists(hook-inverse-base-link-hover)) {
-			@include hook-inverse-base-link-hover();
-		}
-	}
-	
-	//
-	// Code
-	//
-	:not(pre) > code,
-	:not(pre) > kbd,
-	:not(pre) > samp {
-		color: $inverse-base-code-color;
-		@if (mixin-exists(hook-inverse-base-code)) {
-			@include hook-inverse-base-code();
-		}
-	}
-	
-	//
-	// Emphasize
-	//
-	em {
-		color: $inverse-base-em-color;
-	}
-	
-	//
-	// Headings
-	//
-	h1, .uk-h1,
-	h2, .uk-h2,
-	h3, .uk-h3,
-	h4, .uk-h4,
-	h5, .uk-h5,
-	h6, .uk-h6,
-	.uk-heading-small,
-	.uk-heading-medium,
-	.uk-heading-large,
-	.uk-heading-xlarge,
-	.uk-heading-2xlarge {
-		color: $inverse-base-heading-color;
-		@if (mixin-exists(hook-inverse-base-heading)) {
-			@include hook-inverse-base-heading();
-		}
-	}
-	
-	h1, .uk-h1 {
-		@if (mixin-exists(hook-inverse-base-h1)) {
-			@include hook-inverse-base-h1();
-		}
-	}
-	
-	h2, .uk-h2 {
-		@if (mixin-exists(hook-inverse-base-h2)) {
-			@include hook-inverse-base-h2();
-		}
-	}
-	
-	h3, .uk-h3 {
-		@if (mixin-exists(hook-inverse-base-h3)) {
-			@include hook-inverse-base-h3();
-		}
-	}
-	
-	h4, .uk-h4 {
-		@if (mixin-exists(hook-inverse-base-h4)) {
-			@include hook-inverse-base-h4();
-		}
-	}
-	
-	h5, .uk-h5 {
-		@if (mixin-exists(hook-inverse-base-h5)) {
-			@include hook-inverse-base-h5();
-		}
-	}
-	
-	h6, .uk-h6 {
-		@if (mixin-exists(hook-inverse-base-h6)) {
-			@include hook-inverse-base-h6();
-		}
-	}
-	
-	//
-	// Blockquotes
-	//
-	blockquote {
-		@if (mixin-exists(hook-inverse-base-blockquote)) {
-			@include hook-inverse-base-blockquote();
-		}
-	}
-	
-	blockquote footer {
-		@if (mixin-exists(hook-inverse-base-blockquote-footer)) {
-			@include hook-inverse-base-blockquote-footer();
-		}
-	}
-	
-	//
-	// Horizontal rules
-	//
-	hr, .uk-hr {
-		border-top-color: $inverse-base-hr-border;
-		@if (mixin-exists(hook-inverse-base-hr)) {
-			@include hook-inverse-base-hr();
-		}
-	}
-	
+  color: $inverse-base-color;
+  
+  // Base
+  // ========================================================================
+  
+  //
+  // Link
+  //
+  
+  a,
+  .uk-link {
+    color: $inverse-base-link-color;
+    
+    @if (mixin-exists(hook-inverse-base-link)) {
+      @include hook-inverse-base-link();
+    }
+  }
+  
+  a:hover,
+  .uk-link:hover {
+    color: $inverse-base-link-hover-color;
+    
+    @if (mixin-exists(hook-inverse-base-link-hover)) {
+      @include hook-inverse-base-link-hover();
+    }
+  }
+  
+  //
+  // Code
+  //
+  :not(pre) > code,
+  :not(pre) > kbd,
+  :not(pre) > samp {
+    color: $inverse-base-code-color;
+    
+    @if (mixin-exists(hook-inverse-base-code)) {
+      @include hook-inverse-base-code();
+    }
+  }
+  
+  //
+  // Emphasize
+  //
+  em {
+    color: $inverse-base-em-color;
+  }
+  
+  //
+  // Headings
+  //
+  h1,
+  .uk-h1,
+  h2,
+  .uk-h2,
+  h3,
+  .uk-h3,
+  h4,
+  .uk-h4,
+  h5,
+  .uk-h5,
+  h6,
+  .uk-h6,
+  .uk-heading-small,
+  .uk-heading-medium,
+  .uk-heading-large,
+  .uk-heading-xlarge,
+  .uk-heading-2xlarge {
+    color: $inverse-base-heading-color;
+    
+    @if (mixin-exists(hook-inverse-base-heading)) {
+      @include hook-inverse-base-heading();
+    }
+  }
+  
+  h1,
+  .uk-h1 {
+    @if (mixin-exists(hook-inverse-base-h1)) {
+      @include hook-inverse-base-h1();
+    }
+  }
+  
+  h2,
+  .uk-h2 {
+    @if (mixin-exists(hook-inverse-base-h2)) {
+      @include hook-inverse-base-h2();
+    }
+  }
+  
+  h3,
+  .uk-h3 {
+    @if (mixin-exists(hook-inverse-base-h3)) {
+      @include hook-inverse-base-h3();
+    }
+  }
+  
+  h4,
+  .uk-h4 {
+    @if (mixin-exists(hook-inverse-base-h4)) {
+      @include hook-inverse-base-h4();
+    }
+  }
+  
+  h5,
+  .uk-h5 {
+    @if (mixin-exists(hook-inverse-base-h5)) {
+      @include hook-inverse-base-h5();
+    }
+  }
+  
+  h6,
+  .uk-h6 {
+    @if (mixin-exists(hook-inverse-base-h6)) {
+      @include hook-inverse-base-h6();
+    }
+  }
+  
+  //
+  // Blockquotes
+  //
+  blockquote {
+    @if (mixin-exists(hook-inverse-base-blockquote)) {
+      @include hook-inverse-base-blockquote();
+    }
+  }
+  
+  blockquote footer {
+    @if (mixin-exists(hook-inverse-base-blockquote-footer)) {
+      @include hook-inverse-base-blockquote-footer();
+    }
+  }
+  
+  //
+  // Horizontal rules
+  //
+  hr,
+  .uk-hr {
+    border-top-color: $inverse-base-hr-border;
+    
+    @if (mixin-exists(hook-inverse-base-hr)) {
+      @include hook-inverse-base-hr();
+    }
+  }
 }

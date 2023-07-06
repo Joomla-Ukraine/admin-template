@@ -15,9 +15,7 @@
 	display: flex;
 }
 
-@mixin hook-iconnav-item-hover() {
-	color: $color-bluelight;
-}
+// @mixin hook-iconnav-item-hover() {}
 
 // @mixin hook-iconnav-item-active(){}
 
@@ -30,7 +28,6 @@
 // ========================================================================
 
 @mixin hook-inverse-component-iconnav() {
-	
 	.uk-iconnav > * > a {
 		color: $inverse-iconnav-item-color;
 		@if (mixin-exists(hook-inverse-iconnav-item)) {

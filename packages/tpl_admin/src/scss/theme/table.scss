@@ -3,22 +3,55 @@
 //
 // ========================================================================
 
+
 // Variables
 // ========================================================================
+
+$table-margin-vertical: $global-margin;
+$table-cell-padding-vertical: 16px;
+$table-cell-padding-horizontal: 12px;
+$table-header-cell-font-size: $global-small-font-size;
+$table-header-cell-font-weight: normal;
+$table-header-cell-color: $color-steel;
+$table-footer-font-size: $global-small-font-size;
+$table-caption-font-size: $global-small-font-size;
+$table-caption-color: $global-muted-color;
+$table-row-active-background: $color-primary-lighten;
+$table-divider-border-width: $global-border-width;
+$table-divider-border: $global-border;
+$table-striped-row-background: $global-muted-background;
+$table-hover-row-background: $table-row-active-background;
+$table-small-cell-padding-vertical: 10px;
+$table-small-cell-padding-horizontal: 12px;
+$table-large-cell-padding-vertical: 22px;
+$table-large-cell-padding-horizontal: 12px;
+
+//
+// New
+//
+
+$table-striped-border-width: $global-border-width;
+$table-striped-border: $global-border;
+
 
 // Component
 // ========================================================================
 
 @mixin hook-table() {
-	border: 0 none;
+	border: 1px solid $global-border;
+	@extend .uk-border-rounded;
+	overflow: hidden;
+	border-spacing: 0;
+	border-collapse: separate;
 }
 
 // @mixin hook-table-cell(){}
 
 @mixin hook-table-header-cell() {
+	border-bottom: 5px double $global-border;
+	background-color: $color-greylighten;
+	font-family: $tm-font-semibold;
 	text-transform: uppercase;
-	border-bottom: 3px solid $color-greylight;
-	font-family: #{$tm-font-semibold};
 }
 
 // @mixin hook-table-footer(){}
@@ -27,19 +60,18 @@
 
 // @mixin hook-table-row-active(){}
 
+
 // Style modifiers
 // ========================================================================
 
 @mixin hook-table-divider {
-
 }
 
 @mixin hook-table-striped() {
-	border-top: $table-striped-border-width solid $table-striped-border;
-	border-bottom: $table-striped-border-width solid $table-striped-border;
 }
 
 // @mixin hook-table-hover(){}
+
 
 // Size modifier
 // ========================================================================
@@ -47,6 +79,7 @@
 // @mixin hook-table-small(){}
 
 // @mixin hook-table-large(){}
+
 
 // Miscellaneous
 // ========================================================================
@@ -56,6 +89,7 @@
 		transition: background-color .1s linear;
 	}
 }
+
 
 // Inverse
 // ========================================================================

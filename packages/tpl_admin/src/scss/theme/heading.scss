@@ -6,6 +6,20 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$heading-primary-font-size:                     1.6rem;
+$heading-primary-line-height:                   1.2;
+$heading-primary-font-size-m:                   2rem; // 54px
+$heading-primary-line-height-m:                 1.1;
+$heading-hero-font-size:                        3rem; // 64px
+$heading-hero-line-height:                      1.1;
+$heading-hero-font-size-s:                      4.5rem; // 96px
+$heading-hero-line-height-s:                    1;
+$heading-hero-font-size-m:                      7rem; // 128px
+$heading-hero-line-height-m:                    .85;
+
 // Component
 // ========================================================================
 
@@ -45,75 +59,74 @@
 // ========================================================================
 
 @mixin hook-inverse-component-heading() {
-	
-	.uk-heading-small {
-		@if (mixin-exists(hook-inverse-heading-small)) {
-			@include hook-inverse-heading-small();
-		}
-	}
-	
-	.uk-heading-medium {
-		@if (mixin-exists(hook-inverse-heading-medium)) {
-			@include hook-inverse-heading-medium();
-		}
-	}
-	
-	.uk-heading-large {
-		@if (mixin-exists(hook-inverse-heading-large)) {
-			@include hook-inverse-heading-large();
-		}
-	}
-	
-	.uk-heading-xlarge {
-		@if (mixin-exists(hook-inverse-heading-xlarge)) {
-			@include hook-inverse-heading-xlarge();
-		}
-	}
-	
-	.uk-heading-2xlarge {
-		@if (mixin-exists(hook-inverse-heading-primary)) {
-			@include hook-inverse-heading-primary();
-		}
-	}
-	
-	@if ($deprecated == true) {
-		.uk-heading-primary {
-			@if (mixin-exists(hook-inverse-heading-primary)) {
-				@include hook-inverse-heading-primary();
-			}
-		}
-	}
-	
-	@if ($deprecated == true) {
-		.uk-heading-hero {
-			@if (mixin-exists(hook-inverse-heading-hero)) {
-				@include hook-inverse-heading-hero();
-			}
-		}
-	}
-	
-	.uk-heading-divider {
-		border-bottom-color: $inverse-heading-divider-border;
-		@if (mixin-exists(hook-inverse-heading-divider)) {
-			@include hook-inverse-heading-divider();
-		}
-	}
-	
-	.uk-heading-bullet::before {
-		border-left-color: $inverse-heading-bullet-border;
-		@if (mixin-exists(hook-inverse-heading-bullet)) {
-			@include hook-inverse-heading-bullet();
-		}
-	}
-	
-	.uk-heading-line > ::before,
-	.uk-heading-line > ::after {
-		border-bottom-color: $inverse-heading-line-border;
-		@if (mixin-exists(hook-inverse-heading-line)) {
-			@include hook-inverse-heading-line();
-		}
-	}
-	
+  .uk-heading-small {
+    @if (mixin-exists(hook-inverse-heading-small)) {
+      @include hook-inverse-heading-small();
+    }
+  }
+  
+  .uk-heading-medium {
+    @if (mixin-exists(hook-inverse-heading-medium)) {
+      @include hook-inverse-heading-medium();
+    }
+  }
+  
+  .uk-heading-large {
+    @if (mixin-exists(hook-inverse-heading-large)) {
+      @include hook-inverse-heading-large();
+    }
+  }
+  
+  .uk-heading-xlarge {
+    @if (mixin-exists(hook-inverse-heading-xlarge)) {
+      @include hook-inverse-heading-xlarge();
+    }
+  }
+  
+  .uk-heading-2xlarge {
+    @if (mixin-exists(hook-inverse-heading-primary)) {
+      @include hook-inverse-heading-primary();
+    }
+  }
+  
+  @if ($deprecated == true) {
+    .uk-heading-primary {
+      @if (mixin-exists(hook-inverse-heading-primary)) {
+        @include hook-inverse-heading-primary();
+      }
+    }
+  }
+  
+  @if ($deprecated == true) {
+    .uk-heading-hero {
+      @if (mixin-exists(hook-inverse-heading-hero)) {
+        @include hook-inverse-heading-hero();
+      }
+    }
+  }
+  
+  .uk-heading-divider {
+    border-bottom-color: $inverse-heading-divider-border;
+    @if (mixin-exists(hook-inverse-heading-divider)) {
+      @include hook-inverse-heading-divider();
+    }
+  }
+  
+  .uk-heading-bullet::before {
+    border-left-color: $inverse-heading-bullet-border;
+    @if (mixin-exists(hook-inverse-heading-bullet)) {
+      @include hook-inverse-heading-bullet();
+    }
+  }
+  
+  .uk-heading-line > ::before,
+  .uk-heading-line > ::after {
+    border-bottom-color: $inverse-heading-line-border;
+    @if (mixin-exists(hook-inverse-heading-line)) {
+      @include hook-inverse-heading-line();
+    }
+  }
+  
 }
 
 // @mixin hook-inverse-heading-small(){}

@@ -1,0 +1,9 @@
+th .hasTooltip {
+	white-space: nowrap !important;
+	display: block;
+	min-width: 60px;
+}
+
+.hasTooltip > span {
+	float: left;
+}

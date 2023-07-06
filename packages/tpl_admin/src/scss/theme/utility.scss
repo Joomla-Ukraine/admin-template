@@ -6,6 +6,11 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+$dropcap-font-size: 2.5rem;
+
 // Panel
 // ========================================================================
 
@@ -22,12 +27,12 @@
 // ========================================================================
 
 @mixin hook-dropcap() {
-	margin-bottom: -2px;
-	color: $color-bluelight;
-	margin-right: 2px;
+	@extend %tm-font-semibold;
+	color: $color-primary;
 	float: inherit;
 	font-size: $dropcap-font-size;
-	@extend %tm-font-semibold;
+	margin-bottom: -2px;
+	margin-right: 2px;
 }
 
 
@@ -49,7 +54,6 @@
 // ========================================================================
 
 @mixin hook-inverse-component-utility() {
-	
 	.uk-dropcap::first-letter,
 	.uk-dropcap p:first-of-type::first-letter {
 		@if (mixin-exists(hook-inverse-dropcap)) {
@@ -75,6 +79,7 @@
 	.uk-logo > :not(.uk-logo-inverse):not(:only-of-type) {
 		display: none;
 	}
+	
 	.uk-logo-inverse {
 		display: inline;
 	}

@@ -6,20 +6,40 @@
 // Variables
 // ========================================================================
 
+//
+// New
+//
+//$notification-position:                         115px;
+$notification-z-index: $global-z-index + 40;
+//$notification-width:                            360px;
+$notification-width: 550px;
+$notification-message-margin-top: 10px;
+$notification-message-padding: 10px;
+$notification-message-background: transparent;
+$notification-message-color: $global-color;
+$notification-message-font-size: $global-medium-font-size;
+$notification-message-line-height: 1.3;
+$notification-message-font-size: 17px;
+$notification-close-top: $notification-message-padding + 5px;
+$notification-close-right: $notification-message-padding;
+$notification-message-primary-color: $color-secondary;
+$notification-message-success-color: $color-primary;
+$notification-message-warning-color: $global-warning-background;
+$notification-message-danger-color: $global-danger-background;
+
 // Component
 // ========================================================================
 
-//@mixin hook-notification(){}
+// @mixin hook-notification() {}
 
 // Message
 // ========================================================================
 
-@mixin hook-notification-message(){
-	@extend .uk-margin-small;
-	//@extend .uk-box-shadow-medium;
-	//@extend .uk-background-default;
-	border-radius: 3px;
-	padding: 20px;
+@mixin hook-notification-message() {
+	@extend .uk-box-shadow-medium;
+	@extend .uk-background-default;
+	@extend .uk-padding-small;
+	@extend .uk-border-rounded;
 }
 
 // Close
@@ -38,23 +58,19 @@
 // ========================================================================
 
 @mixin hook-notification-message-primary() {
-	color: $global-inverse-color;
-	background: $notify-message-primary-background;
+
 }
 
 @mixin hook-notification-message-success() {
-	color: $global-inverse-color;
-	background: $notify-message-success-background;
+
 }
 
 @mixin hook-notification-message-warning() {
-	color: $global-inverse-color;
-	background: $notify-message-warning-background;
+
 }
 
 @mixin hook-notification-message-danger() {
-	color: $global-inverse-color;
-	background: $notify-message-danger-background;
+
 }
 
 // Miscellaneous

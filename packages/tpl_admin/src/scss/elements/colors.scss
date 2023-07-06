@@ -1,12 +1,12 @@
 //
 // Main color
 //
-.tm-text-blue {
-	color: $color-blue !important;
+.tm-color-primary {
+	color: $color-primary;
 }
 
-.tm-text-green {
-	color: $color-green !important;
+.tm-color-primary-dark {
+	color: $color-primary-dark;
 }
 
 //
@@ -17,19 +17,19 @@
 	color: $color-white !important;
 }
 
-.tm-text-grey {
-	color: $color-grey;
+.tm-color-grey {
+	color: $color-greyen;
 }
 
-.tm-text-greylight {
+.tm-color-greylight {
 	color: $color-greylight;
 }
 
-.tm-text-blackdeep {
+.tm-color-blackdeep {
 	color: $color-blackdeep;
 }
 
-.tm-text-steel {
+.tm-color-steel {
 	color: $color-steel;
 	
 	a {

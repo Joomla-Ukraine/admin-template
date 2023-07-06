@@ -1,18 +1,43 @@
+// border rounded
+.tm-border-rounded-big {
+	border-radius: $border-rounded-border-radius * 2;
+}
+
 // tm-box-border
 .tm-box-border {
-    border: 1px solid #dbdbdb;
-    padding: 20px;
-    
-    ul li:last-child, ul {
-        margin-bottom: 0;
-    }
+	border: 1px solid $color-greysmokelight;
+	padding: 20px;
 }
 
 .tm-box-border-small {
-    border: 1px solid #dbdbdb;
-    padding: 8px;
+	border: 1px solid $color-greysmokelight;
+	padding: 8px;
 }
 
 .tm-box-border-flat {
-    border: 1px solid #E5E5E5;
+	border: 1px solid $color-greysmokelight;
 }
+
+// card-flat-border
+.tm-card-flat-border {
+	
+	border: 1px solid #dbdbdb;
+	background: #fff;
+	box-shadow: none;
+	overflow: hidden;
+	
+	.uk-card-body {
+		padding: 8px;
+	}
+}
+
+.tm-box-border {
+	border: 1px solid #dbdbdb;
+	padding: 20px;
+	
+	ul li:last-child, ul {
+		margin-bottom: 0;
+	}
+}
+
+

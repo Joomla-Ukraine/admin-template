@@ -1,8 +1,9 @@
+// @formatter:off
+
 //
 // Component: Alert
 //
 // ========================================================================
-
 
 // Variables
 // ========================================================================
@@ -10,67 +11,78 @@
 //
 // New
 //
+$alert-close-opacity:                           0.4;
+$alert-close-hover-opacity:                     0.8;
+$alert-background:                              $global-muted-background;
+$alert-color:                                   $color-steel;
+$alert-danger-background:                       #feecf0 !important;
+$alert-danger-color:                            #cc0f35 !important;
+$alert-primary-background:                      #e3f6ff !important;
+$alert-primary-color:                           #2160c4 !important;
+$alert-success-background:                      #effaf3 !important;
+$alert-success-color:                           #257942 !important;
+$alert-warning-background:                      #fffbeb !important;
+$alert-warning-color:                           #947600 !important;
 
 // Component
 // ========================================================================
 
-// @mixin hook-alert(){}
-
+@mixin hook-alert() {
+  border-left: 3px solid;
+}
 
 // Close
 // ========================================================================
 
-
 @mixin hook-alert-close() {
-	color: inherit;
-	opacity: $alert-close-opacity;
+  color: inherit;
+  opacity: $alert-close-opacity;
 }
 
 @mixin hook-alert-close-hover() {
-	color: inherit;
-	opacity: $alert-close-hover-opacity;
+  color: inherit;
+  opacity: $alert-close-hover-opacity;
 }
-
-
 
 // Style modifiers
 // ========================================================================
 
-// @mixin hook-alert-primary(){}
+@mixin hook-alert-primary() {
+  border-color: $alert-primary-color;
+}
 
-// @mixin hook-alert-success(){}
+@mixin hook-alert-success() {
+  border-color: $alert-success-color;
+}
 
-// @mixin hook-alert-warning(){}
+@mixin hook-alert-warning() {
+  border-color: $alert-warning-color;
+}
 
-// @mixin hook-alert-danger(){}
-
+@mixin hook-alert-danger() {
+  border-color: $alert-danger-color;
+}
 
 // Miscellaneous
 // ========================================================================
 
 @mixin hook-alert-misc() {
-	
-	/*
-	 * Content
-	 */
-	
-	.uk-alert h1,
-	.uk-alert h2,
-	.uk-alert h3,
-	.uk-alert h4,
-	.uk-alert h5,
-	.uk-alert h6 {
-		color: inherit;
-	}
-	
-	.uk-alert a:not([class]) {
-		color: inherit;
-		text-decoration: underline;
-	}
-	
-	.uk-alert a:not([class]):hover {
-		color: inherit;
-		text-decoration: underline;
-	}
-	
+  .uk-alert h1,
+  .uk-alert h2,
+  .uk-alert h3,
+  .uk-alert h4,
+  .uk-alert h5,
+  .uk-alert h6 {
+    color: inherit;
+  }
+  
+  .uk-alert a:not([class]) {
+    color: inherit;
+    text-decoration: underline;
+  }
+  
+  .uk-alert a:not([class]):hover {
+    color: inherit;
+    text-decoration: underline;
+  }
 }

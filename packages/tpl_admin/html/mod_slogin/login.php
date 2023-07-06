@@ -1,20 +1,20 @@
 <?php
 /**
- * Admin Template
+ * Seblod Admin Template
  *
- * @package          Joomla.Site
- * @subpackage       admin
+ * @version       2.x
+ * @package       admin
+ * @author        Denys D. Nosov (denys@joomla-ua.org)
+ * @copyright (C) 2018-2023 by Denys D. Nosov (https://joomla-ua.org)
+ * @license       GNU General Public License version 2 or later; see LICENSE.md
  *
- * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
- * @license          GNU General Public License version 2 or later
- */
+ **/
 
 
-defined('_JEXEC') or die();
+defined('_JEXEC') or die;
 
 ?>
-<?php if($type != 'logout') : ?>
+<?php if($type !== 'logout') : ?>
 	<div class="uk-card tm-box-border uk-margin-medium-bottom">
 
 		<?php if($params->get('inittext')): ?>

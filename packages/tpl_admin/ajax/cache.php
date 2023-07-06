@@ -6,85 +6,67 @@
  * @subpackage       admin
  *
  * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2020 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
- * @license          GNU General Public License version 2 or later
+ * @copyright        2018-2023 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
 
-echo (new cache())->run();
+error_reporting(0);
+ini_set('display_errors', 0);
 
-class cache
+$root = $_SERVER[ 'DOCUMENT_ROOT' ];
+
+echo unlinkRecursive($root . '/cache/com_cck**', '1');
+
+if(is_dir($root . '/cache/com_home/'))
 {
-	/**
-	 * @since 1.0
-	 */
-	public function __construct()
-	{
-		$this->root = dirname(__DIR__, 3);
-	}
+	echo unlinkRecursive($root . '/cache/com_home/', '1');
+}
 
-	/**
-	 * @return string
-	 *
-	 * @since 1.0
-	 */
-	public function run()
-	{
-		$html = $this->unlinkRecursive($this->root . '/cache/com_cck**', '1');
+/**
+ * @param         $dir
+ * @param   null  $deleteRootToo
+ *
+ * @return string
+ *
+ * @since 1.0
+ */
+function unlinkRecursive($dir, $deleteRootToo = null)
+{
+	$folders = glob($dir, GLOB_BRACE);
 
-		if(is_dir($this->root . '/cache/com_home/'))
+	$notification = [];
+	foreach($folders as $folder)
+	{
+		if(!$dh = opendir($folder))
 		{
-			$html .= $this->unlinkRecursive($this->root . '/cache/com_home/', '1');
+			return false;
 		}
 
-		return $html;
-	}
-
-	/**
-	 * @param      $dir
-	 * @param null $deleteRootToo
-	 *
-	 * @return string
-	 *
-	 * @since 1.0
-	 */
-	private function unlinkRecursive($dir, $deleteRootToo = null)
-	{
-		$folders = glob($dir, GLOB_BRACE);
-
-		$notification = [];
-		foreach($folders as $folder)
+		while(false !== ($obj = readdir($dh)))
 		{
-			if(!$dh = opendir($folder))
+			if($obj === '.' || $obj === '..')
 			{
-				return false;
+				continue;
 			}
 
-			while(false !== ($obj = readdir($dh)))
+			$notification[] = trim(str_replace($_SERVER[ 'DOCUMENT_ROOT' ] . '/cache/', '', $folder), '/') . '<br>';
+
+			if(!unlink($folder . '/' . $obj))
 			{
-				if($obj === '.' || $obj === '..')
-				{
-					continue;
-				}
-
-				$notification[] = '<svg width="20" height="20" aria-hidden="true"><use xlink:href="../templates/admin/assets/icons/icons.svg#check"></use></svg> ' . trim(str_replace($this->root . '/cache/', '', $folder), '/') . '<br>';
-
-				if(!unlink($folder . '/' . $obj))
-				{
-					$this->unlinkRecursive($folder . '/' . $obj, true);
-				}
-			}
-
-			closedir($dh);
-
-			if($deleteRootToo === '1')
-			{
-				rmdir($folder);
+				unlinkRecursive($folder . '/' . $obj, true);
 			}
 		}
 
-		$notify = array_unique($notification);
-		$notify = implode($notify);
+		closedir($dh);
 
-		return $notify;
+		if($deleteRootToo === '1')
+		{
+			rmdir($folder);
+		}
 	}
+
+	$notify = array_unique($notification);
+	$notify = implode($notify);
+
+	return $notify;
 }
