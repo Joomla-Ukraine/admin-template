@@ -77,7 +77,7 @@ $tpl_params = $app->getTemplate(true)->params;
 			$_icon_size = [];
 			if($item->level == 2)
 			{
-				$_icon_size = [ 'size' => 19 ];
+				$_icon_size = [ 'size' => 23 ];
 			}
 
 			$icon = (new FileLayout('tpl.icon'))->render(array_merge([

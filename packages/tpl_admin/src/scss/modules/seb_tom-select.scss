@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
-$select-color-item: rgba($color-primary, .05);
-$select-color-item-text: darken($color-primary, 15%);
+$select-color-item: $color-primary-lighten;
+$select-color-item-text: $color-primary-darken;
 $select-color-item-active-text: $color-primary;
 $select-color-item-border: $color-primary;
 $select-color-item-active: $color-primary-dark;

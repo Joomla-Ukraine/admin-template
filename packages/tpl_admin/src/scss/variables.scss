@@ -38,6 +38,7 @@ $color-blue-dark:                               darken($color-blue, 20%);
 
 $color-primary:                                 #26B99A;
 $color-primary-dark:                            darken($color-primary, 20%);
+$color-primary-darken:                          darken($color-primary, 15%);
 $color-primary-lighten:                         rgba($color-primary, .05);
 $color-secondary:                               #337ab7;
 $color-primary-dark:                            darken($color-secondary, 20%);

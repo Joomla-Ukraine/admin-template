@@ -7,7 +7,7 @@ $choices-font-size-sm: 12px !default;
 $choices-guttering: 24px !default;
 $choices-border-radius: 2.5px !default;
 $choices-border-radius-item: 20px !default;
-$choices-bg-color: #f9f9f9 !default;
+$choices-bg-color: $color-primary-lighten;
 $choices-bg-color-disabled: #eaeaea !default;
 $choices-bg-color-dropdown: #fff !default;
 $choices-text-color: #333 !default;
@@ -32,4 +32,10 @@ $choices-z-index: 10000;
 %choices-dropdown {
 	width: calc(100% - 2px);
 	box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+	
+	.#{$choices-selector}__item--selectable {
+		&.is-highlighted {
+			background-color: $color-primary-lighten;
+		}
+	}
 }
