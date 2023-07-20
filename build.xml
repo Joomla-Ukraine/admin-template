@@ -82,7 +82,16 @@
         <mkdir dir="${build}/packages"/>
 
         <zip destfile="${build}/packages/tpl_admin.zip" description="tpl_admin">
-            <fileset dir="${temp}/tpl_admin"/>
+             <fileset dir="${temp}/tpl_admin">
+                <exclude name="node_modules/**" />
+                <exclude name="src/**" />
+                <exclude name="babel.config.js" />
+                <exclude name="package.json" />
+                <exclude name="pnpm-lock.yaml" />
+                <exclude name="postcss.config.js" />
+                <exclude name="webpack.config.icons.js" />
+                <exclude name="webpack.config.js" />
+            </fileset>
         </zip>
 
         <zip destfile="${build}/packages/file_lib.zip" description="file_lib">
