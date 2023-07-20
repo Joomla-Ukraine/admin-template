@@ -4,13 +4,13 @@
            client="site"
            method="upgrade">
     <name>admin</name>
-    <creationDate>10.01.2020</creationDate>
+    <creationDate>@date@</creationDate>
     <author>Denys Nosov</author>
     <authorEmail>denys@joomla-ua.org</authorEmail>
     <authorUrl>https://joomla-ua.org</authorUrl>
     <copyright>Denys Nosov</copyright>
     <license>commerce</license>
-    <version>1.10.0</version>
+    <version>@version@</version>
     <description>Front-end admin template</description>
 
     <files>

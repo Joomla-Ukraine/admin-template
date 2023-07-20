@@ -19,11 +19,11 @@ $data = (object) $displayData;
 
 if($data->params->get('logo2'))
 {
-	$logo2 = '<img src="' . Uri::root() . $data->params->get('logo2') . '" alt="' . $data->sitename . '" width="' . $data->params->get('logo2_w', '180') . '" class="uk-align-center" decoding="async">';
+	echo '<img src="' . Uri::root() . $data->params->get('logo2') . '" alt="' . $data->sitename . '" width="' . $data->params->get('logo2_w', '180') . '" class="uk-align-center" decoding="async">';
 }
 elseif($data->params->get('sitetitle'))
 {
-	$logo2 = $data->params->get('sitetitle');
+	echo $data->params->get('sitetitle');
 }
 else
 {

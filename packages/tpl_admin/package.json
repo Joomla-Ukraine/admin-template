@@ -1,7 +1,7 @@
 {
-  "name": "procleaning",
+  "name": "admin",
   "sideEffects": true,
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Admin template",
   "private": true,
   "scripts": {
@@ -53,7 +53,6 @@
   "dependencies": {
     "@denysdesign/js-focus-outline": "denysdesign/js-focus-outline",
     "@uvarov.frontend/vanilla-calendar": "^2.6.1",
-    "a2hs.js": "^0.5.0",
     "axios": "^1.4.0",
     "choices.js": "^10.2.0",
     "tom-select": "^2.2.2",
