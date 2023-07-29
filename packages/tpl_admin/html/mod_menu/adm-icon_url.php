@@ -24,25 +24,19 @@ else
 $flink = $item->flink;
 $flink = JFilterOutput::ampReplace(htmlspecialchars($flink));
 
-$caret = '';
-if($item->parent && ($item->level == 1))
-{
-	$caret = ' <i class="fa fa-caret-down" aria-hidden="true"></i>';
-}
-
 switch($item->browserNav) :
 	default:
 	case 0:
 		?>
-		<a <?php echo $class; ?>href="<?php echo $flink; ?>"><?php echo $icon; ?><?php echo $linktype . $adm_icon . $caret; ?></a><?php
+		<a <?php echo $class; ?>href="<?php echo $flink; ?>"><?php echo $icon; ?><?php echo $linktype . $adm_icon; ?></a><?php
 		break;
 	case 1:
 		?><a <?php echo $class; ?>href="<?php echo $flink; ?>"
-		target="_blank"><?php echo $icon; ?><?php echo $linktype . $adm_icon . $caret; ?></a><?php
+		target="_blank"><?php echo $icon; ?><?php echo $linktype . $adm_icon; ?></a><?php
 		break;
 	case 2:
 		$options = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,' . $params->get('window_open');
 		?><a <?php echo $class; ?>href="<?php echo $flink; ?>"
-		onclick="window.open(this.href,'targetWindow','<?php echo $options; ?>');return false;"><?php echo $icon; ?><?php echo $linktype . $adm_icon . $caret; ?></a><?php
+		onclick="window.open(this.href,'targetWindow','<?php echo $options; ?>');return false;"><?php echo $icon; ?><?php echo $linktype . $adm_icon; ?></a><?php
 		break;
 endswitch;

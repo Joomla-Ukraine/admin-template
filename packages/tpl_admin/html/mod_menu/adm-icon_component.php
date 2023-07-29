@@ -10,8 +10,6 @@
  *
  **/
 
-use Joomla\CMS\Layout\FileLayout;
-
 defined('_JEXEC') or die;
 
 $class = $item->anchor_title ? 'class="' . $item->anchor_title . ' uk-inline" ' : 'class="uk-inline" ';
@@ -25,36 +23,24 @@ else
 	$linktype = $item->title;
 }
 
-$caret = '';
-if($item->parent)
-{
-	$caret = (new FileLayout('tpl.icon'))->render([
-		'icon'  => 'chevron-down',
-		'size'  => 17,
-		'class' => 'uk-position-center-left tm-sidebar-icon'
-	]);
-}
-
 switch($item->browserNav) :
 	default:
 	case 0:
 		?>
 		<a <?php echo $class; ?>href="<?php echo $item->flink; ?>"><?php echo $icon; ?>
-			<span class="uk-text-middle"><?php echo $linktype . $adm_icon; ?></span><?php echo $caret; ?>
+			<?php echo $linktype . $adm_icon; ?>
 		</a>
 		<?php
 		break;
 	case 1:
 		?>
 	<a <?php echo $class; ?>href="<?php echo $item->flink; ?>" target="_blank">
-		<?php echo $icon; ?>
-		<span class="uk-text-middle"><?php echo $linktype . $adm_icon; ?></span>
-		<?php echo $caret; ?>
+		<?php echo $linktype . $adm_icon; ?>
 		</a><?php
 		break;
 	case 2:
 		?>
-		<a <?php echo $class; ?>href="<?php echo $item->flink; ?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');return false;"><span class="uk-text-middle"><?php echo $linktype . $adm_icon; ?></span><?php echo $caret; ?>
+		<a <?php echo $class; ?>href="<?php echo $item->flink; ?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');return false;"><?php echo $linktype . $adm_icon; ?>
 		</a>
 		<?php
 		break;
