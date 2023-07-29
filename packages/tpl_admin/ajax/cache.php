@@ -10,10 +10,32 @@
  * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
  */
 
-error_reporting(0);
-ini_set('display_errors', 0);
+define('_JEXEC', 1);
+define('DS', DIRECTORY_SEPARATOR);
+define('JPATH_BASE', dirname(__DIR__, 3));
+define('MAX_SIZE', '500');
 
-$root = $_SERVER[ 'DOCUMENT_ROOT' ];
+require_once JPATH_BASE . '/includes/defines.php';
+require_once JPATH_BASE . '/includes/framework.php';
+
+use Joomla\CMS\Application\AdministratorApplication;
+use Joomla\CMS\Factory;
+use Joomla\Session\SessionInterface;
+
+$container = Factory::getContainer();
+$container->alias(SessionInterface::class, 'session.web.site');
+
+$app        = $container->get(AdministratorApplication::class);
+$joomlaUser = Factory::getUser();
+$lang       = Factory::getLanguage();
+$doc        = Factory::getDocument();
+
+if($joomlaUser->get('id') < 1)
+{
+	return;
+}
+
+$root = dirname(__DIR__, 3);
 
 echo unlinkRecursive($root . '/cache/com_cck**', '1');
 

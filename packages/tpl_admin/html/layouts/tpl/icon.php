@@ -16,7 +16,7 @@ use Joomla\CMS\Uri\Uri;
 
 $data = (object) $displayData;
 
-$v = '2.0.1';
+$v = '2.0.2';
 
 $size = 20;
 if(isset($data->size))

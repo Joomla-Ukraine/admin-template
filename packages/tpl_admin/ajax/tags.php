@@ -12,62 +12,32 @@
 
 header('Content-type: application/json; charset=utf-8');
 
-$data = [
-	'data' => [
-		[
-			'tag'   => "Bikes4Ukraine",
-			'count' => rand(0, 100),
-		],
-		[
-			'tag'   => "find Bikes4Ukraine",
-			'count' => rand(0, 100),
-		],
-		[
-			'tag'   => "Venezuela",
-			'count' => rand(0, 100),
-		],
-		[
-			'tag'   => "Rodrigo Figueredo",
-			'count' => rand(0, 100),
-		],
-		[
-			'tag'   => "CERT-UA",
-			'count' => rand(0, 100),
-		],
-		[
-			'tag'   => "Bushmaster",
-			'count' => rand(0, 100),
-		]
-	]
-];
-
-echo json_encode($data);
-
-die;
 define('_JEXEC', 1);
-define('JPATH_BASE', $_SERVER[ 'DOCUMENT_ROOT' ]);
+define('DS', DIRECTORY_SEPARATOR);
+define('JPATH_BASE', dirname(__DIR__, 3));
+define('MAX_SIZE', '500');
 
 require_once JPATH_BASE . '/includes/defines.php';
 require_once JPATH_BASE . '/includes/framework.php';
 
-error_reporting(1);
-ini_set('display_errors', 1);
-
+use Joomla\CMS\Application\AdministratorApplication;
 use Joomla\CMS\Factory;
+use Joomla\Session\SessionInterface;
 
-$_app = Factory::getApplication('site');
-$user = Factory::getUser();
+$container = Factory::getContainer();
+$container->alias(SessionInterface::class, 'session.web.site');
 
-$_app->initialise();
+$app        = $container->get(AdministratorApplication::class);
+$joomlaUser = Factory::getUser();
+$lang       = Factory::getLanguage();
+$doc        = Factory::getDocument();
 
-if($user->get('id') < 1)
+if($joomlaUser->get('id') < 1)
 {
 	return;
 }
 
-$app    = Factory::getApplication();
 $search = $app->input->getString('term');
-
 if(isset($search))
 {
 	$db    = Factory::getDbo();
@@ -85,9 +55,10 @@ if(isset($search))
 	$data = [];
 	foreach($rows as $mod)
 	{
-		sort($arr);
 		$arr = explode(',', $mod->metakey);
-		$i   = 0;
+		sort($arr);
+
+		$i = 0;
 		foreach($arr as $row)
 		{
 			if(trim($row) != '' && $i <= 15)
@@ -95,14 +66,15 @@ if(isset($search))
 				$pos = strpos(mb_strtolower(trim($row)), mb_strtolower($search));
 				if($pos !== false)
 				{
-					$str    = trim($row);
-					$str    = str_replace([
+					$str = trim($row);
+					$str = str_replace([
 						'"',
 						'»',
 						'«',
 						'”',
 						'“'
 					], '', $str);
+
 					$data[] = $str;
 				}
 			}
@@ -112,11 +84,19 @@ if(isset($search))
 
 	$inputs = array_unique($data, SORT_LOCALE_STRING);
 
+	$items = [];
+	foreach($inputs as $input)
+	{
+		$items[] = [ 'tag' => $input ];
+	}
+
 	$keyword = [];
-	foreach($inputs as $k => $v)
+	foreach($items as $k => $v)
 	{
 		$keyword[] = $v;
 	}
+
+	$keyword = [ 'data' => $keyword ];
 
 	echo json_encode($keyword);
 }
