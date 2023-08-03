@@ -21,8 +21,8 @@ dependencies:
     specifier: ^2.2.2
     version: 2.2.2
   uikit:
-    specifier: ^3.16.23
-    version: 3.16.23
+    specifier: ^3.16.24
+    version: 3.16.24
 
 devDependencies:
   '@babel/core':
@@ -89,11 +89,11 @@ devDependencies:
     specifier: ^1.0.6
     version: 1.0.6
   sass:
-    specifier: ^1.64.1
-    version: 1.64.1
+    specifier: ^1.64.2
+    version: 1.64.2
   sass-loader:
     specifier: ^13.3.2
-    version: 13.3.2(sass@1.64.1)(webpack@5.88.2)
+    version: 13.3.2(sass@1.64.2)(webpack@5.88.2)
   style-loader:
     specifier: ^3.3.3
     version: 3.3.3(webpack@5.88.2)
@@ -5755,7 +5755,7 @@ packages:
       ret: 0.1.15
     dev: true
 
-  /sass-loader@13.3.2(sass@1.64.1)(webpack@5.88.2):
+  /sass-loader@13.3.2(sass@1.64.2)(webpack@5.88.2):
     resolution: {integrity: sha512-CQbKl57kdEv+KDLquhC+gE3pXt74LEAzm+tzywcA0/aHZuub8wTErbjAoNI57rPUWRYRNC5WUnNl8eGJNbDdwg==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -5775,12 +5775,12 @@ packages:
         optional: true
     dependencies:
       neo-async: 2.6.2
-      sass: 1.64.1
+      sass: 1.64.2
       webpack: 5.88.2(webpack-cli@5.1.4)
     dev: true
 
-  /sass@1.64.1:
-    resolution: {integrity: sha512-16rRACSOFEE8VN7SCgBu1MpYCyN7urj9At898tyzdXFhC+a+yOX5dXwAR7L8/IdPJ1NB8OYoXmD55DM30B2kEQ==}
+  /sass@1.64.2:
+    resolution: {integrity: sha512-TnDlfc+CRnUAgLO9D8cQLFu/GIjJIzJCGkE7o4ekIGQOH7T3GetiRR/PsTWJUHhkzcSPrARkPI+gNWn5alCzDg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -6458,8 +6458,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /uikit@3.16.23:
-    resolution: {integrity: sha512-dVHyOhwBg5UwTEC5IRlclVkWhlbB7G7VM7uA2h5W5wFBl2PhkklZR3npwW/yBrECTaaegM/PiUvdOc1niu7wuA==}
+  /uikit@3.16.24:
+    resolution: {integrity: sha512-b33pxCinNlgrkQf+VUNk7AzN0wFWo41C5avYbXQTtt41xOAlJD2mBQHNwlTm8s8uo+CZa3djX1inJLuY2JwusQ==}
     dev: false
 
   /unbzip2-stream@1.4.3:
