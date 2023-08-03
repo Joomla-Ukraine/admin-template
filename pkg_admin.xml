@@ -14,9 +14,8 @@
     <version>@version@</version>
     <license>GNU/GPL Version 2 or later and Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</license>
     <description>Admin template</description>
-    <scriptfile>script.php</scriptfile>
-    <update>https://joomla-ua.org/update/tmpl/admin.xml</update>
 
+    <update>https://joomla-ua.org/update/tmpl/admin.xml</update>
     <updateservers>
         <server type="extension"
                 priority="1"
@@ -25,17 +24,11 @@
 
     <files folder="packages">
         <file type="template"
-              id="tpl_admin"
-              client="site"
-        >
-            tpl_admin.zip
-        </file>
+              id="admin"
+              client="site">tpl_admin.zip</file>
 
         <file type="file"
               id="file_lib"
-              client="site"
-        >
-            file_lib.zip
-        </file>
+              client="site">file_lib.zip</file>
     </files>
 </extension>

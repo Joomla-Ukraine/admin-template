@@ -1,6 +1,6 @@
 <project name="admin" default="dist" basedir=".">
 
-    <property name="VERSION" value="2.0.2"/>
+    <property name="VERSION" value="2.1.0" />
 
     <tstamp>
         <format property="DATE" pattern="%d.%m.%Y" />
@@ -97,8 +97,6 @@
         <zip destfile="${build}/packages/file_lib.zip" description="file_lib">
             <fileset dir="${temp}/file_lib"/>
         </zip>
-
-        <copy file="script.php" todir="${build}"/>
 
     </target>
 

@@ -25,7 +25,6 @@ const entry = {
     output = {
         filename: `./js/app.[name].${version}.js`,
         path: distPath,
-        //publicPath: '/app/',
         chunkFilename: `./js/app.[name].${version}.js`,
         pathinfo: false
     },
@@ -46,6 +45,10 @@ const cleanDirs = [
             {
                 from: './src/img',
                 to: './img'
+            },
+            {
+                from: './src/flags',
+                to: './flags'
             }
         ]
     };
@@ -129,6 +132,15 @@ const pluginProgressBar = new ProgressBarPlugin({
     pluginCopy = new CopyWebpackPlugin(copyFiles),
     pluginReplace = new ReplaceInFileWebpackPlugin([
         {
+            dir: path.join(__dirname, '/../../'),
+            files: ['build.xml'],
+            rules: [
+                {
+                    search: /<property name="VERSION" value="(.*?)" \/>/ig,
+                    replace: '<property name="VERSION" value="' + version + '" />'
+                }
+            ]
+        }, {
             dir: path.join(__dirname, '/inc'),
             files: ['head.php'],
             rules: [

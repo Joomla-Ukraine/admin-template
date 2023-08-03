@@ -16,6 +16,7 @@ module.exports = {
                     /@/, /\\@/,
                     /uk-drop/,
                     /uk-alert/,
+                    /uk-tab/,
                     /uk-table/,
                     /uk-offcanvas/,
                     /uk-label/,
@@ -30,6 +31,7 @@ module.exports = {
                     /uk-align/,
                     /uk-width/,
                     /uk-background/,
+                    /uk-switcher/,
 
                     /tm-/,
 

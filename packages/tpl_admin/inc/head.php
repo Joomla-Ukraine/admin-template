@@ -18,7 +18,7 @@ use Joomla\CMS\Uri\Uri;
 
 defined('_JEXEC') or die;
 
-$v = '2.0.2';
+$v = '2.1.0';
 
 $app  = Factory::getApplication();
 $wa   = $this->getWebAssetManager();
@@ -76,14 +76,14 @@ $jspreloads = [
 ];
 foreach($jspreloads as $jspreload)
 {
-	$doc->addHeadLink($admin_app . '/js/app.' . $jspreload . '.' . $v . '.js', 'preload', 'rel', [
+	$doc->addHeadLink($admin_app . '/js/app.' . $jspreload . '.' . $v . '.js', 'preload prefetch', 'rel', [
 		'as' => 'script'
 	]);
 }
 
 // CSS
 $wa->registerAndUseStyle('app.main', $admin_app . '/css/app.main.' . $v . '.css', [ 'version' => false ], []);
-$doc->addHeadLink($admin_app . '/css/app.main.' . $v . '.css', 'preload', 'rel', [
+$doc->addHeadLink($admin_app . '/css/app.main.' . $v . '.css', 'preload prefetch', 'rel', [
 	'as' => 'style'
 ]);
 
