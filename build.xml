@@ -1,6 +1,6 @@
 <project name="admin" default="dist" basedir=".">
 
-    <property name="VERSION" value="2.1.0" />
+    <property name="VERSION" value="2.1.1" />
 
     <tstamp>
         <format property="DATE" pattern="%d.%m.%Y" />
@@ -75,6 +75,7 @@
         <delete file="${temp}/file_lib/file_lib.xml"/>
         <copy file="${temp}/temp/file_lib/file_lib.xml" todir="${temp}/file_lib"/>
 
+        <copy file="script.php" todir="${build}" />
     </target>
 
     <target name="pack-plugins">

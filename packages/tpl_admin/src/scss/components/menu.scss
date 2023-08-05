@@ -76,6 +76,12 @@
 	margin-top: 3px;
 }
 
+.uk-offcanvas {
+	.tm-sidebar-nav {
+		margin: 0 -30px 0 -17px;
+	}
+}
+
 @media (max-width: $breakpoint-small-max) {
 	.tm-sidebar-nav {
 		margin: 0;
