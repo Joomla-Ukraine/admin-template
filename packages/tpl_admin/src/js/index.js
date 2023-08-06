@@ -55,6 +55,19 @@ import status from './modules/status';
             })
         }
 
+        const cacheRemove = document.getElementById('remove_cache');
+        if (typeof cacheRemove !== 'undefined' && cacheRemove !== null) {
+            cacheRemove.addEventListener('click', () => {
+                import(
+                    /* webpackChunkName: "m-cache" */
+                    /* webpackPreload: true */
+                    /* webpackPrefetch: true */
+                    './modules/cache').then(module => {
+                    module.default();
+                });
+            });
+        }
+
         if (document.querySelector('.cck_upload_image')) {
             import(
                 /* webpackMode: "lazy" */

@@ -37,18 +37,18 @@ if($joomlaUser->get('id') < 1)
 
 $root = dirname(__DIR__, 3);
 
-echo unlinkRecursive($root . '/cache/com_cck**', '1');
+unlinkRecursive($root . '/cache/com_cck**', '1');
 
 if(is_dir($root . '/cache/com_home/'))
 {
-	echo unlinkRecursive($root . '/cache/com_home/', '1');
+	unlinkRecursive($root . '/cache/com_home/', '1');
 }
 
 /**
  * @param         $dir
  * @param   null  $deleteRootToo
  *
- * @return string
+ * @return array|bool
  *
  * @since 1.0
  */
@@ -71,7 +71,7 @@ function unlinkRecursive($dir, $deleteRootToo = null)
 				continue;
 			}
 
-			$notification[] = trim(str_replace($_SERVER[ 'DOCUMENT_ROOT' ] . '/cache/', '', $folder), '/') . '<br>';
+			$notification[] = trim(str_replace($_SERVER[ 'DOCUMENT_ROOT' ] . '/cache/', '', $folder), '/');
 
 			if(!unlink($folder . '/' . $obj))
 			{
@@ -87,8 +87,5 @@ function unlinkRecursive($dir, $deleteRootToo = null)
 		}
 	}
 
-	$notify = array_unique($notification);
-	$notify = implode($notify);
-
-	return $notify;
+	return implode($notification);
 }

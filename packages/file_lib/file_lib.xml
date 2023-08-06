@@ -28,6 +28,18 @@
 		<files target="templates/seb_one">
 			<folder>variations</folder>
 		</files>
+
+		<files target="templates/ju_tab">
+			<folder>variations</folder>
+		</files>
+
+		<files target="templates/ju_minima">
+			<folder>variations</folder>
+		</files>
+
+		<files target="templates/ju_2col">
+			<folder>variations</folder>
+		</files>
 	</fileset>
 
 	<update>https://joomla-ua.org/update/tmpl/admin.xml</update>

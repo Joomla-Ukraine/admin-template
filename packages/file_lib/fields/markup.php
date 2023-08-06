@@ -33,6 +33,22 @@ defined('_JEXEC') or die;
  * @throws \Exception
  * @since 1.5
  */
+function cckMarkup_ju_tab($cck, $html, $field, $options)
+{
+	return cckMarkup_seb_minima($cck, $html, $field, $options);
+}
+
+/**
+ * @param $cck
+ * @param $html
+ * @param $field
+ * @param $options
+ *
+ * @return mixed|string
+ *
+ * @throws \Exception
+ * @since 1.5
+ */
 function cckMarkup_ju_minima($cck, $html, $field, $options)
 {
 	return cckMarkup_seb_minima($cck, $html, $field, $options);

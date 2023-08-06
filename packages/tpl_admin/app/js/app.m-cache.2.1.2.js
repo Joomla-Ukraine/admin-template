@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunkadmin"]=self["webpackChunkadmin"]||[]).push([[253],{641:(t,a,n)=>{n.r(a),n.d(a,{default:()=>e});var c=n(589);function e(){c.Z.get("//".concat(window.location.host,"/templates/admin/ajax/cache.php")).then((function(t){UIkit.notification(t,{status:"success"})}))}}}]);
