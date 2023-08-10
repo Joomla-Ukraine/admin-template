@@ -2,16 +2,16 @@
 
 module.exports = {
     plugins: [
-        require("@fullhuman/postcss-purgecss")({
+       /* require("@fullhuman/postcss-purgecss")({
             content: [
                 './index.php',
-                './html/**/*.php',
+                './html/!**!/!*.php',
                 './inc/!**!/!*.php',
                 './src/!**!/!*.js',
                 './app/js/!*.js',
             ],
             safelist: {
-                standard: [/data-calendar-.*/],
+                standard: [/data-calendar-.*!/],
                 deep: [
                     /@/, /\\@/,
                     /uk-drop/,
@@ -36,9 +36,13 @@ module.exports = {
                     /tm-/,
 
                     /cck/,
+                    /cck_/,
                     /collection-/,
                     /icon-/,
+                    /icon-/,
                     /horizontal_/,
+                    /horizontal_gx/,
+                    /vertical_gx/,
 
                     /vanilla-calendar/,
                     /vanilla-calendar-/,
@@ -52,7 +56,7 @@ module.exports = {
                     /form-control-danger/,
                 ]
             }
-        }),
+        }),*/
 
         require('cssnano')({
             preset: [

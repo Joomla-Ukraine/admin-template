@@ -48,35 +48,41 @@ fieldset {
 }
 
 .icon-minus {
-	@include svg-fill('~uikit/src/images/icons/minus-circle.svg', '#000', '#da2c2d');
+	//@include svg-fill('~uikit/src/images/icons/minus-circle.svg', '#000', '#da2c2d');
+	
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle fill=\'none\' stroke=\'#000\' stroke-width=\'1.1\' cx=\'9.5\' cy=\'9.5\' r=\'9\' /%3E%3Cline fill=\'none\' stroke=\'#000\' x1=\'5\' y1=\'9.5\' x2=\'14\' y2=\'9.5\' /%3E%3C/svg%3E%0A', '#000', #da2c2d);
 }
 
 .icon-plus {
-	@include svg-fill('~uikit/src/images/icons/plus-circle.svg', '#000', '#37b421');
+	//@include svg-fill('~uikit/src/images/icons/plus-circle.svg', '#000', '#37b421');
+	
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle fill=\'none\' stroke=\'#000\' stroke-width=\'1.1\' cx=\'9.5\' cy=\'9.5\' r=\'9\' /%3E%3Cline fill=\'none\' stroke=\'#000\' x1=\'9.5\' y1=\'5\' x2=\'9.5\' y2=\'14\' /%3E%3Cline fill=\'none\' stroke=\'#000\' x1=\'5\' y1=\'9.5\' x2=\'14\' y2=\'9.5\' /%3E%3C/svg%3E%0A', '#000', #37b421);
 }
 
 .icon-circle {
-	@include svg-fill('~uikit/src/images/icons/move.svg', '#000', '#4f6976');
+	//@include svg-fill('~uikit/src/images/icons/move.svg', '#000', '#4f6976');
+	
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'4,5 1,5 1,9 2,9 2,6 4,6 \' /%3E%3Cpolygon points=\'1,16 2,16 2,18 4,18 4,19 1,19 \' /%3E%3Cpolygon points=\'14,16 14,19 11,19 11,18 13,18 13,16 \' /%3E%3Crect fill=\'none\' stroke=\'#000\' x=\'5.5\' y=\'1.5\' width=\'13\' height=\'13\' /%3E%3Crect x=\'1\' y=\'11\' width=\'1\' height=\'3\' /%3E%3Crect x=\'6\' y=\'18\' width=\'3\' height=\'1\' /%3E%3C/svg%3E', '#000', #4f6976);
 }
 
 .icon-menu {
-	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle stroke=\'%23000\' cx=\'10\' cy=\'3\' r=\'2\' /%3E%3Ccircle stroke=\'%23000\' cx=\'10\' cy=\'10\' r=\'2\' /%3E%3Ccircle stroke=\'%23000\' cx=\'10\' cy=\'17\' r=\'2\' /%3E%3C/svg%3E', '#000', $global-link-color);
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle stroke=\'#000\' cx=\'10\' cy=\'3\' r=\'2\' /%3E%3Ccircle stroke=\'#000\' cx=\'10\' cy=\'10\' r=\'2\' /%3E%3Ccircle stroke=\'#000\' cx=\'10\' cy=\'17\' r=\'2\' /%3E%3C/svg%3E', '#000', $global-link-color);
 }
 
 .icon-menu-2 {
-	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect fill=\'%23000\' x=\'6\' y=\'4\' width=\'12\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'6\' y=\'9\' width=\'12\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'6\' y=\'14\' width=\'12\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'2\' y=\'4\' width=\'2\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'2\' y=\'9\' width=\'2\' height=\'1\' /%3E%3Crect fill=\'%23000\' x=\'2\' y=\'14\' width=\'2\' height=\'1\' /%3E%3C/svg%3E', '#000', $global-link-color);
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect fill=\'#000\' x=\'6\' y=\'4\' width=\'12\' height=\'1\' /%3E%3Crect fill=\'#000\' x=\'6\' y=\'9\' width=\'12\' height=\'1\' /%3E%3Crect fill=\'#000\' x=\'6\' y=\'14\' width=\'12\' height=\'1\' /%3E%3Crect fill=\'#000\' x=\'2\' y=\'4\' width=\'2\' height=\'1\' /%3E%3Crect fill=\'#000\' x=\'2\' y=\'9\' width=\'2\' height=\'1\' /%3E%3Crect fill=\'#000\' x=\'2\' y=\'14\' width=\'2\' height=\'1\' /%3E%3C/svg%3E', '#000', $global-link-color);
 }
 
 .icon-arrow-down-3 {
-	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'5 7 15 7 10 12\' fill=\'%23000\' /%3E%3C/svg%3E', '#000', $global-link-color);
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'5 7 15 7 10 12\' fill=\'#000\' /%3E%3C/svg%3E', '#000', $global-link-color);
 }
 
 .icon-arrow-up-3 {
-	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'5 13 10 8 15 13\' fill=\'%23000\' /%3E%3C/svg%3E', '#000', $global-link-color);
+	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'5 13 10 8 15 13\' fill=\'#000\' /%3E%3C/svg%3E', '#000', $global-link-color);
 }
 
 aside.cck_cgx_button {
-	width: auto;
+	width: auto !important;
 	white-space: nowrap;
 }
 
@@ -95,7 +101,7 @@ aside.cck_cgx_button {
 	margin: 5px;
 }
 
-.horizontal_gx {
+.horizontal_gx, .vertical_gx {
 	position: relative;
 	width: 100%;
 	padding: 0;
