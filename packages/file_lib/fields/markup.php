@@ -139,7 +139,8 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 			$label = ($label != '') ? '<label class="uk-form-label">' . $label . '</label>' : '';
 		}
 
-		$html = '<div id="' . $cck->id . '_' . $cck->mode_property . '_' . $field->name . '" class="' . $field->markup_class . '">' . $html . '</div>';
+		$html = '<div id="' . $cck->id . '_' . $cck->mode_property . '_' . $field->name . '">' . $html . '</div>';
+		//  class="' . $field->markup_class . '"
 
 		//echo $field->type .'<br>';
 
@@ -153,7 +154,7 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 					'uk-input uk-width-4-5@m',
 					'uk-margin-top uk-form-label'
 				], $html);
-				$html = '<div class="uk-background-muted uk-card uk-card-body uk-card-small">' . $html . '</div>';
+				$html = '<div class="uk-background-muted uk-padding-small">' . $html . '</div>';
 				break;
 
 			case 'upload_file':
@@ -167,7 +168,7 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 					'uk-margin-top'
 				], $_html);
 
-				$html = '<div class="uk-background-muted uk-card uk-card-body uk-card-small">' . $_html . '</div>';
+				$html = '<div class="uk-background-muted uk-padding-small">' . $_html . '</div>';
 				break;
 
 			case 'link':
@@ -181,7 +182,7 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 					'uk-margin-top'
 				], $_html);
 
-				$html = '<div class="uk-background-muted uk-card uk-card-body uk-card-small"><div class="uk-grid" data-uk-grid>' . $_html . '</div></div>';
+				$html = '<div class="uk-background-muted uk-padding-small"><div class="uk-grid" data-uk-grid>' . $_html . '</div></div>';
 				break;
 
 			case 'textarea':
@@ -242,7 +243,7 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 						'<table border="0" cellpadding="0" cellspacing="0" class="table">',
 						'class="cck_cgx cck_cgx_button'
 					], [
-						'<table class="uk-table uk-table-small uk-table-divider uk-table-striped">',
+						'<table class="uk-table uk-table-small uk-table-divider uk-table-striped uk-margin-remove-bottom">',
 						'class="uk-width-small uk-text-nowrap uk-text-right cck_cgx cck_cgx_button'
 					], $html);
 				}

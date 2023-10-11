@@ -1,7 +1,5 @@
 "use strict";
 
-import '../../scss/modules/seb_tom-select.scss';
-
 export default function status() {
     let timeout = null,
         status = document.querySelector('#status');

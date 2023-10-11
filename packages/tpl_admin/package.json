@@ -1,7 +1,7 @@
 {
   "name": "admin",
   "sideEffects": true,
-  "version": "2.2.2",
+  "version": "2.3.2",
   "description": "Admin template",
   "private": true,
   "scripts": {
@@ -18,9 +18,9 @@
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.22.10",
-    "@babel/plugin-transform-runtime": "^7.22.10",
-    "@babel/preset-env": "^7.22.10",
+    "@babel/core": "^7.23.0",
+    "@babel/plugin-transform-runtime": "^7.22.15",
+    "@babel/preset-env": "^7.22.20",
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "babel-loader": "^9.1.3",
     "clean-webpack-plugin": "^4.0.0",
@@ -28,7 +28,7 @@
     "css-loader": "^6.8.1",
     "cssnano": "^6.0.1",
     "cssnano-preset-advanced": "^6.0.1",
-    "del-cli": "^5.0.0",
+    "del-cli": "^5.1.0",
     "image-minimizer-webpack-plugin": "^3.8.3",
     "imagemin": "^8.0.1",
     "imagemin-gifsicle": "^7.0.0",
@@ -39,7 +39,7 @@
     "postcss-loader": "^7.3.3",
     "progress-bar-webpack-plugin": "^2.1.0",
     "replace-in-file-webpack-plugin": "^1.0.6",
-    "sass": "^1.65.1",
+    "sass": "^1.69.2",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
     "svg-sprite-loader": "^6.0.11",
@@ -52,10 +52,11 @@
   },
   "dependencies": {
     "@denysdesign/js-focus-outline": "denysdesign/js-focus-outline",
-    "@uvarov.frontend/vanilla-calendar": "^2.6.1",
-    "axios": "^1.4.0",
+    "@uvarov.frontend/vanilla-calendar": "^2.6.8",
+    "axios": "^1.5.1",
+    "inputmask": "^5.0.8",
     "choices.js": "^10.2.0",
     "tom-select": "^2.2.2",
-    "uikit": "^3.16.24"
+    "uikit": "^3.17.1"
   }
 }

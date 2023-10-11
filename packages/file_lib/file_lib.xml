@@ -13,6 +13,9 @@
 	<description>Admin libs</description>
 
 	<fileset>
+
+		<!-- fields -->
+
 		<files target="templates/seb_minima">
 			<folder>fields</folder>
 		</files>
@@ -20,6 +23,21 @@
 		<files target="templates/seb_one">
 			<folder>fields</folder>
 		</files>
+
+		<files target="templates/ju_tab">
+			<folder>fields</folder>
+		</files>
+
+		<files target="templates/ju_minima">
+			<folder>fields</folder>
+		</files>
+
+		<files target="templates/ju_2col">
+			<folder>fields</folder>
+		</files>
+
+
+		<!-- variations -->
 
 		<files target="templates/seb_minima">
 			<folder>variations</folder>

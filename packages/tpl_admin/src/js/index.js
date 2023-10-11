@@ -5,21 +5,36 @@ import '../scss/style.scss';
 
 // JS
 import focusOutline from '@denysdesign/js-focus-outline';
-import status from './modules/status';
+import Inputmask from "inputmask";
+
+window.Inputmask = Inputmask;
 
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
 
         // Focus outline
         focusOutline();
-        status();
 
-        if (document.querySelector('#system.cck_page_list')) {
+        const userStatus = document.getElementById('status');
+        if (typeof userStatus !== 'undefined' && userStatus !== null) {
             import(
-                /* webpackChunkName: "m-seb-list" */
-                './modules/seb_list').then(module => {
+                /* webpackChunkName: "m-user-status" */
+                /* webpackPreload: true */
+                /* webpackPrefetch: true */
+                './modules/status').then(module => {
                 module.default();
-            })
+            });
+        }
+
+        const jSystem = document.getElementById('system');
+        if (typeof jSystem !== 'undefined' && jSystem !== null) {
+            if (document.querySelector('#system.cck_page_list')) {
+                import(
+                    /* webpackChunkName: "m-seb-list" */
+                    './modules/seb_list').then(module => {
+                    module.default();
+                })
+            }
         }
 
         if (document.querySelector('.js-calendar')) {
@@ -53,6 +68,13 @@ import status from './modules/status';
                 './modules/tags').then(module => {
                 module.default();
             })
+        }
+
+        // Inputmask
+        if (document.querySelector('.js-input')) {
+            import(/* webpackChunkName: "m-js-input", webpackPrefetch: true */ './modules/input').then(module => {
+                module.default();
+            });
         }
 
         const cacheRemove = document.getElementById('remove_cache');

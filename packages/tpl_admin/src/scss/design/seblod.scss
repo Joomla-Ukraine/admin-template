@@ -34,8 +34,17 @@ fieldset {
 	padding: 0;
 }
 
+.table {
+	@extend .uk-table;
+	@extend .uk-table-small;
+	@extend .uk-table-divider;
+	@extend .uk-table-striped;
+}
+
 .icon-minus,
+.icon-minus-circle,
 .icon-plus,
+.icon-plus-circle,
 .icon-circle,
 .icon-menu,
 .icon-menu-2,
@@ -47,21 +56,15 @@ fieldset {
 	display: block;
 }
 
-.icon-minus {
-	//@include svg-fill('~uikit/src/images/icons/minus-circle.svg', '#000', '#da2c2d');
-	
+.icon-minus, .icon-minus-circle {
 	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle fill=\'none\' stroke=\'#000\' stroke-width=\'1.1\' cx=\'9.5\' cy=\'9.5\' r=\'9\' /%3E%3Cline fill=\'none\' stroke=\'#000\' x1=\'5\' y1=\'9.5\' x2=\'14\' y2=\'9.5\' /%3E%3C/svg%3E%0A', '#000', #da2c2d);
 }
 
-.icon-plus {
-	//@include svg-fill('~uikit/src/images/icons/plus-circle.svg', '#000', '#37b421');
-	
+.icon-plus, .icon-plus-circle {
 	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle fill=\'none\' stroke=\'#000\' stroke-width=\'1.1\' cx=\'9.5\' cy=\'9.5\' r=\'9\' /%3E%3Cline fill=\'none\' stroke=\'#000\' x1=\'9.5\' y1=\'5\' x2=\'9.5\' y2=\'14\' /%3E%3Cline fill=\'none\' stroke=\'#000\' x1=\'5\' y1=\'9.5\' x2=\'14\' y2=\'9.5\' /%3E%3C/svg%3E%0A', '#000', #37b421);
 }
 
 .icon-circle {
-	//@include svg-fill('~uikit/src/images/icons/move.svg', '#000', '#4f6976');
-	
 	@include svg-fill('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'4,5 1,5 1,9 2,9 2,6 4,6 \' /%3E%3Cpolygon points=\'1,16 2,16 2,18 4,18 4,19 1,19 \' /%3E%3Cpolygon points=\'14,16 14,19 11,19 11,18 13,18 13,16 \' /%3E%3Crect fill=\'none\' stroke=\'#000\' x=\'5.5\' y=\'1.5\' width=\'13\' height=\'13\' /%3E%3Crect x=\'1\' y=\'11\' width=\'1\' height=\'3\' /%3E%3Crect x=\'6\' y=\'18\' width=\'3\' height=\'1\' /%3E%3C/svg%3E', '#000', #4f6976);
 }
 
