@@ -1,6 +1,13 @@
 # Admin template (Blue version)
 SEBLOD Admin template for Joomla fronted
 
+## Use mask for field
+
+Add to Custom Attributes. For example:
+```html
+<input x-data x-mask="99/99/9999" placeholder="MM/DD/YYYY">
+```
+
 ## Sponsors
 
 [![JetBrains](https://avatars0.githubusercontent.com/u/878437?s=200&v=4)](https://www.jetbrains.com/)
