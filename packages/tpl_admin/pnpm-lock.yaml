@@ -5,12 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@alpinejs/mask':
+    specifier: ^3.13.2
+    version: 3.13.2
   '@denysdesign/js-focus-outline':
     specifier: denysdesign/js-focus-outline
     version: github.com/denysdesign/js-focus-outline/20ac1762774cbf8f397abb9bdd73f40416a05b2f
   '@uvarov.frontend/vanilla-calendar':
     specifier: ^2.7.0
     version: 2.7.0
+  alpinejs:
+    specifier: ^3.13.2
+    version: 3.13.2
   axios:
     specifier: ^1.5.1
     version: 1.5.1
@@ -123,6 +129,10 @@ devDependencies:
     version: 17.7.2
 
 packages:
+
+  /@alpinejs/mask@3.13.2:
+    resolution: {integrity: sha512-62Oa5fHAKHe1fU5l4KIBHDinvQuOybObwITcpaq4Hjfl+GuRXp1gCnaPTkJTo5jHQ6r4UXbqzrIBkjg1qXUkzA==}
+    dev: false
 
   /@ampproject/remapping@2.2.1:
     resolution: {integrity: sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg==}
@@ -1461,6 +1471,16 @@ packages:
     resolution: {integrity: sha512-fuZsfGiAnBKoiKTVxAXdZ/qNm8kK3SrEAe/RZfeQW0L9ZjXRcHwMjVWsyFhJALc+0D9q4xN08wGIohCCBBkD8A==}
     dev: false
 
+  /@vue/reactivity@3.1.5:
+    resolution: {integrity: sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg==}
+    dependencies:
+      '@vue/shared': 3.1.5
+    dev: false
+
+  /@vue/shared@3.1.5:
+    resolution: {integrity: sha512-oJ4F3TnvpXaQwZJNF3ZK+kLPHKarDmJjJ6jyzVNDKH9md1dptjC7lWR//jrGuLdek/U6iltWxqAnYOu8gCiOvA==}
+    dev: false
+
   /@webassemblyjs/ast@1.11.6:
     resolution: {integrity: sha512-IN1xI7PwOvLPgjcf180gC1bqn3q/QaOCwYUahIOhbYUu8KA/3tw2RT/T0Gidi1l7Hhj5D/INhJxiICObqpMu4Q==}
     dependencies:
@@ -1679,6 +1699,12 @@ packages:
       require-from-string: 2.0.2
       uri-js: 4.4.1
     dev: true
+
+  /alpinejs@3.13.2:
+    resolution: {integrity: sha512-WzojeeN082kLZznGI1HAuP8yFJSWqJ1fGdz2mUjj45H4y0XwToE7fFqtI3mCPRR+BpcSbxT/NL+FyPnYAWSltw==}
+    dependencies:
+      '@vue/reactivity': 3.1.5
+    dev: false
 
   /ansi-regex@2.1.1:
     resolution: {integrity: sha512-TIGnTpdo+E3+pCyAluZvtED5p5wCqLdezCyhPZzKPcxvFplEt4i+W7OONCKgeZFT3+y5NZZfOOS/Bdcanm1MYA==}

@@ -12,7 +12,6 @@ export default function sebTags() {
                 'virtual_scroll',
                 'remove_button',
                 'restore_on_backspace',
-                //'no_backspace_delete',
                 'no_active_items',
             ],
             persist: false,

@@ -6,6 +6,13 @@ import '../scss/style.scss';
 // JS
 import focusOutline from '@denysdesign/js-focus-outline';
 import Inputmask from "inputmask";
+import Alpine from 'alpinejs';
+import mask from '@alpinejs/mask';
+
+Alpine.plugin(mask)
+
+window.Alpine = Alpine;
+Alpine.start();
 
 window.Inputmask = Inputmask;
 

@@ -245,9 +245,10 @@ const chunks = {
                 if (mod.context) {
                     let node_modules = mod.context.includes('node_modules'),
                         uikit = ['uikit'].some(str => mod.context.includes(str)),
+                        alpinejs = ['alpinejs'].some(str => mod.context.includes(str)),
                         axios = ['axios'].some(str => mod.context.includes(str));
 
-                    return !(!node_modules || uikit || axios);
+                    return !(!node_modules || uikit || alpinejs || axios);
                 }
             },
             name: 'vendors',

@@ -1,7 +1,7 @@
 {
   "name": "admin",
   "sideEffects": true,
-  "version": "2.3.7",
+  "version": "2.4.0",
   "description": "Admin template",
   "private": true,
   "scripts": {
@@ -51,8 +51,10 @@
     "yargs": "^17.7.2"
   },
   "dependencies": {
+    "@alpinejs/mask": "^3.13.2",
     "@denysdesign/js-focus-outline": "denysdesign/js-focus-outline",
     "@uvarov.frontend/vanilla-calendar": "^2.7.0",
+    "alpinejs": "^3.13.2",
     "axios": "^1.5.1",
     "inputmask": "^5.0.8",
     "choices.js": "^10.2.0",

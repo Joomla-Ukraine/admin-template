@@ -31,8 +31,6 @@ export default function sebChoises() {
             removeItemButton: true,
             classNames: {
                 containerInner: 'uk-textarea',
-                //input: 'uk-textarea',
-               // button: 'uk-button uk-button-small uk-button-primary'
             },
         });
     });
