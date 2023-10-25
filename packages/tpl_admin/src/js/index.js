@@ -5,7 +5,6 @@ import '../scss/style.scss';
 
 // JS
 import focusOutline from '@denysdesign/js-focus-outline';
-import Inputmask from "inputmask";
 import Alpine from 'alpinejs';
 import mask from '@alpinejs/mask';
 
@@ -13,8 +12,6 @@ Alpine.plugin(mask)
 
 window.Alpine = Alpine;
 Alpine.start();
-
-window.Inputmask = Inputmask;
 
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
@@ -75,13 +72,6 @@ window.Inputmask = Inputmask;
                 './modules/tags').then(module => {
                 module.default();
             })
-        }
-
-        // Inputmask
-        if (document.querySelector('.js-input')) {
-            import(/* webpackChunkName: "m-js-input", webpackPrefetch: true */ './modules/input').then(module => {
-                module.default();
-            });
         }
 
         const cacheRemove = document.getElementById('remove_cache');
