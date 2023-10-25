@@ -48,7 +48,7 @@ window.Inputmask = Inputmask;
             })
         }
 
-        if (document.querySelector('.js-select')) {
+        if (document.querySelector('.js-select') || document.querySelector('.js-select-multi')) {
             import(
                 /* webpackMode: "lazy" */
                 /* webpackPrefetch: true */

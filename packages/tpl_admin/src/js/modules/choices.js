@@ -4,9 +4,9 @@ import Choices from 'choices.js';
 import '../../scss/modules/seb_select.scss';
 
 export default function sebChoises() {
-    const calendar = document.querySelectorAll(".js-select");
+    const selectSingle = document.querySelectorAll(".js-select");
 
-    calendar.forEach((el) => {
+    selectSingle.forEach((el) => {
         new Choices(el, {
             loadingText: 'Завантаження...',
             noResultsText: 'Результатів не знайдено',
@@ -19,6 +19,20 @@ export default function sebChoises() {
                 containerInner: 'uk-input',
                 input: 'uk-input',
                 button: 'uk-button uk-button-primary'
+            },
+        });
+    });
+
+    const selectMulti = document.querySelectorAll(".js-select-multi");
+
+    selectMulti.forEach((el) => {
+        new Choices(el, {
+            allowHTML: true,
+            removeItemButton: true,
+            classNames: {
+                containerInner: 'uk-textarea',
+                //input: 'uk-textarea',
+               // button: 'uk-button uk-button-small uk-button-primary'
             },
         });
     });

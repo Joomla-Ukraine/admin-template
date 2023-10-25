@@ -1,1 +1,0 @@
-"use strict";(self["webpackChunkadmin"]=self["webpackChunkadmin"]||[]).push([[125],{992:(e,n,t)=>{t.r(n),t.d(n,{default:()=>c});var u=t(130),a=t.n(u);function c(){d(".js-input-phone","+38 (099) 999-99-99")}function d(e,n,t){var u=document.querySelectorAll(e);u.forEach((function(e){var u,c=document.getElementById(e.id);t&&(u={placeholder:t}),a()(n,u).mask(c)}))}}}]);

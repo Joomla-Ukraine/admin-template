@@ -200,14 +200,15 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 				preg_match_all('#<fieldset.*?class="checkboxes(.*?)">(.*?)</fieldset>#is', $field->form, $out);
 
 				$vertical = '';
-				if(count($out[ 1 ]) && trim($out[ 1 ][ 0 ]) === 'vertical')
+				if(count($out[ 1 ]) && trim($out[ 1 ][ 0 ]) == 'vertical')
 				{
 					$vertical = '<br>';
 				}
 
 				$html = preg_replace('#<fieldset.*?class="checkboxes(.*?)">(.*?)</fieldset>#is', '\\2', $field->form);
 
-				$html = preg_replace('#<input type="checkbox"(.*?)class="inputbox checkbox(.*?)".*?/><label(.*?)>(.*?)</label>#is', '<label\\3 class="uk-margin-right"><input class="uk-checkbox\\2" type="checkbox" \\1> \\4</label>' . $vertical, $html);
+				//$html = preg_replace('#<input type="checkbox"(.*?)class="inputbox checkbox(.*?)".*?/><label(.*?)>(.*?)</label>#is', '<label\\3 class="uk-margin-right"><input class="uk-checkbox\\2" type="checkbox" \\1> \\4</label>' . $vertical, $html);
+				$html = str_replace('</label>', '</label><div></div>', $html);
 				break;
 
 			case 'radio':

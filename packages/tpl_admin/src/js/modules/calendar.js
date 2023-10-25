@@ -26,11 +26,11 @@ export default function sebChoises() {
             },
             input: true,
             actions: {
-                changeToInput(e, HTMLInputElement, dates, time, hours, minutes, keeping) {
+                changeToInput(e, calendar, dates, time, hours, minutes, keeping) {
                     if (dates[0]) {
-                        HTMLInputElement.value = `${dates[0]} ${time}:${dateSeconds}`;
+                        calendar.HTMLInputElement.value = `${dates[0]} ${time}:${dateSeconds}`;
                     } else {
-                        HTMLInputElement.value = '';
+                        calendar.HTMLInputElement.value = '';
                     }
                 },
             },

@@ -18,7 +18,7 @@ use Joomla\CMS\Uri\Uri;
 
 defined('_JEXEC') or die;
 
-$v = '2.3.2';
+$v = '2.3.7';
 
 $app  = Factory::getApplication();
 $wa   = $this->getWebAssetManager();
