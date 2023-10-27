@@ -18,8 +18,8 @@ dependencies:
     specifier: ^3.13.2
     version: 3.13.2
   axios:
-    specifier: ^1.5.1
-    version: 1.5.1
+    specifier: ^1.6.0
+    version: 1.6.0
   choices.js:
     specifier: ^10.2.0
     version: 10.2.0
@@ -27,11 +27,11 @@ dependencies:
     specifier: ^5.0.8
     version: 5.0.8
   tom-select:
-    specifier: ^2.2.3
-    version: 2.2.3
+    specifier: ^2.3.0
+    version: 2.3.0
   uikit:
-    specifier: ^3.17.5
-    version: 3.17.5
+    specifier: ^3.17.6
+    version: 3.17.6
 
 devDependencies:
   '@babel/core':
@@ -98,11 +98,11 @@ devDependencies:
     specifier: ^1.0.6
     version: 1.0.6
   sass:
-    specifier: ^1.69.4
-    version: 1.69.4
+    specifier: ^1.69.5
+    version: 1.69.5
   sass-loader:
     specifier: ^13.3.2
-    version: 13.3.2(sass@1.69.4)(webpack@5.89.0)
+    version: 13.3.2(sass@1.69.5)(webpack@5.89.0)
   style-loader:
     specifier: ^3.3.3
     version: 3.3.3(webpack@5.89.0)
@@ -1836,8 +1836,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /axios@1.5.1:
-    resolution: {integrity: sha512-Q28iYCWzNHjAm+yEAot5QaAMxhMghWLFVf7rRdwhUI+c2jix2DUXjAHXVi+s1ibs3mjPO/cCgbA++3BjD0vP/A==}
+  /axios@1.6.0:
+    resolution: {integrity: sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==}
     dependencies:
       follow-redirects: 1.15.3
       form-data: 4.0.0
@@ -5778,7 +5778,7 @@ packages:
       ret: 0.1.15
     dev: true
 
-  /sass-loader@13.3.2(sass@1.69.4)(webpack@5.89.0):
+  /sass-loader@13.3.2(sass@1.69.5)(webpack@5.89.0):
     resolution: {integrity: sha512-CQbKl57kdEv+KDLquhC+gE3pXt74LEAzm+tzywcA0/aHZuub8wTErbjAoNI57rPUWRYRNC5WUnNl8eGJNbDdwg==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -5798,12 +5798,12 @@ packages:
         optional: true
     dependencies:
       neo-async: 2.6.2
-      sass: 1.69.4
+      sass: 1.69.5
       webpack: 5.89.0(webpack-cli@5.1.4)
     dev: true
 
-  /sass@1.69.4:
-    resolution: {integrity: sha512-+qEreVhqAy8o++aQfCJwp0sklr2xyEzkm9Pp/Igu9wNPoe7EZEQ8X/MBvvXggI2ql607cxKg/RKOwDj6pp2XDA==}
+  /sass@1.69.5:
+    resolution: {integrity: sha512-qg2+UCJibLr2LCVOt3OlPhr/dqVHWOa9XtZf2OjbLs/T4VPSJ00udtgJxH3neXZm+QqX8B+3cU7RaLqp1iVfcQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -6442,8 +6442,8 @@ packages:
       ieee754: 1.2.1
     dev: true
 
-  /tom-select@2.2.3:
-    resolution: {integrity: sha512-VMhRdFlugLGdnNZsP5r8sHKtyvWekIbtr53uoKONMzM+JSBWgy5pV9F+iZ2LTEbzIQI0efIwZ7I6h+wzZoM/zQ==}
+  /tom-select@2.3.0:
+    resolution: {integrity: sha512-MGcdkXRbzBtEc913I2RWXhQ5JPEti9ZoTjSKLahg2ncvOOOzDRiaj+9A46Y4AVcjmYn/QqPz+U+XJ0uDvak3PQ==}
     dependencies:
       '@orchidjs/sifter': 1.0.3
       '@orchidjs/unicode-variants': 1.0.4
@@ -6481,8 +6481,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /uikit@3.17.5:
-    resolution: {integrity: sha512-FUoRPIgRC738D5CtZQz9oMnY9jeEeubAPX3Y6DF3res7KU5tojiGH3JzLciGzSbhOD3gj/xiZsGHr8JqWcPWJw==}
+  /uikit@3.17.6:
+    resolution: {integrity: sha512-8fSfR67hqEW5P1clHlw1LoUK4AM2aLuO73iLNwv7/pPUYa0JsTYZnpDahEKZOHwtYz+QIQDuncuQsLkX+MqTLw==}
     dev: false
 
   /unbzip2-stream@1.4.3:

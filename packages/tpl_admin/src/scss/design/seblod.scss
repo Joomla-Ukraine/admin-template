@@ -125,6 +125,10 @@ aside.cck_cgx_button {
 	.select {
 		@extend .uk-select;
 	}
+	
+	.cck_forms:not(textarea):not([multiple]):not([size]) {
+		height: inherit !important;
+	}
 }
 
 // File X

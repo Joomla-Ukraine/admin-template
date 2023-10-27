@@ -1,7 +1,7 @@
 {
   "name": "admin",
   "sideEffects": true,
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Admin template",
   "private": true,
   "scripts": {
@@ -39,7 +39,7 @@
     "postcss-loader": "^7.3.3",
     "progress-bar-webpack-plugin": "^2.1.0",
     "replace-in-file-webpack-plugin": "^1.0.6",
-    "sass": "^1.69.4",
+    "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
     "svg-sprite-loader": "^6.0.11",
@@ -55,10 +55,10 @@
     "@denysdesign/js-focus-outline": "denysdesign/js-focus-outline",
     "@uvarov.frontend/vanilla-calendar": "^2.7.0",
     "alpinejs": "^3.13.2",
-    "axios": "^1.5.1",
+    "axios": "^1.6.0",
     "inputmask": "^5.0.8",
     "choices.js": "^10.2.0",
-    "tom-select": "^2.2.3",
-    "uikit": "^3.17.5"
+    "tom-select": "^2.3.0",
+    "uikit": "^3.17.6"
   }
 }
