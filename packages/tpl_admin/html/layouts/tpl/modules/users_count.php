@@ -10,10 +10,11 @@
  *
  **/
 
-/** @var array $displayData */
-
 use Joomla\CMS\Layout\FileLayout;
 
+defined('_JEXEC') or die;
+
+/** @var array $displayData */
 $data = (object) $displayData;
 
 $users_count = '';

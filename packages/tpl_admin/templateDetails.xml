@@ -9,7 +9,7 @@
     <authorEmail>denys@joomla-ua.org</authorEmail>
     <authorUrl>https://joomla-ua.org</authorUrl>
     <copyright>Denys Nosov</copyright>
-    <license>commerce</license>
+    <license>GNU/GPL Version 2 or later and Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</license>
     <version>@version@</version>
     <description>Front-end admin template</description>
 

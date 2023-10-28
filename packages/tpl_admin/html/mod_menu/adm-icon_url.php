@@ -10,6 +10,8 @@
  *
  **/
 
+use Joomla\CMS\Filter\OutputFilter;
+
 defined('_JEXEC') or die;
 
 $class = $item->anchor_title ? 'class="' . $item->anchor_title . '" ' : '';
@@ -22,7 +24,7 @@ else
 	$linktype = $item->title;
 }
 $flink = $item->flink;
-$flink = JFilterOutput::ampReplace(htmlspecialchars($flink));
+$flink = OutputFilter::ampReplace(htmlspecialchars($flink));
 
 switch($item->browserNav) :
 	default:

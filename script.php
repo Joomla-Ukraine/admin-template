@@ -11,7 +11,9 @@
  **/
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Filesystem\Folder;
+use Joomla\Filesystem\Folder;
+
+defined('_JEXEC') or die;
 
 class Pkg_AdminInstallerScript
 {

@@ -10,6 +10,11 @@
  *
  **/
 
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Component\ComponentHelper;
 
 defined('_JEXEC') or die;
 
@@ -23,7 +28,7 @@ defined('_JEXEC') or die;
 			</h4>
 		<?php endif; ?>
 
-		<ul id="slogin-buttons" class="uk-flex uk-flex-center uk-text-center uk-child-width-1-2 uk-child-width-auto@m uk-grid-small" uk-grid>
+		<ul id="slogin-buttons" class="uk-flex uk-flex-center uk-text-center uk-child-width-1-2 uk-child-width-auto@m uk-grid-small" data-uk-grid>
 			<?php if(count($plugins)): ?>
 				<?php
 				foreach($plugins as $link):
@@ -66,8 +71,8 @@ defined('_JEXEC') or die;
 
 					?>
 					<li>
-						<a class="uk-button uk-button-small <?php echo $p_class; ?> uk-width-1-1 uk-width-auto@m" href="<?php echo JRoute::_($link[ 'link' ]); ?>" rel="nofollow" <?php echo $linkParams; ?>>
-							<small><span class="uk-margin-small-top" uk-icon="icon: <?php echo $p_icon; ?>; ratio: 1.5"></span><br><?php echo $link[ 'plugin_title' ]; ?>
+						<a class="uk-button uk-button-small <?php echo $p_class; ?> uk-width-1-1 uk-width-auto@m" href="<?php echo Route::_($link[ 'link' ]); ?>" rel="nofollow" <?php echo $linkParams; ?>>
+							<small><span class="uk-margin-small-top" data-uk-icon="icon: <?php echo $p_icon; ?>; ratio: 1.5"></span><br><?php echo $link[ 'plugin_title' ]; ?>
 							</small>
 						</a>
 					</li>
@@ -82,46 +87,46 @@ defined('_JEXEC') or die;
 		<?php endif; ?>
 
 		<?php if($params->get('show_login_form')): ?>
-			<form action="<?php echo JRoute::_('index.php', true, $params->get('usesecure')); ?>" method="post" id="login-form">
+			<form action="<?php echo Route::_('index.php', true, $params->get('usesecure')); ?>" method="post" id="login-form">
 				<fieldset class="userdata">
 					<p id="form-login-username">
-						<label for="modlgn-username"><?php echo JText::_('MOD_SLOGIN_VALUE_USERNAME') ?></label>
+						<label for="modlgn-username"><?php echo Text::_('MOD_SLOGIN_VALUE_USERNAME') ?></label>
 						<input id="modlgn-username" type="text" name="username" class="inputbox" size="18" />
 					</p>
 					<p id="form-login-password">
-						<label for="modlgn-passwd"><?php echo JText::_('JGLOBAL_PASSWORD') ?></label>
+						<label for="modlgn-passwd"><?php echo Text::_('JGLOBAL_PASSWORD') ?></label>
 						<input id="modlgn-passwd" type="password" name="password" class="inputbox" size="18" />
 					</p>
-					<?php if(JPluginHelper::isEnabled('system', 'remember')) : ?>
+					<?php if(PluginHelper::isEnabled('system', 'remember')) : ?>
 						<p id="form-login-remember">
 							<label for="modlgn-remember">
 								<input id="modlgn-remember" type="checkbox" name="remember" class="inputbox" value="yes" />
-								<?php echo JText::_('MOD_SLOGIN_REMEMBER_ME') ?>
+								<?php echo Text::_('MOD_SLOGIN_REMEMBER_ME') ?>
 							</label>
 						</p>
 						<div class="slogin-clear"></div>
 					<?php endif; ?>
-					<input type="submit" name="Submit" class="button" value="<?php echo JText::_('JLOGIN') ?>" />
+					<input type="submit" name="Submit" class="button" value="<?php echo Text::_('JLOGIN') ?>" />
 					<input type="hidden" name="option" value="com_users" />
 					<input type="hidden" name="task" value="user.login" />
 					<input type="hidden" name="return" value="<?php echo $return; ?>" />
-					<?php echo JHtml::_('form.token'); ?>
+					<?php echo HTMLHelper::_('form.token'); ?>
 				</fieldset>
 				<ul class="ul-jlslogin">
 					<li>
-						<a rel="nofollow" href="<?php echo JRoute::_('index.php?option=com_users&view=reset'); ?>">
-							<?php echo JText::_('MOD_SLOGIN_FORGOT_YOUR_PASSWORD'); ?></a>
+						<a rel="nofollow" href="<?php echo Route::_('index.php?option=com_users&view=reset'); ?>">
+							<?php echo Text::_('MOD_SLOGIN_FORGOT_YOUR_PASSWORD'); ?></a>
 					</li>
 					<li>
-						<a rel="nofollow" href="<?php echo JRoute::_('index.php?option=com_users&view=remind'); ?>">
-							<?php echo JText::_('MOD_SLOGIN_FORGOT_YOUR_USERNAME'); ?></a>
+						<a rel="nofollow" href="<?php echo Route::_('index.php?option=com_users&view=remind'); ?>">
+							<?php echo Text::_('MOD_SLOGIN_FORGOT_YOUR_USERNAME'); ?></a>
 					</li>
 					<?php
-					$usersConfig = JComponentHelper::getParams('com_users');
+					$usersConfig = ComponentHelper::getParams('com_users');
 					if($usersConfig->get('allowUserRegistration')) : ?>
 						<li>
-							<a rel="nofollow" href="<?php echo JRoute::_('index.php?option=com_users&view=registration'); ?>">
-								<?php echo JText::_('MOD_SLOGIN_REGISTER'); ?></a>
+							<a rel="nofollow" href="<?php echo Route::_('index.php?option=com_users&view=registration'); ?>">
+								<?php echo Text::_('MOD_SLOGIN_REGISTER'); ?></a>
 						</li>
 					<?php endif; ?>
 				</ul>

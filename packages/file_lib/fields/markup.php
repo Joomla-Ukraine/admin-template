@@ -193,17 +193,11 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 			case 'select_dynamic':
 			case 'juselect_dynamic':
 			case 'select_dynamic_cascade':
-				$html = str_replace('inputbox ', 'uk-select ', $field->form);
+				$html = str_replace('inputbox ', 'uk-select ' . $field->css, $field->form);
 				break;
 
 			case 'checkbox_dynamic':
 				preg_match_all('#<fieldset.*?class="checkboxes(.*?)">(.*?)</fieldset>#is', $field->form, $out);
-
-				$vertical = '';
-				if(count($out[ 1 ]) && trim($out[ 1 ][ 0 ]) == 'vertical')
-				{
-					$vertical = '<br>';
-				}
 
 				$html = preg_replace('#<fieldset.*?class="checkboxes(.*?)">(.*?)</fieldset>#is', '\\2', $field->form);
 
@@ -270,7 +264,7 @@ function cckMarkup_seb_minima($cck, $html, $field, $options)
 				break;
 
 			default:
-				$html = str_replace('inputbox ', 'uk-input ', $html);
+				$html = str_replace('inputbox ', 'uk-input ' . $field->css, $html);
 				break;
 		}
 

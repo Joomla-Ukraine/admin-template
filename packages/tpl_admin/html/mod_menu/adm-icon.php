@@ -10,10 +10,11 @@
  *
  **/
 
-defined('_JEXEC') or die;
-
 use Joomla\CMS\Factory;
 use Joomla\CMS\Layout\FileLayout;
+use Joomla\CMS\Helper\ModuleHelper;
+
+defined('_JEXEC') or die;
 
 $app        = Factory::getApplication();
 $tpl_params = $app->getTemplate(true)->params;
@@ -102,11 +103,11 @@ $tpl_params = $app->getTemplate(true)->params;
 			case 'separator':
 			case 'url':
 			case 'component':
-				require JModuleHelper::getLayoutPath('mod_menu', 'adm-icon_' . $item->type);
+				require ModuleHelper::getLayoutPath('mod_menu', 'adm-icon_' . $item->type);
 				break;
 
 			default:
-				require JModuleHelper::getLayoutPath('mod_menu', 'adm-icon_url');
+				require ModuleHelper::getLayoutPath('mod_menu', 'adm-icon_url');
 				break;
 		endswitch;
 

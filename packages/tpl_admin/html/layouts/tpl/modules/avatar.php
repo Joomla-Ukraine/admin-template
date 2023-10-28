@@ -10,13 +10,14 @@
  *
  **/
 
-/** @var array $displayData */
-
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
 use Joomla\CMS\Session\Session;
 use Joomla\CMS\Uri\Uri;
 
+defined('_JEXEC') or die;
+
+/** @var array $displayData */
 $data = (object) $displayData;
 
 $query = $data->db->getQuery(true);

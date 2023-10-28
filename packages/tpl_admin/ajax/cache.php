@@ -1,14 +1,14 @@
 <?php
 /**
- * Admin Template
+ * Seblod Admin Template
  *
- * @package          Joomla.Site
- * @subpackage       admin
+ * @version       2.x
+ * @package       admin
+ * @author        Denys D. Nosov (denys@joomla-ua.org)
+ * @copyright (C) 2018-2023 by Denys D. Nosov (https://joomla-ua.org)
+ * @license       GNU General Public License version 2 or later; see LICENSE.md
  *
- * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2018-2023 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
- * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
- */
+ **/
 
 define('_JEXEC', 1);
 define('DS', DIRECTORY_SEPARATOR);
@@ -26,9 +26,9 @@ $container = Factory::getContainer();
 $container->alias(SessionInterface::class, 'session.web.site');
 
 $app        = $container->get(AdministratorApplication::class);
-$joomlaUser = Factory::getUser();
-$lang       = Factory::getLanguage();
-$doc        = Factory::getDocument();
+$joomlaUser = Factory::getApplication()->getIdentity();
+$lang       = Factory::getApplication()->getLanguage();
+$doc        = Factory::getApplication()->getDocument();
 
 if($joomlaUser->get('id') < 1)
 {

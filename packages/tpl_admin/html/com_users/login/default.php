@@ -19,6 +19,7 @@ use Joomla\CMS\Layout\FileLayout;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Session\Session;
 use Joomla\CMS\Uri\Uri;
+use Joomla\Database\DatabaseInterface;
 
 $cookieLogin = $this->user->get('cookieLogin');
 
@@ -31,8 +32,8 @@ $cookieLogin = $this->user->get('cookieLogin');
 	/*
 	 * Avatar User
 	 */
-	$db   = Factory::getDBO();
-	$user = Factory::getUser();
+	$db   = Factory::getContainer()->get(DatabaseInterface::class);
+	$user = Factory::getApplication()->getIdentity();
 
 	$query = $db->getQuery(true);
 	$query->select([ 'avatar' ]);

@@ -10,10 +10,12 @@
  *
  **/
 
+use Joomla\CMS\Uri\Uri;
+
 defined('_JEXEC') or die;
 
 ?>
-<form name="lang" method="post" action="<?php echo htmlspecialchars(JUri::current(), ENT_COMPAT, 'UTF-8'); ?>">
+<form name="lang" method="post" action="<?php echo htmlspecialchars(Uri::current(), ENT_COMPAT, 'UTF-8'); ?>">
 	<label>
 		<select class="uk-select uk-form-small uk-width-auto tm-lang" onchange="document.location.replace(this.value);" title="">
 			<?php foreach($list as $language) : ?>

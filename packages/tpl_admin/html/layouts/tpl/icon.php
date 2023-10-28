@@ -10,13 +10,14 @@
  *
  **/
 
-/** @var array $displayData */
-
 use Joomla\CMS\Uri\Uri;
 
+defined('_JEXEC') or die;
+
+/** @var array $displayData */
 $data = (object) $displayData;
 
-$v = '2.4.2';
+$v = '2.5.0';
 
 $size = 20;
 if(isset($data->size))

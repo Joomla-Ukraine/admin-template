@@ -1,14 +1,14 @@
 <?php
 /**
- * MCIT Template
+ * Seblod Admin Template
  *
- * @package          Joomla.Site
- * @subpackage       a
+ * @version       2.x
+ * @package       admin
+ * @author        Denys D. Nosov (denys@joomla-ua.org)
+ * @copyright (C) 2018-2023 by Denys D. Nosov (https://joomla-ua.org)
+ * @license       GNU General Public License version 2 or later; see LICENSE.md
  *
- * @author           Denys Nosov, denys@joomla-ua.org
- * @copyright        2016-2023 (C) Joomla! Ukraine, http://joomla-ua.org. All rights reserved.
- * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
- */
+ **/
 
 defined('_JEXEC') or die;
 
