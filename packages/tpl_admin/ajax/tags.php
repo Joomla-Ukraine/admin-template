@@ -1,18 +1,14 @@
 <?php
 /**
- * Seblod Admin Template
+ * Admin Template
  *
- * @version       2.x
- * @package       admin
- * @author        Denys D. Nosov (denys@joomla-ua.org)
- * @copyright (C) 2018-2023 by Denys D. Nosov (https://joomla-ua.org)
- * @license       GNU General Public License version 2 or later; see LICENSE.md
+ * @package          Joomla.Site
+ * @subpackage       admin
  *
- **/
-
-use Joomla\CMS\Application\AdministratorApplication;
-use Joomla\CMS\Factory;
-use Joomla\Session\SessionInterface;
+ * @author           Denys Nosov, denys@joomla-ua.org
+ * @copyright        2018-2019 (C) Joomla! Ukraine, https://joomla-ua.org. All rights reserved.
+ * @license          Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License (http://creativecommons.org/licenses/by-nc-nd/3.0/)
+ */
 
 header('Content-type: application/json; charset=utf-8');
 
@@ -24,13 +20,17 @@ define('MAX_SIZE', '500');
 require_once JPATH_BASE . '/includes/defines.php';
 require_once JPATH_BASE . '/includes/framework.php';
 
+use Joomla\CMS\Application\AdministratorApplication;
+use Joomla\CMS\Factory;
+use Joomla\Session\SessionInterface;
+
 $container = Factory::getContainer();
 $container->alias(SessionInterface::class, 'session.web.site');
 
 $app        = $container->get(AdministratorApplication::class);
-$joomlaUser = Factory::getApplication()->getIdentity();
-$lang       = Factory::getApplication()->getLanguage();
-$doc        = Factory::getApplication()->getDocument();
+$joomlaUser = Factory::getUser();
+$lang       = Factory::getLanguage();
+$doc        = Factory::getDocument();
 
 if($joomlaUser->get('id') < 1)
 {
