@@ -41,7 +41,7 @@ class Pkg_AdminInstallerScript
 
 		foreach($folders as $folder)
 		{
-			if(Folder::exists($folder))
+			if(file_exists($folder) && is_dir($folder))
 			{
 				Folder::delete($folder);
 			}
