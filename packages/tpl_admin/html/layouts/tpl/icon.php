@@ -17,7 +17,7 @@ defined('_JEXEC') or die;
 /** @var array $displayData */
 $data = (object) $displayData;
 
-$v = '2.5.0';
+$v = '2.6';
 
 $size = 20;
 if(isset($data->size))
